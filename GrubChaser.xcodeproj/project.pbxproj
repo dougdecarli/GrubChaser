@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4BA1D06E28AEC85F00992E35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA1D06D28AEC85F00992E35 /* AppDelegate.swift */; };
+		4BA1D07028AEC85F00992E35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA1D06F28AEC85F00992E35 /* SceneDelegate.swift */; };
+		4BA1D07228AEC85F00992E35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA1D07128AEC85F00992E35 /* ViewController.swift */; };
+		4BA1D07528AEC85F00992E35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA1D07328AEC85F00992E35 /* Main.storyboard */; };
+		4BA1D07728AEC86000992E35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA1D07628AEC86000992E35 /* Assets.xcassets */; };
+		4BA1D07A28AEC86000992E35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA1D07828AEC86000992E35 /* LaunchScreen.storyboard */; };
+		4BA1D08528AEC86100992E35 /* GrubChaserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA1D08428AEC86100992E35 /* GrubChaserTests.swift */; };
+		4BA1D08F28AEC86100992E35 /* GrubChaserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA1D08E28AEC86100992E35 /* GrubChaserUITests.swift */; };
+		4BA1D09128AEC86100992E35 /* GrubChaserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA1D09028AEC86100992E35 /* GrubChaserUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4BA1D08128AEC86100992E35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BA1D06228AEC85F00992E35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BA1D06928AEC85F00992E35;
+			remoteInfo = GrubChaser;
+		};
+		4BA1D08B28AEC86100992E35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BA1D06228AEC85F00992E35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BA1D06928AEC85F00992E35;
+			remoteInfo = GrubChaser;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4BA1D06A28AEC85F00992E35 /* GrubChaser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubChaser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA1D06D28AEC85F00992E35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4BA1D06F28AEC85F00992E35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4BA1D07128AEC85F00992E35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4BA1D07428AEC85F00992E35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4BA1D07628AEC86000992E35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4BA1D07928AEC86000992E35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4BA1D07B28AEC86000992E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BA1D08028AEC86100992E35 /* GrubChaserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrubChaserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA1D08428AEC86100992E35 /* GrubChaserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserTests.swift; sourceTree = "<group>"; };
+		4BA1D08A28AEC86100992E35 /* GrubChaserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrubChaserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA1D08E28AEC86100992E35 /* GrubChaserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserUITests.swift; sourceTree = "<group>"; };
+		4BA1D09028AEC86100992E35 /* GrubChaserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4BA1D06728AEC85F00992E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA1D07D28AEC86100992E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA1D08728AEC86100992E35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BA1D06128AEC85F00992E35 = {
+			isa = PBXGroup;
+			children = (
+				4BA1D06C28AEC85F00992E35 /* GrubChaser */,
+				4BA1D08328AEC86100992E35 /* GrubChaserTests */,
+				4BA1D08D28AEC86100992E35 /* GrubChaserUITests */,
+				4BA1D06B28AEC85F00992E35 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4BA1D06B28AEC85F00992E35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BA1D06A28AEC85F00992E35 /* GrubChaser.app */,
+				4BA1D08028AEC86100992E35 /* GrubChaserTests.xctest */,
+				4BA1D08A28AEC86100992E35 /* GrubChaserUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BA1D06C28AEC85F00992E35 /* GrubChaser */ = {
+			isa = PBXGroup;
+			children = (
+				4BA1D06D28AEC85F00992E35 /* AppDelegate.swift */,
+				4BA1D06F28AEC85F00992E35 /* SceneDelegate.swift */,
+				4BA1D07128AEC85F00992E35 /* ViewController.swift */,
+				4BA1D07328AEC85F00992E35 /* Main.storyboard */,
+				4BA1D07628AEC86000992E35 /* Assets.xcassets */,
+				4BA1D07828AEC86000992E35 /* LaunchScreen.storyboard */,
+				4BA1D07B28AEC86000992E35 /* Info.plist */,
+			);
+			path = GrubChaser;
+			sourceTree = "<group>";
+		};
+		4BA1D08328AEC86100992E35 /* GrubChaserTests */ = {
+			isa = PBXGroup;
+			children = (
+				4BA1D08428AEC86100992E35 /* GrubChaserTests.swift */,
+			);
+			path = GrubChaserTests;
+			sourceTree = "<group>";
+		};
+		4BA1D08D28AEC86100992E35 /* GrubChaserUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4BA1D08E28AEC86100992E35 /* GrubChaserUITests.swift */,
+				4BA1D09028AEC86100992E35 /* GrubChaserUITestsLaunchTests.swift */,
+			);
+			path = GrubChaserUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4BA1D06928AEC85F00992E35 /* GrubChaser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BA1D09428AEC86100992E35 /* Build configuration list for PBXNativeTarget "GrubChaser" */;
+			buildPhases = (
+				4BA1D06628AEC85F00992E35 /* Sources */,
+				4BA1D06728AEC85F00992E35 /* Frameworks */,
+				4BA1D06828AEC85F00992E35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GrubChaser;
+			productName = GrubChaser;
+			productReference = 4BA1D06A28AEC85F00992E35 /* GrubChaser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4BA1D07F28AEC86100992E35 /* GrubChaserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BA1D09728AEC86100992E35 /* Build configuration list for PBXNativeTarget "GrubChaserTests" */;
+			buildPhases = (
+				4BA1D07C28AEC86100992E35 /* Sources */,
+				4BA1D07D28AEC86100992E35 /* Frameworks */,
+				4BA1D07E28AEC86100992E35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BA1D08228AEC86100992E35 /* PBXTargetDependency */,
+			);
+			name = GrubChaserTests;
+			productName = GrubChaserTests;
+			productReference = 4BA1D08028AEC86100992E35 /* GrubChaserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4BA1D08928AEC86100992E35 /* GrubChaserUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BA1D09A28AEC86100992E35 /* Build configuration list for PBXNativeTarget "GrubChaserUITests" */;
+			buildPhases = (
+				4BA1D08628AEC86100992E35 /* Sources */,
+				4BA1D08728AEC86100992E35 /* Frameworks */,
+				4BA1D08828AEC86100992E35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BA1D08C28AEC86100992E35 /* PBXTargetDependency */,
+			);
+			name = GrubChaserUITests;
+			productName = GrubChaserUITests;
+			productReference = 4BA1D08A28AEC86100992E35 /* GrubChaserUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4BA1D06228AEC85F00992E35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					4BA1D06928AEC85F00992E35 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					4BA1D07F28AEC86100992E35 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 4BA1D06928AEC85F00992E35;
+					};
+					4BA1D08928AEC86100992E35 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 4BA1D06928AEC85F00992E35;
+					};
+				};
+			};
+			buildConfigurationList = 4BA1D06528AEC85F00992E35 /* Build configuration list for PBXProject "GrubChaser" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4BA1D06128AEC85F00992E35;
+			productRefGroup = 4BA1D06B28AEC85F00992E35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4BA1D06928AEC85F00992E35 /* GrubChaser */,
+				4BA1D07F28AEC86100992E35 /* GrubChaserTests */,
+				4BA1D08928AEC86100992E35 /* GrubChaserUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4BA1D06828AEC85F00992E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA1D07A28AEC86000992E35 /* LaunchScreen.storyboard in Resources */,
+				4BA1D07728AEC86000992E35 /* Assets.xcassets in Resources */,
+				4BA1D07528AEC85F00992E35 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA1D07E28AEC86100992E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA1D08828AEC86100992E35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BA1D06628AEC85F00992E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA1D07228AEC85F00992E35 /* ViewController.swift in Sources */,
+				4BA1D06E28AEC85F00992E35 /* AppDelegate.swift in Sources */,
+				4BA1D07028AEC85F00992E35 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA1D07C28AEC86100992E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA1D08528AEC86100992E35 /* GrubChaserTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA1D08628AEC86100992E35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA1D09128AEC86100992E35 /* GrubChaserUITestsLaunchTests.swift in Sources */,
+				4BA1D08F28AEC86100992E35 /* GrubChaserUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4BA1D08228AEC86100992E35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BA1D06928AEC85F00992E35 /* GrubChaser */;
+			targetProxy = 4BA1D08128AEC86100992E35 /* PBXContainerItemProxy */;
+		};
+		4BA1D08C28AEC86100992E35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BA1D06928AEC85F00992E35 /* GrubChaser */;
+			targetProxy = 4BA1D08B28AEC86100992E35 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4BA1D07328AEC85F00992E35 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BA1D07428AEC85F00992E35 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4BA1D07828AEC86000992E35 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BA1D07928AEC86000992E35 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4BA1D09228AEC86100992E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4BA1D09328AEC86100992E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4BA1D09528AEC86100992E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A6K2NH59J2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GrubChaser/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.br.GrubChaser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BA1D09628AEC86100992E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A6K2NH59J2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GrubChaser/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.br.GrubChaser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4BA1D09828AEC86100992E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A6K2NH59J2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.br.GrubChaserTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GrubChaser.app/GrubChaser";
+			};
+			name = Debug;
+		};
+		4BA1D09928AEC86100992E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A6K2NH59J2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.br.GrubChaserTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GrubChaser.app/GrubChaser";
+			};
+			name = Release;
+		};
+		4BA1D09B28AEC86100992E35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A6K2NH59J2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.br.GrubChaserUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GrubChaser;
+			};
+			name = Debug;
+		};
+		4BA1D09C28AEC86100992E35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A6K2NH59J2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.br.GrubChaserUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GrubChaser;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BA1D06528AEC85F00992E35 /* Build configuration list for PBXProject "GrubChaser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA1D09228AEC86100992E35 /* Debug */,
+				4BA1D09328AEC86100992E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BA1D09428AEC86100992E35 /* Build configuration list for PBXNativeTarget "GrubChaser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA1D09528AEC86100992E35 /* Debug */,
+				4BA1D09628AEC86100992E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BA1D09728AEC86100992E35 /* Build configuration list for PBXNativeTarget "GrubChaserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA1D09828AEC86100992E35 /* Debug */,
+				4BA1D09928AEC86100992E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BA1D09A28AEC86100992E35 /* Build configuration list for PBXNativeTarget "GrubChaserUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA1D09B28AEC86100992E35 /* Debug */,
+				4BA1D09C28AEC86100992E35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4BA1D06228AEC85F00992E35 /* Project object */;
+}
