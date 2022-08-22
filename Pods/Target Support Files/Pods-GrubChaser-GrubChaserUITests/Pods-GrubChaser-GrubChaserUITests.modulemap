@@ -1,0 +1,6 @@
+framework module Pods_GrubChaser_GrubChaserUITests {
+  umbrella header "Pods-GrubChaser-GrubChaserUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
