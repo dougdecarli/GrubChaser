@@ -9,13 +9,13 @@ import Foundation
 import CodableFirebase
 import FirebaseFirestore
 
-struct GrubChaserRestaurantModel: Decodable {
+struct GrubChaserRestaurantModel: Codable {
     let name: String
     let location: GrubChaserRestaurantLocationModel
 //    let category: GrubChaserCategory
 }
 
-struct GrubChaserRestaurantLocationModel: Decodable {
+struct GrubChaserRestaurantLocationModel: Codable {
     let address: String
     let city: String
     let state: String
@@ -23,7 +23,7 @@ struct GrubChaserRestaurantLocationModel: Decodable {
     let longitude: Double
 }
 
-struct GrubChaserCategory: Decodable {
+struct GrubChaserCategory: Codable {
     let name: String
 }
 

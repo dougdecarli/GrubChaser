@@ -153,10 +153,18 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
     /// Image `check-in`.
     static let checkIn = Rswift.ImageResource(bundle: R.hostingBundle, name: "check-in")
+    /// Image `favorite-icon`.
+    static let favoriteIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "favorite-icon")
+    /// Image `restaurant-icon`.
+    static let restaurantIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "restaurant-icon")
+    /// Image `show-list`.
+    static let showList = Rswift.ImageResource(bundle: R.hostingBundle, name: "show-list")
+    /// Image `star`.
+    static let star = Rswift.ImageResource(bundle: R.hostingBundle, name: "star")
     /// Image `web-house`.
     static let webHouse = Rswift.ImageResource(bundle: R.hostingBundle, name: "web-house")
 
@@ -164,6 +172,34 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "check-in", bundle: ..., traitCollection: ...)`
     static func checkIn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.checkIn, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "favorite-icon", bundle: ..., traitCollection: ...)`
+    static func favoriteIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.favoriteIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "restaurant-icon", bundle: ..., traitCollection: ...)`
+    static func restaurantIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.restaurantIcon, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "show-list", bundle: ..., traitCollection: ...)`
+    static func showList(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.showList, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "star", bundle: ..., traitCollection: ...)`
+    static func star(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.star, compatibleWith: traitCollection)
     }
     #endif
 
@@ -208,6 +244,34 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `GrubChaserRestaurantTableViewCell`.
+    static let grubChaserRestaurantTableViewCell = _R.nib._GrubChaserRestaurantTableViewCell()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "GrubChaserRestaurantTableViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.grubChaserRestaurantTableViewCell) instead")
+    static func grubChaserRestaurantTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.grubChaserRestaurantTableViewCell)
+    }
+    #endif
+
+    static func grubChaserRestaurantTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GrubChaserRestaurantTableViewCell? {
+      return R.nib.grubChaserRestaurantTableViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GrubChaserRestaurantTableViewCell
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `GrubChaserRestaurantTableViewCell`.
+    static let grubChaserRestaurantTableViewCell: Rswift.ReuseIdentifier<GrubChaserRestaurantTableViewCell> = Rswift.ReuseIdentifier(identifier: "GrubChaserRestaurantTableViewCell")
+
+    fileprivate init() {}
+  }
+
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()
@@ -224,9 +288,44 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
+    try nib.validate()
+    #endif
+    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
+
+  #if os(iOS) || os(tvOS)
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _GrubChaserRestaurantTableViewCell.validate()
+    }
+
+    struct _GrubChaserRestaurantTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
+      typealias ReusableType = GrubChaserRestaurantTableViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "GrubChaserRestaurantTableViewCell"
+      let name = "GrubChaserRestaurantTableViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GrubChaserRestaurantTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GrubChaserRestaurantTableViewCell
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "favorite-icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'favorite-icon' is used in nib 'GrubChaserRestaurantTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "restaurant-icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'restaurant-icon' is used in nib 'GrubChaserRestaurantTableViewCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'star' is used in nib 'GrubChaserRestaurantTableViewCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+  #endif
 
   #if os(iOS) || os(tvOS)
   struct storyboard: Rswift.Validatable {
@@ -261,12 +360,19 @@ struct _R: Rswift.Validatable {
 
       let bundle = R.hostingBundle
       let name = "Main"
+      let restaurantsListVC = StoryboardViewControllerResource<GrubChaserRestaurantListViewController>(identifier: "restaurantsListVC")
+
+      func restaurantsListVC(_: Void = ()) -> GrubChaserRestaurantListViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: restaurantsListVC)
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "check-in", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check-in' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "show-list", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'show-list' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "web-house", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'web-house' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.main().restaurantsListVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'restaurantsListVC' could not be loaded from storyboard 'Main' as 'GrubChaserRestaurantListViewController'.") }
       }
 
       fileprivate init() {}

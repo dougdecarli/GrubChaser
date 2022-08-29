@@ -10,7 +10,8 @@ import UIKit
 
 class GrubChaserHomeRouter: GrubChaserHomeRouterProtocol {
     private let navigationController: UINavigationController,
-                service: GrubChaserServiceProtocol
+                service: GrubChaserServiceProtocol,
+                storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     init(navigationController: UINavigationController,
          service: GrubChaserServiceProtocol) {
@@ -18,16 +19,12 @@ class GrubChaserHomeRouter: GrubChaserHomeRouterProtocol {
         self.service = service
     }
     
-    func start() {
-        
+    func goToRestaurantList(restaurants: [GrubChaserRestaurantModel]) {
+        let vc = storyboard.instantiateViewController(withIdentifier: "restaurantsListVC") as! GrubChaserRestaurantListViewController
+        vc.viewModel = GrubChaserRestaurantListViewModel(service: service,
+                                                         router: self,
+                                                         restaurants: restaurants)
+        navigationController.pushViewController(vc,
+                                                animated: true)
     }
-    
-    func push(_ vc: UIViewController) {
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func pop() {
-        navigationController.popViewController(animated: true)
-    }
-    
 }
