@@ -18,10 +18,23 @@ class GrubChaserRestaurantTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        let favoriteAccessory = R.image.favoriteIcon()
+        let favoriteAccessoryImageView = UIImageView(image: favoriteAccessory)
+        favoriteAccessoryImageView.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+        accessoryView = favoriteAccessoryImageView
     }
     
-    func bind(cellModel: GrubChaserRestaurantCellModel) {
-        self.restaurantName.text = cellModel.restaurantName
-        self.restaurantImage.image = cellModel.restaurantImage
+    func bind(cellModel: GrubChaserRestaurantModel) {
+        self.restaurantName.text = cellModel.name
+        restaurantImage.downloaded(from: cellModel.logo)
+    }
+    
+    func getImageFromUrl(url: String) -> UIImage {
+        if let url = URL(string: url),
+            let data = try? Data(contentsOf: url),
+            let image = UIImage(data: data) {
+            return image
+        }
+        return R.image.genericLogo()!
     }
 }

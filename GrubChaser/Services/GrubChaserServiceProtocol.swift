@@ -8,7 +8,9 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import FirebaseFirestore
 
 protocol GrubChaserServiceProtocol {
     func getRestaurants() -> Observable<[GrubChaserRestaurantModel]>
+    func getRestaurantCategory(categoryRef: DocumentReference) -> Observable<GrubChaserRestaurantCategory>
 }

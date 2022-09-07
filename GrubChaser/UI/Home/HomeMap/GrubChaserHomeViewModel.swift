@@ -48,4 +48,9 @@ class GrubChaserHomeViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProto
         }
         restaurantsCoordinates.accept(coordinates)
     }
+    
+    //MARK: Navigation
+    func goToRestaurantsList() {
+        router.goToRestaurantList(restaurants: restaurants)
+    }
 }

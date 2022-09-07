@@ -11,11 +11,13 @@ import RxCocoa
 
 class GrubChaserRestaurantListViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
     
-    private let restaurants: [GrubChaserRestaurantModel]
-    
-    var restaurantCells: Observable<[GrubChaserRestaurantCellModel]> {
+    private var restaurants: [GrubChaserRestaurantModel]
+    let onRestaurantCellTouched = PublishRelay<GrubChaserRestaurantModel>()
+    var restaurantCells: Observable<[GrubChaserRestaurantModel]> {
         setupRestaurantCells()
     }
+    
+    private var restaurantAddress: String = ""
     
     init(service: GrubChaserServiceProtocol,
          router: GrubChaserHomeRouterProtocol,
@@ -26,16 +28,27 @@ class GrubChaserRestaurantListViewModel: GrubChaserBaseViewModel<GrubChaserHomeR
     }
     
     override func setupBindings() {
-        
+        setupOnRestaurantCellTouched()
+    }
+    
+    //MARK: Inputs
+    private func setupOnRestaurantCellTouched() {
+        onRestaurantCellTouched
+            .subscribe(onNext: goToRestaurantDetail)
+            .disposed(by: disposeBag)
     }
     
     //MARK: Outputs
-    private func setupRestaurantCells() -> Observable<[GrubChaserRestaurantCellModel]> {
-        var cells: [GrubChaserRestaurantCellModel] = []
+    private func setupRestaurantCells() -> Observable<[GrubChaserRestaurantModel]> {
+        var cells: [GrubChaserRestaurantModel] = []
         restaurants.forEach ({ restaurant in
-            cells.append(.init(restaurantImage: R.image.restaurantIcon()!,
-                               restaurantName: restaurant.name))
+            cells.append(restaurant)
         })
         return Observable.of(cells)
+    }
+    
+    //MARK: Navigation
+    private func goToRestaurantDetail(_ restaurant: GrubChaserRestaurantModel) {
+        router.goToRestaurantDetails(restaurant: restaurant)
     }
 }

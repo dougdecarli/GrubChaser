@@ -19,8 +19,13 @@ class GrubChaserBaseViewController<ViewModel: GrubChaserViewModelProtocol>: UIVi
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        bind()
         viewModel.setupBindings()
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        viewModel.cleanBindings()
     }
     
     open override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }

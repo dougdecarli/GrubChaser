@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class GrubChaserRestaurantListViewController: GrubChaserBaseViewController<GrubChaserRestaurantListViewModel> {
 
@@ -16,10 +18,15 @@ class GrubChaserRestaurantListViewController: GrubChaserBaseViewController<GrubC
         tabBarController?.tabBar.isHidden = true
         navigationController?.setNavigationBarHidden(false, animated: true)
         setupTableViewCells()
+        bind()
     }
     
     override func bindInputs() {
-        
+        tableView
+            .rx
+            .modelSelected(GrubChaserRestaurantModel.self)
+            .bind(to: viewModel.onRestaurantCellTouched)
+            .disposed(by: disposeBag)
     }
     
     override func bindOutputs() {

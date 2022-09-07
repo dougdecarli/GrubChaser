@@ -80,7 +80,7 @@ class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChaserHomeV
     }
     
     @IBAction func onListButtonTouched(_ sender: Any) {
-        router.goToRestaurantList(restaurants: viewModel.restaurants)
+        viewModel.goToRestaurantsList()
     }
 }
 

@@ -26,4 +26,11 @@ class GrubChaserService: GrubChaserServiceProtocol {
             .getDocuments()
             .decode(GrubChaserRestaurantModel.self)  
     }
+    
+    func getRestaurantCategory(categoryRef: DocumentReference) -> Observable<GrubChaserRestaurantCategory> {
+        categoryRef
+            .rx
+            .getDocument()
+            .decodeDocument(GrubChaserRestaurantCategory.self)
+    }
 }

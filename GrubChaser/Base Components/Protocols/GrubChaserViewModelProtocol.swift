@@ -10,4 +10,5 @@ import RxSwift
 
 protocol GrubChaserViewModelProtocol {
     func setupBindings()
+    func cleanBindings()
 }

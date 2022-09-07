@@ -9,7 +9,7 @@ import RxCocoa
 import RxSwift
 
 class GrubChaserBaseViewModel<Router>: GrubChaserViewModelProtocol {
-    let disposeBag = DisposeBag(),
+    var disposeBag = DisposeBag(),
         service: GrubChaserServiceProtocol,
         router: Router
     
@@ -20,4 +20,8 @@ class GrubChaserBaseViewModel<Router>: GrubChaserViewModelProtocol {
     }
     
     open func setupBindings() {}
+    
+    open func cleanBindings() {
+        disposeBag = DisposeBag()
+    }
 }

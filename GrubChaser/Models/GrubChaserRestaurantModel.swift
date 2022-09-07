@@ -10,21 +10,34 @@ import CodableFirebase
 import FirebaseFirestore
 
 struct GrubChaserRestaurantModel: Codable {
+    let id: String
     let name: String
-    let location: GrubChaserRestaurantLocationModel
-//    let category: GrubChaserCategory
+    let logo: String
+    var location: GrubChaserRestaurantLocationModel
+    let products: [GrubChaserProduct]
+    let categoryRef: DocumentReference
+    var category: GrubChaserRestaurantCategory?
 }
 
 struct GrubChaserRestaurantLocationModel: Codable {
-    let address: String
-    let city: String
-    let state: String
     let latitude: Double
     let longitude: Double
 }
 
-struct GrubChaserCategory: Codable {
+struct GrubChaserRestaurantCategory: Codable {
     let name: String
+}
+
+struct GrubChaserProduct: Codable {
+    let name: String
+    let price: Double
+    let image: String
+//    let category: GrubChaserProductCategory
+}
+
+struct GrubChaserProductCategory: Codable {
+    let name: String
+    let image: String
 }
 
 extension DocumentReference: DocumentReferenceType {}
