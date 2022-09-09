@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q6y-mg-csm">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Check-in-->
+        <scene sceneID="fn9-Lk-rdh">
+            <objects>
+                <viewController title="Check-in" id="Us4-bk-XPA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oUd-k8-7zr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMY-od-FqW">
+                                <rect key="frame" x="0.0" y="140" width="67" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="F2w-DT-ldL"/>
+                                    <constraint firstAttribute="height" constant="31" id="as9-xf-LyB"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <segue destination="HfD-PD-401" kind="show" id="65G-cX-65R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2LO-cy-CGZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VMY-od-FqW" firstAttribute="top" secondItem="2LO-cy-CGZ" secondAttribute="top" id="bFD-IS-IqT"/>
+                            <constraint firstItem="VMY-od-FqW" firstAttribute="leading" secondItem="2LO-cy-CGZ" secondAttribute="leading" id="bfK-VC-nUe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Check-in" id="MXj-sh-RFA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hZk-ye-ZU6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2348" y="-551"/>
+        </scene>
+        <!--Teste-->
+        <scene sceneID="vHs-NB-BxS">
+            <objects>
+                <viewController id="HfD-PD-401" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bj6-4z-9cd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="291-bv-Kzt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Teste" id="YKh-wF-vvS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xbx-pH-HE8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3219" y="-544"/>
+        </scene>
+        <!--Check-in-->
+        <scene sceneID="gat-FC-WFz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q6y-mg-csm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Check-in" image="check-in" selectedImage="check-in" id="WJs-jh-W90"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="dp3-Fd-8hk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Us4-bk-XPA" kind="relationship" relationship="rootViewController" id="Moo-bP-UHp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pTQ-m5-wo0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1413" y="-551"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="check-in" width="16" height="16"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

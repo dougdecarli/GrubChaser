@@ -7,8 +7,7 @@
 
 import UIKit
 import FirebaseCore
-import FirebaseFirestore
-import SwiftyJSON
+import FacebookCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-//        GrubChaserService(dbFirestore: Firestore.firestore()).teste()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        GrubChaserStarter.startFlow(window: window)
+        window?.makeKeyAndVisible()
+        window?.tintColor = ColorPallete.defaultRed
         return true
     }
+    
+    func application(
+        _ app: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+    ) -> Bool {
+        ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
+    }
+    
 }
 

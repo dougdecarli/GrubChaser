@@ -9,6 +9,7 @@ import FirebaseFirestore
 import RxSwift
 import RxCocoa
 import RxFirebase
+import FirebaseAuth
 
 class GrubChaserService: GrubChaserServiceProtocol {
     
@@ -34,3 +35,5 @@ class GrubChaserService: GrubChaserServiceProtocol {
             .decodeDocument(GrubChaserRestaurantCategory.self)
     }
 }
+
+//MARK: Login

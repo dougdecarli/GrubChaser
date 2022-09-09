@@ -89,17 +89,44 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
   struct storyboard {
+    /// Storyboard `Checkin`.
+    static let checkin = _R.storyboard.checkin()
+    /// Storyboard `Inicio`.
+    static let inicio = _R.storyboard.inicio()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
+    /// Storyboard `Login`.
+    static let login = _R.storyboard.login()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Checkin", bundle: ...)`
+    static func checkin(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.checkin)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Inicio", bundle: ...)`
+    static func inicio(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.inicio)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "Login", bundle: ...)`
+    static func login(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.login)
     }
     #endif
 
@@ -153,18 +180,22 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 9 images.
+  /// This `R.image` struct is generated, and contains static references to 11 images.
   struct image {
     /// Image `check-in`.
     static let checkIn = Rswift.ImageResource(bundle: R.hostingBundle, name: "check-in")
     /// Image `distance`.
     static let distance = Rswift.ImageResource(bundle: R.hostingBundle, name: "distance")
+    /// Image `facebook`.
+    static let facebook = Rswift.ImageResource(bundle: R.hostingBundle, name: "facebook")
     /// Image `favorite-icon`.
     static let favoriteIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "favorite-icon")
     /// Image `generic-food`.
     static let genericFood = Rswift.ImageResource(bundle: R.hostingBundle, name: "generic-food")
     /// Image `generic-logo`.
     static let genericLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "generic-logo")
+    /// Image `google`.
+    static let google = Rswift.ImageResource(bundle: R.hostingBundle, name: "google")
     /// Image `product-image`.
     static let productImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "product-image")
     /// Image `show-list`.
@@ -189,6 +220,13 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "facebook", bundle: ..., traitCollection: ...)`
+    static func facebook(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.facebook, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "favorite-icon", bundle: ..., traitCollection: ...)`
     static func favoriteIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.favoriteIcon, compatibleWith: traitCollection)
@@ -206,6 +244,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "generic-logo", bundle: ..., traitCollection: ...)`
     static func genericLogo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.genericLogo, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "google", bundle: ..., traitCollection: ...)`
+    static func google(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.google, compatibleWith: traitCollection)
     }
     #endif
 
@@ -245,25 +290,6 @@ struct R: Rswift.Validatable {
     struct uiApplicationSceneManifest {
       static let _key = "UIApplicationSceneManifest"
       static let uiApplicationSupportsMultipleScenes = false
-
-      struct uiSceneConfigurations {
-        static let _key = "UISceneConfigurations"
-
-        struct uiWindowSceneSessionRoleApplication {
-          struct defaultConfiguration {
-            static let _key = "Default Configuration"
-            static let uiSceneConfigurationName = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneConfigurationName") ?? "Default Configuration"
-            static let uiSceneDelegateClassName = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneDelegateClassName") ?? "$(PRODUCT_MODULE_NAME).SceneDelegate"
-            static let uiSceneStoryboardFile = infoPlistString(path: ["UIApplicationSceneManifest", "UISceneConfigurations", "UIWindowSceneSessionRoleApplication", "Default Configuration"], key: "UISceneStoryboardFile") ?? "Main"
-
-            fileprivate init() {}
-          }
-
-          fileprivate init() {}
-        }
-
-        fileprivate init() {}
-      }
 
       fileprivate init() {}
     }
@@ -394,12 +420,71 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
+      try checkin.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try inicio.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
       try launchScreen.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try login.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try main.validate()
       #endif
     }
+
+    #if os(iOS) || os(tvOS)
+    struct checkin: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+
+      let bundle = R.hostingBundle
+      let name = "Checkin"
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "check-in", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check-in' is used in storyboard 'Checkin', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct inicio: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UINavigationController
+
+      let bundle = R.hostingBundle
+      let name = "Inicio"
+      let restaurantDetailsVC = StoryboardViewControllerResource<GrubChaserRestaurantDetailsViewController>(identifier: "restaurantDetailsVC")
+      let restaurantsListVC = StoryboardViewControllerResource<GrubChaserRestaurantListViewController>(identifier: "restaurantsListVC")
+
+      func restaurantDetailsVC(_: Void = ()) -> GrubChaserRestaurantDetailsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: restaurantDetailsVC)
+      }
+
+      func restaurantsListVC(_: Void = ()) -> GrubChaserRestaurantListViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: restaurantsListVC)
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "distance", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'distance' is used in storyboard 'Inicio', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "restaurant-icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'restaurant-icon' is used in storyboard 'Inicio', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "show-list", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'show-list' is used in storyboard 'Inicio', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'star' is used in storyboard 'Inicio', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "web-house", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'web-house' is used in storyboard 'Inicio', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.inicio().restaurantDetailsVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'restaurantDetailsVC' could not be loaded from storyboard 'Inicio' as 'GrubChaserRestaurantDetailsViewController'.") }
+        if _R.storyboard.inicio().restaurantsListVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'restaurantsListVC' could not be loaded from storyboard 'Inicio' as 'GrubChaserRestaurantListViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -418,33 +503,36 @@ struct _R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    struct login: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let loginVC = StoryboardViewControllerResource<GrubChaserLoginViewController>(identifier: "loginVC")
+      let name = "Login"
+
+      func loginVC(_: Void = ()) -> GrubChaserLoginViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginVC)
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "facebook", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'facebook' is used in storyboard 'Login', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+        }
+        if _R.storyboard.login().loginVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginVC' could not be loaded from storyboard 'Login' as 'GrubChaserLoginViewController'.") }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UITabBarController
 
       let bundle = R.hostingBundle
       let name = "Main"
-      let restaurantDetailsVC = StoryboardViewControllerResource<GrubChaserRestaurantDetailsViewController>(identifier: "restaurantDetailsVC")
-      let restaurantsListVC = StoryboardViewControllerResource<GrubChaserRestaurantListViewController>(identifier: "restaurantsListVC")
-
-      func restaurantDetailsVC(_: Void = ()) -> GrubChaserRestaurantDetailsViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: restaurantDetailsVC)
-      }
-
-      func restaurantsListVC(_: Void = ()) -> GrubChaserRestaurantListViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: restaurantsListVC)
-      }
 
       static func validate() throws {
-        if UIKit.UIImage(named: "check-in", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check-in' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "distance", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'distance' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "restaurant-icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'restaurant-icon' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "show-list", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'show-list' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'star' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "web-house", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'web-house' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
-        if _R.storyboard.main().restaurantDetailsVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'restaurantDetailsVC' could not be loaded from storyboard 'Main' as 'GrubChaserRestaurantDetailsViewController'.") }
-        if _R.storyboard.main().restaurantsListVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'restaurantsListVC' could not be loaded from storyboard 'Main' as 'GrubChaserRestaurantListViewController'.") }
       }
 
       fileprivate init() {}

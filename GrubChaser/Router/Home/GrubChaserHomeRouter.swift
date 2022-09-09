@@ -11,7 +11,7 @@ import UIKit
 class GrubChaserHomeRouter: GrubChaserHomeRouterProtocol {
     private let navigationController: UINavigationController,
                 service: GrubChaserServiceProtocol,
-                storyboard = UIStoryboard(name: "Main", bundle: nil)
+                storyboard = UIStoryboard(name: "Inicio", bundle: nil)
     
     init(navigationController: UINavigationController,
          service: GrubChaserServiceProtocol) {

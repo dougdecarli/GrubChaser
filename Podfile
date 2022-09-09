@@ -38,11 +38,23 @@ def firebase
   pod 'CodableFirebase'
 end
 
+def facebook
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+end
+
+def loader
+  pod 'NVActivityIndicatorView'
+end
+
 target 'GrubChaser' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   firebase
+  facebook
+  loader
   rx
   json
   alamofire
