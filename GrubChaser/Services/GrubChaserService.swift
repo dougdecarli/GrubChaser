@@ -34,6 +34,19 @@ class GrubChaserService: GrubChaserServiceProtocol {
             .getDocument()
             .decodeDocument(GrubChaserRestaurantCategory.self)
     }
+    
+    func createUser(userModel: GrubChaserUserModel) -> Observable<DocumentReference> {
+        dbFirestore
+            .collection("users")
+            .rx
+            .addDocument(data: userModel.toDictionary!)
+    }
+    
+    func checkUserHasAccount(uid: String) -> Observable<Bool> {
+        dbFirestore.collection("users")
+            .whereField("uid", isEqualTo: uid)
+            .rx
+            .getDocuments()
+            .map { !$0.isEmpty }
+    }
 }
-
-//MARK: Login

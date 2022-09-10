@@ -11,6 +11,8 @@
 		4B2EFA1528BD7700000AA48F /* GrubChaserRestaurantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2EFA1428BD7700000AA48F /* GrubChaserRestaurantDetailsViewModel.swift */; };
 		4B46CF3A28CBB1DF00278EF8 /* GrubChaserAlertableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46CF3928CBB1DF00278EF8 /* GrubChaserAlertableViewModel.swift */; };
 		4B46CF3C28CBC93C00278EF8 /* GrubChaserLoadableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46CF3B28CBC93C00278EF8 /* GrubChaserLoadableViewModel.swift */; };
+		4B46CF4428CBE31500278EF8 /* GrubChaserUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46CF4328CBE31500278EF8 /* GrubChaserUserModel.swift */; };
+		4B46CF4828CD437100278EF8 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46CF4728CD437100278EF8 /* UserDefaultsExtensions.swift */; };
 		4B4D830028C3B81500FCDD4D /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4D82FF28C3B81500FCDD4D /* UIImageViewExtensions.swift */; };
 		4B4D830228C3F78200FCDD4D /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4D830128C3F78200FCDD4D /* DoubleExtensions.swift */; };
 		4B66504828B5B376000E2D65 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B66504728B5B376000E2D65 /* EncodableExtension.swift */; };
@@ -100,6 +102,8 @@
 		4B2EFA1428BD7700000AA48F /* GrubChaserRestaurantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserRestaurantDetailsViewModel.swift; sourceTree = "<group>"; };
 		4B46CF3928CBB1DF00278EF8 /* GrubChaserAlertableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserAlertableViewModel.swift; sourceTree = "<group>"; };
 		4B46CF3B28CBC93C00278EF8 /* GrubChaserLoadableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserLoadableViewModel.swift; sourceTree = "<group>"; };
+		4B46CF4328CBE31500278EF8 /* GrubChaserUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserUserModel.swift; sourceTree = "<group>"; };
+		4B46CF4728CD437100278EF8 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		4B4D82FF28C3B81500FCDD4D /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		4B4D830128C3F78200FCDD4D /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		4B66504728B5B376000E2D65 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
@@ -378,6 +382,7 @@
 				4BE641A528AECC0400538E28 /* GrubChaserRestaurantModel.swift */,
 				4BDEE68F28BFA4EF004ED59E /* GrubChaserProductsCellModel.swift */,
 				4BF5902D28C96B1300854302 /* GrubChaserLoginModel.swift */,
+				4B46CF4328CBE31500278EF8 /* GrubChaserUserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -390,6 +395,8 @@
 				4BE4413428B5A8E400833519 /* UIViewExtensions.swift */,
 				4B4D82FF28C3B81500FCDD4D /* UIImageViewExtensions.swift */,
 				4B4D830128C3F78200FCDD4D /* DoubleExtensions.swift */,
+				4B66504728B5B376000E2D65 /* EncodableExtension.swift */,
+				4B46CF4728CD437100278EF8 /* UserDefaultsExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -429,7 +436,6 @@
 				4BE641C928AED25A00538E28 /* R.generated.swift */,
 				4BA1D07628AEC86000992E35 /* Assets.xcassets */,
 				4BE4413228B5A81F00833519 /* ColorPallete.swift */,
-				4B66504728B5B376000E2D65 /* EncodableExtension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -437,8 +443,8 @@
 		4BE641C628AECF4300538E28 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4BE641B628AECC7D00538E28 /* GrubChaserHomeRouterProtocol.swift */,
 				4BE641B728AECC7D00538E28 /* GrubChaserHomeRouter.swift */,
+				4BE641B628AECC7D00538E28 /* GrubChaserHomeRouterProtocol.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -808,6 +814,7 @@
 				4BE4413328B5A81F00833519 /* ColorPallete.swift in Sources */,
 				4BE641A228AECBC400538E28 /* UIView+leading.swift in Sources */,
 				4BE6419828AECBC400538E28 /* Reactive+UITableViewCell.swift in Sources */,
+				4B46CF4428CBE31500278EF8 /* GrubChaserUserModel.swift in Sources */,
 				4BF5902928C94B3600854302 /* GrubChaserLoginRouterProtocol.swift in Sources */,
 				4BE4414528B5AAD800833519 /* GrubChaserRestaurantTableViewCell.swift in Sources */,
 				4BE6419B28AECBC400538E28 /* UIView+centerY.swift in Sources */,
@@ -822,6 +829,7 @@
 				4BA1D06E28AEC85F00992E35 /* AppDelegate.swift in Sources */,
 				4BE4414228B5AAD800833519 /* GrubChaserRestaurantListViewController.swift in Sources */,
 				4BDEE68D28BEF03C004ED59E /* GrubChaserProdutsCollectionViewCell.swift in Sources */,
+				4B46CF4828CD437100278EF8 /* UserDefaultsExtensions.swift in Sources */,
 				4B2EFA1328BD76D0000AA48F /* GrubChaserRestaurantDetailsViewController.swift in Sources */,
 				4BE6419928AECBC400538E28 /* Reactive+FirestoreQuery.swift in Sources */,
 				4BE641A928AECC2200538E28 /* GrubChaserServiceProtocol.swift in Sources */,

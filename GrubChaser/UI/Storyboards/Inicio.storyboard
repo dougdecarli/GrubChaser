@@ -65,7 +65,7 @@
         <!--Home-->
         <scene sceneID="ceb-Vi-Fak">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MwS-f0-kjy" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="homeNavBar" automaticallyAdjustsScrollViewInsets="NO" id="MwS-f0-kjy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="web-house" id="Xam-bO-7ZM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="0Ai-lT-lYa">

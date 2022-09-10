@@ -10,8 +10,10 @@ import UIKit
 class GrubChaserLoginRouter: GrubChaserLoginRouterProtocol {
     private let service: GrubChaserServiceProtocol,
                 window: UIWindow?,
-                storyboard = UIStoryboard(name: "Login",
-                                          bundle: nil)
+                loginStoryboard = UIStoryboard(name: "Login",
+                                          bundle: nil),
+                mainStoryboard = UIStoryboard(name: "Main",
+                      bundle: nil)
     
     private var navigationController: UINavigationController!
     
@@ -25,17 +27,18 @@ class GrubChaserLoginRouter: GrubChaserLoginRouterProtocol {
         goToLogin()
     }
     
+    func goToMainFlow() {
+        let tabBar = mainStoryboard.instantiateViewController(withIdentifier: "mainTabBar")
+        window?.rootViewController = tabBar
+    }
+    
     func goToLogin() {
-        let vc = storyboard.instantiateViewController(withIdentifier: "loginVC") as! GrubChaserLoginViewController
+        let vc = loginStoryboard.instantiateViewController(withIdentifier: "loginVC") as! GrubChaserLoginViewController
         vc.viewModel = GrubChaserLoginViewModel(service: service,
                                                 router: self,
                                                 viewControllerRef: vc)
         setupNavigationController(vc)
         window?.rootViewController = navigationController
-    }
-    
-    func goToMainFlow() {
-        
     }
     
     private func setupNavigationController(_ vc: UIViewController) {

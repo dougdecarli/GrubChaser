@@ -458,9 +458,14 @@ struct _R: Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
 
       let bundle = R.hostingBundle
+      let homeNavBar = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "homeNavBar")
       let name = "Inicio"
       let restaurantDetailsVC = StoryboardViewControllerResource<GrubChaserRestaurantDetailsViewController>(identifier: "restaurantDetailsVC")
       let restaurantsListVC = StoryboardViewControllerResource<GrubChaserRestaurantListViewController>(identifier: "restaurantsListVC")
+
+      func homeNavBar(_: Void = ()) -> UIKit.UINavigationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: homeNavBar)
+      }
 
       func restaurantDetailsVC(_: Void = ()) -> GrubChaserRestaurantDetailsViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: restaurantDetailsVC)
@@ -478,6 +483,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "web-house", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'web-house' is used in storyboard 'Inicio', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.inicio().homeNavBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'homeNavBar' could not be loaded from storyboard 'Inicio' as 'UIKit.UINavigationController'.") }
         if _R.storyboard.inicio().restaurantDetailsVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'restaurantDetailsVC' could not be loaded from storyboard 'Inicio' as 'GrubChaserRestaurantDetailsViewController'.") }
         if _R.storyboard.inicio().restaurantsListVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'restaurantsListVC' could not be loaded from storyboard 'Inicio' as 'GrubChaserRestaurantListViewController'.") }
       }
@@ -528,11 +534,17 @@ struct _R: Rswift.Validatable {
       typealias InitialController = UIKit.UITabBarController
 
       let bundle = R.hostingBundle
+      let mainTabBar = StoryboardViewControllerResource<UIKit.UITabBarController>(identifier: "mainTabBar")
       let name = "Main"
+
+      func mainTabBar(_: Void = ()) -> UIKit.UITabBarController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: mainTabBar)
+      }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.main().mainTabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainTabBar' could not be loaded from storyboard 'Main' as 'UIKit.UITabBarController'.") }
       }
 
       fileprivate init() {}

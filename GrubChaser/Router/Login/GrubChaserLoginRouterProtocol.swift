@@ -10,4 +10,5 @@ import Foundation
 protocol GrubChaserLoginRouterProtocol {
     func start()
     func goToLogin()
+    func goToMainFlow()
 }

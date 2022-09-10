@@ -64,7 +64,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
             .withLatestFrom(Observable.combineLatest(emailValue, passwordValue))
             .flatMap(buildLoginModel)
             .do(onNext: startLoading)
-            .subscribe(onNext: defaultLogin)
+            .subscribe(onNext: defaultUserHasAccount)
             .disposed(by: disposeBag)
     }
     
@@ -92,11 +92,31 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
             .map { $0.count > 4 }
     }
     
-    //MARK: - Defaut Login
+    //MARK: - Defaut sign in
+    private func defaultUserHasAccount(loginModel: GrubChaserLoginModel) {
+        func handleSuccess(_ providers: [String]) {
+            providers.count > 0 ?
+            defaultLogin(loginModel) :
+            signUp(loginModel)
+        }
+        
+        func handleError(_ error: Error) {
+            showErrorOnLoginAlertView()
+        }
+        
+        firebaseAuth.rx.fetchProviders(forEmail: loginModel.email)
+            .subscribe(onNext: handleSuccess,
+                       onError: handleError)
+            .disposed(by: disposeBag)
+    }
+    
     private func defaultLogin(_ loginModel: GrubChaserLoginModel) {
         func handleSuccess(_ authResult: AuthDataResult) {
             stopLoading()
-            saveUserSignUpData()
+            let userModel = GrubChaserUserModel(uid: authResult.user.uid,
+                                                name: "")
+            saveLoggedUser(userModel)
+            router.goToMainFlow()
         }
         
         func handleError(_: Error) {
@@ -111,7 +131,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
         .disposed(by: disposeBag)
     }
     
-    //MARK: - Facebook Login
+    //MARK: - Facebook sign in
     private func facebookLogin() {
         fbLoginManager.logIn(permissions: fbReadPermissions,
                              viewController: viewControllerRef) { [weak self] loginResult in
@@ -128,7 +148,9 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
     
     private func didLoginWithFacebook() {
         func handleSuccess(_ authResult: AuthDataResult) {
-            stopLoading()
+            let userModel = GrubChaserUserModel(uid: authResult.user.uid,
+                                                name: authResult.user.displayName ?? "")
+            facebookUserHasAccount(userModel)
         }
         
         func handleError(_: Error) {
@@ -136,8 +158,8 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
             showErrorOnLoginAlertView()
         }
         
-        if let accessToken = AccessToken.current {
-            firebaseAuth.rx.signInAndRetrieveData(with: FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString))
+        if let fbAccessToken = AccessToken.current {
+            firebaseAuth.rx.signInAndRetrieveData(with: FacebookAuthProvider.credential(withAccessToken: fbAccessToken.tokenString))
                 .subscribe(onNext: handleSuccess,
                            onError: handleError)
                 .disposed(by: disposeBag)
@@ -146,9 +168,65 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
         }
     }
     
-    //MARK: - Save user data into database
-    private func saveUserSignUpData() {
+    private func facebookUserHasAccount(_ userModel: GrubChaserUserModel) {
+        func handleSuccess(hasAccount: Bool) {
+            if hasAccount {
+                stopLoading()
+                saveLoggedUser(userModel)
+                router.goToMainFlow()
+            } else {
+                saveUserSignUpData(userModel)
+            }
+        }
         
+        func handleError(_ error: Error) {
+            stopLoading()
+            showErrorOnLoginAlertView()
+        }
+        
+        service.checkUserHasAccount(uid: userModel.uid)
+            .subscribe(onNext: handleSuccess,
+                       onError: handleError)
+            .disposed(by: disposeBag)
+    }
+    
+    //MARK: - Sign up
+    private func signUp(_ userModel: GrubChaserLoginModel) {
+        func handleSuccess(_ authResult: AuthDataResult) {
+            let userModel = GrubChaserUserModel(uid: authResult.user.uid,
+                                                name: "")
+            saveUserSignUpData(userModel)
+        }
+        
+        func handleError(_: Error) {
+            stopLoading()
+            showErrorOnLoginAlertView()
+        }
+        
+        firebaseAuth.rx.createUser(withEmail: userModel.email,
+                                   password: userModel.password)
+        .subscribe(onNext: handleSuccess,
+                   onError: handleError)
+        .disposed(by: disposeBag)
+    }
+    
+    //MARK: - Save user data into database
+    private func saveUserSignUpData(_ userModel: GrubChaserUserModel) {
+        func handleSuccess(_: Any) {
+            stopLoading()
+            saveLoggedUser(userModel)
+            router.goToMainFlow()
+        }
+        
+        func handleError(_: Error) {
+            stopLoading()
+            showErrorOnLoginAlertView()
+        }
+        
+        service.createUser(userModel: userModel)
+            .subscribe(onNext: handleSuccess,
+                       onError: handleError)
+            .disposed(by: disposeBag)
     }
     
     //MARK: Helper methods
@@ -172,6 +250,13 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
                                actionStyle: .default,
                                actionTitle: "Ok",
                                viewControllerRef: viewControllerRef))
+    }
+    
+    func saveLoggedUser(_ userModel: GrubChaserUserModel) {
+        if let userEncoded = try? JSONEncoder().encode(userModel) {
+            UserDefaults.standard.set(userEncoded,
+                                      forKey: UserDefaultsKeys.loggedUser.rawValue)
+        }
     }
 }
 

@@ -11,11 +11,15 @@ import FirebaseFirestore
 
 class GrubChaserStarter {
     static func startFlow(window: UIWindow?) {
-        //TODO: Verify user is logged
         let service = GrubChaserService(dbFirestore: Firestore.firestore())
-        GrubChaserLoginRouter(window: window,
+        let loginRouter = GrubChaserLoginRouter(window: window,
                               service: service)
-        .start()
+        
+        if (UserDefaults.standard.object(forKey: UserDefaultsKeys.loggedUser.rawValue) != nil) {
+            loginRouter.goToMainFlow()
+        } else {
+            loginRouter.start()
+        }
     }
 }
  
