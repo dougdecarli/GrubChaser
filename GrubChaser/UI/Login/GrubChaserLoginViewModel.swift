@@ -115,7 +115,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
             stopLoading()
             let userModel = GrubChaserUserModel(uid: authResult.user.uid,
                                                 name: "")
-            saveLoggedUser(userModel)
+            UserDefaults.standard.saveLoggedUser(userModel)
             router.goToMainFlow()
         }
         
@@ -172,7 +172,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
         func handleSuccess(hasAccount: Bool) {
             if hasAccount {
                 stopLoading()
-                saveLoggedUser(userModel)
+                UserDefaults.standard.saveLoggedUser(userModel)
                 router.goToMainFlow()
             } else {
                 saveUserSignUpData(userModel)
@@ -214,7 +214,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
     private func saveUserSignUpData(_ userModel: GrubChaserUserModel) {
         func handleSuccess(_: Any) {
             stopLoading()
-            saveLoggedUser(userModel)
+            UserDefaults.standard.saveLoggedUser(userModel)
             router.goToMainFlow()
         }
         
@@ -250,13 +250,6 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
                                actionStyle: .default,
                                actionTitle: "Ok",
                                viewControllerRef: viewControllerRef))
-    }
-    
-    func saveLoggedUser(_ userModel: GrubChaserUserModel) {
-        if let userEncoded = try? JSONEncoder().encode(userModel) {
-            UserDefaults.standard.set(userEncoded,
-                                      forKey: UserDefaultsKeys.loggedUser.rawValue)
-        }
     }
 }
 

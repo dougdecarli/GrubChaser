@@ -12,25 +12,21 @@ enum UserDefaultsKeys: String {
 }
 
 extension UserDefaults {
-    func setObject(value: NSObject, forKey key: String) {
-        let data: Data = NSKeyedArchiver.archivedData(withRootObject: value)
-        self.set(data, forKey: key)
+    
+    func saveLoggedUser(_ userModel: GrubChaserUserModel) {
+        if let userEncoded = try? JSONEncoder().encode(userModel) {
+            UserDefaults.standard.set(userEncoded,
+                                      forKey: UserDefaultsKeys.loggedUser.rawValue)
+        }
     }
     
-    func getObject<T>(forKey key: String) -> T? {
-        if let saved = UserDefaults.standard.object(forKey: key) as? Data {
-            if let instance = NSKeyedUnarchiver.unarchiveObject(with: saved) as? T {
-                return instance
-            }
+    func getLoggedUser() -> GrubChaserUserModel? {
+        let userData = UserDefaults.standard.object(forKey: UserDefaultsKeys.loggedUser.rawValue)
+        guard let data = userData as? Data else {
+            return nil
         }
-        
-        return nil
-    }
-    
-    func removeObjects(forKeys keys: [String]) {
-        keys.forEach {
-            UserDefaults.standard.removeObject(forKey: $0)
-        }
+        let userModel = try? JSONDecoder().decode(GrubChaserUserModel.self, from: data)
+        return userModel
     }
     
     func resetDefaults() {
