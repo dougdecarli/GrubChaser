@@ -14,7 +14,6 @@ import MapKit
 import RxMKMapView
 
 class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChaserHomeViewModel> {
-    
     @IBOutlet weak var mapView: MKMapView!
     
     private var router: GrubChaserHomeRouterProtocol!,
@@ -51,6 +50,7 @@ class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChaserHomeV
     }
     
     override func bindInputs() {
+        super.bindInputs()
         viewModel.restaurantsCoordinates.asObservable()
             .map { coordinates -> [MKPointAnnotation] in
                 var annotations = [MKPointAnnotation]()

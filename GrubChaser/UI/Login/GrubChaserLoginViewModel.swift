@@ -64,7 +64,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
             .withLatestFrom(Observable.combineLatest(emailValue, passwordValue))
             .flatMap(buildLoginModel)
             .do(onNext: startLoading)
-            .subscribe(onNext: defaultUserHasAccount)
+            .subscribe(onNext: defaultLoggingUserHasAccount)
             .disposed(by: disposeBag)
     }
     
@@ -93,7 +93,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
     }
     
     //MARK: - Defaut sign in
-    private func defaultUserHasAccount(loginModel: GrubChaserLoginModel) {
+    private func defaultLoggingUserHasAccount(loginModel: GrubChaserLoginModel) {
         func handleSuccess(_ providers: [String]) {
             providers.count > 0 ?
             defaultLogin(loginModel) :
@@ -129,65 +129,6 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
         .subscribe(onNext: handleSuccess,
                    onError: handleError)
         .disposed(by: disposeBag)
-    }
-    
-    //MARK: - Facebook sign in
-    private func facebookLogin() {
-        fbLoginManager.logIn(permissions: fbReadPermissions,
-                             viewController: viewControllerRef) { [weak self] loginResult in
-            guard let self = self else { return }
-            switch loginResult {
-                case .success:
-                    self.didLoginWithFacebook()
-                default:
-                    self.stopLoading()
-                    self.showErrorOnLoginAlertView()
-            }
-        }
-    }
-    
-    private func didLoginWithFacebook() {
-        func handleSuccess(_ authResult: AuthDataResult) {
-            let userModel = GrubChaserUserModel(uid: authResult.user.uid,
-                                                name: authResult.user.displayName ?? "")
-            facebookUserHasAccount(userModel)
-        }
-        
-        func handleError(_: Error) {
-            stopLoading()
-            showErrorOnLoginAlertView()
-        }
-        
-        if let fbAccessToken = AccessToken.current {
-            firebaseAuth.rx.signInAndRetrieveData(with: FacebookAuthProvider.credential(withAccessToken: fbAccessToken.tokenString))
-                .subscribe(onNext: handleSuccess,
-                           onError: handleError)
-                .disposed(by: disposeBag)
-        } else {
-            showErrorOnLoginAlertView()
-        }
-    }
-    
-    private func facebookUserHasAccount(_ userModel: GrubChaserUserModel) {
-        func handleSuccess(hasAccount: Bool) {
-            if hasAccount {
-                stopLoading()
-                UserDefaults.standard.saveLoggedUser(userModel)
-                router.goToMainFlow()
-            } else {
-                saveUserSignUpData(userModel)
-            }
-        }
-        
-        func handleError(_ error: Error) {
-            stopLoading()
-            showErrorOnLoginAlertView()
-        }
-        
-        service.checkUserHasAccount(uid: userModel.uid)
-            .subscribe(onNext: handleSuccess,
-                       onError: handleError)
-            .disposed(by: disposeBag)
     }
     
     //MARK: - Sign up
@@ -250,6 +191,67 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
                                actionStyle: .default,
                                actionTitle: "Ok",
                                viewControllerRef: viewControllerRef))
+    }
+}
+
+extension GrubChaserLoginViewModel {
+    //MARK: - Facebook sign in
+    private func facebookLogin() {
+        fbLoginManager.logIn(permissions: fbReadPermissions,
+                             viewController: viewControllerRef) { [weak self] loginResult in
+            guard let self = self else { return }
+            switch loginResult {
+                case .success:
+                    self.didLoginWithFacebook()
+                default:
+                    self.stopLoading()
+                    self.showErrorOnLoginAlertView()
+            }
+        }
+    }
+    
+    private func didLoginWithFacebook() {
+        func handleSuccess(_ authResult: AuthDataResult) {
+            let userModel = GrubChaserUserModel(uid: authResult.user.uid,
+                                                name: authResult.user.displayName ?? "")
+            facebookUserHasAccount(userModel)
+        }
+        
+        func handleError(_: Error) {
+            stopLoading()
+            showErrorOnLoginAlertView()
+        }
+        
+        if let fbAccessToken = AccessToken.current {
+            firebaseAuth.rx.signInAndRetrieveData(with: FacebookAuthProvider.credential(withAccessToken: fbAccessToken.tokenString))
+                .subscribe(onNext: handleSuccess,
+                           onError: handleError)
+                .disposed(by: disposeBag)
+        } else {
+            showErrorOnLoginAlertView()
+        }
+    }
+    
+    private func facebookUserHasAccount(_ userModel: GrubChaserUserModel) {
+        func handleSuccess(hasAccount: Bool) {
+            if hasAccount {
+                stopLoading()
+                UserDefaults.standard.saveLoggedUser(userModel)
+                router.goToMainFlow()
+            } else {
+                saveUserSignUpData(userModel)
+            }
+        }
+        
+        func handleError(_ error: Error) {
+            stopLoading()
+            showErrorOnLoginAlertView()
+        }
+        
+        service.checkUserHasAccount(uid: userModel.uid)
+            .subscribe(onNext: handleSuccess,
+                       onError: handleError)
+            .disposed(by: disposeBag)
     }
 }
 

@@ -30,11 +30,17 @@ class GrubChaserRestaurantDetailsViewController: GrubChaserBaseViewController<Gr
     }
     
     override func bindInputs() {
-        
+        super.bindInputs()
     }
     
     override func bindOutputs() {
+        super.bindInputs()
         restaurantLogo.downloaded(from: viewModel.restaurant.logo)
+        
+        viewModel.isLoaderShowing
+            .asDriver(onErrorJustReturn: false)
+            .drive(collectionView.rx.isHidden)
+            .disposed(by: disposeBag)
         
         viewModel
             .distance

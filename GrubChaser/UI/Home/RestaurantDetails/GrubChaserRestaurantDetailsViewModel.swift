@@ -10,12 +10,14 @@ import RxCocoa
 import CoreLocation
 
 class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
-    
     let restaurant: GrubChaserRestaurantModel,
         onViewWillAppear = PublishRelay<Void>()
+    
     var restaurantCategory = BehaviorRelay<String>(value: ""),
         restaurantAddress = BehaviorRelay<String>(value: ""),
-        distance = BehaviorRelay<String>(value: "")
+        distance = BehaviorRelay<String>(value: ""),
+        isLoaderShowing = PublishSubject<Bool>()
+    
     private let geoLocationService: GeolocationProtocol
     
     var productCells: Observable<[GrubChaserProductsCellModel]> {
@@ -39,6 +41,7 @@ class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHo
     //MARK: Inputs
     private func setupOnViewDidLoad() {
         onViewWillAppear
+            .do(onNext: startLoading)
             .subscribe(onNext: getRestaurantCategory)
             .disposed(by: disposeBag)
     }
@@ -74,6 +77,7 @@ class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHo
     private func getRestaurantAddress() {
         func handleSuccess(address: String) {
             restaurantAddress.accept(address)
+            stopLoading()
             calculateDistanceBetweenUser()
         }
         
@@ -97,6 +101,15 @@ class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHo
         distance
             .accept("\(restaurantCoordinates.distance(from: userCoordinates).rounded(toPlaces: -2)/1000)Km")
     }
+    
+    //MARK: - Helper methods
+    private func startLoading(_: Any? = nil) {
+        isLoaderShowing.onNext(true)
+    }
+    
+    private func stopLoading(_: Any? = nil) {
+        isLoaderShowing.onNext(false)
+    }
 }
 
-
+extension GrubChaserRestaurantDetailsViewModel: GrubChaserLoadableViewModel {}

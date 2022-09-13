@@ -22,6 +22,7 @@ class GrubChaserRestaurantListViewController: GrubChaserBaseViewController<GrubC
     }
     
     override func bindInputs() {
+        super.bindInputs()
         tableView
             .rx
             .modelSelected(GrubChaserRestaurantModel.self)
@@ -30,6 +31,7 @@ class GrubChaserRestaurantListViewController: GrubChaserBaseViewController<GrubC
     }
     
     override func bindOutputs() {
+        super.bindOutputs()
         viewModel
             .restaurantCells
             .bind(to: tableView.rx.items(cellIdentifier: GrubChaserRestaurantTableViewCell.identifier,
