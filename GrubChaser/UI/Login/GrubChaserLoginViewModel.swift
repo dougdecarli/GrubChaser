@@ -15,6 +15,11 @@ import FirebaseAuth
 import UIKit
 import NVActivityIndicatorView
 
+enum AuthType {
+    case firebase
+    case facebook
+}
+
 class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterProtocol> {
     private let fbReadPermissions: [Permission] = [.publicProfile,
                                                    .email],
@@ -62,7 +67,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
             .withLatestFrom(Observable.combineLatest(emailValue, passwordValue))
             .flatMap(buildLoginModel)
             .do(onNext: startLoading)
-            .subscribe(onNext: defaultLoggingUserHasAccount)
+            .subscribe(onNext: firebaseLoggingUserHasAccount)
             .disposed(by: disposeBag)
     }
     
@@ -90,11 +95,11 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
             .map { $0.count > 4 }
     }
     
-    //MARK: - Defaut sign in
-    private func defaultLoggingUserHasAccount(loginModel: GrubChaserLoginModel) {
+    //MARK: - Firebase sign in
+    private func firebaseLoggingUserHasAccount(loginModel: GrubChaserLoginModel) {
         func handleSuccess(_ providers: [String]) {
             providers.count > 0 ?
-            defaultLogin(loginModel) :
+            firebaseLogin(loginModel) :
             signUp(loginModel)
         }
         
@@ -108,7 +113,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
             .disposed(by: disposeBag)
     }
     
-    private func defaultLogin(_ loginModel: GrubChaserLoginModel) {
+    private func firebaseLogin(_ loginModel: GrubChaserLoginModel) {
         func handleSuccess(_ authResult: AuthDataResult) {
             stopLoading()
             let userModel = GrubChaserUserModel(uid: authResult.user.uid,
@@ -252,6 +257,8 @@ extension GrubChaserLoginViewModel {
             .disposed(by: disposeBag)
     }
 }
+
+//TODO: Create func to verify user has account from user email to unificate methods
 
 extension GrubChaserLoginViewModel: GrubChaserAlertableViewModel {}
 extension GrubChaserLoginViewModel: GrubChaserLoadableViewModel {}
