@@ -13,15 +13,16 @@ struct GrubChaserRestaurantModel: Codable {
     let id: String
     let name: String
     let logo: String
+    let categoryName: String
     var location: GrubChaserRestaurantLocationModel
     let products: [GrubChaserProduct]
-    let categoryRef: DocumentReference
     var category: GrubChaserRestaurantCategory?
 }
 
 struct GrubChaserRestaurantLocationModel: Codable {
     let latitude: Double
     let longitude: Double
+    let address: String
 }
 
 struct GrubChaserRestaurantCategory: Codable {
@@ -38,6 +39,12 @@ struct GrubChaserProduct: Codable {
 struct GrubChaserProductCategory: Codable {
     let name: String
     let image: String
+}
+
+struct GrubChaserTable: Codable {
+    let id: String
+    let code: String
+    let isOccupied: Bool
 }
 
 extension DocumentReference: DocumentReferenceType {}

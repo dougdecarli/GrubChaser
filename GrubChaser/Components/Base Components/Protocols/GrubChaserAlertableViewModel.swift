@@ -16,4 +16,8 @@ extension GrubChaserAlertableViewModel {
     func showAlert(with alertModel: ShowAlertModel) {
         showAlert.onNext(alertModel)
     }
+    
+    func showAlertInput(with alertModel: ShowAlertModel) {
+        
+    }
 }

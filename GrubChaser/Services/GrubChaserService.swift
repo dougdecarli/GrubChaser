@@ -12,11 +12,16 @@ import RxFirebase
 import FirebaseAuth
 
 class GrubChaserService: GrubChaserServiceProtocol {
+    private let dbFirestore: Firestore,
+                disposeBag = DisposeBag()
     
-    let dbFirestore: Firestore,
-        disposeBag = DisposeBag()
+    static var instance: GrubChaserService = {
+        return GrubChaserService()
+    }()
     
-    init(dbFirestore: Firestore) {
+    var restaurants: [GrubChaserRestaurantModel]? = nil
+    
+    private init(dbFirestore: Firestore = Firestore.firestore()) {
         self.dbFirestore = dbFirestore
     }
     
@@ -28,6 +33,29 @@ class GrubChaserService: GrubChaserServiceProtocol {
             .decode(GrubChaserRestaurantModel.self)  
     }
     
+    func checkinFromCode(restaurantId: String,
+                         code: String) -> Observable<String?> {
+        dbFirestore
+            .collection("restaurants")
+            .document(restaurantId)
+            .collection("tables")
+            .whereField("code", isEqualTo: code)
+            .rx
+            .getDocuments()
+            .map(\.documents.first?.documentID)
+    }
+    
+    func postTableCheckin(restaurantId: String,
+                          tableId: String) -> Observable<Void> {
+        dbFirestore
+            .collection("restaurants")
+            .document(restaurantId)
+            .collection("tables")
+            .document(tableId)
+            .rx
+            .updateData(["isOccupied" : true])
+    }
+    
     func getRestaurantCategory(categoryRef: DocumentReference) -> Observable<GrubChaserRestaurantCategory> {
         categoryRef
             .rx
@@ -35,6 +63,7 @@ class GrubChaserService: GrubChaserServiceProtocol {
             .decodeDocument(GrubChaserRestaurantCategory.self)
     }
     
+    //MARK: - Sign in & Sign up
     func createUser(userModel: GrubChaserUserModel) -> Observable<DocumentReference> {
         dbFirestore
             .collection("users")

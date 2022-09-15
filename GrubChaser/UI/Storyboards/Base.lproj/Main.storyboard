@@ -32,7 +32,7 @@
         <scene sceneID="caC-GV-TVZ">
             <objects>
                 <viewControllerPlaceholder storyboardName="Checkin" id="n2z-9D-B4h" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bYH-VI-61i"/>
+                    <tabBarItem key="tabBarItem" title="Checkin" image="check-in" id="bYH-VI-61i"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOd-YV-p9l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,4 +51,7 @@
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.27058823529411763" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="check-in" width="16" height="16"/>
+    </resources>
 </document>

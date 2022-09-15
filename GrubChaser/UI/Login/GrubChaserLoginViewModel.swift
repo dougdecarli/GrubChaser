@@ -41,16 +41,14 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
         setupIsPasswordValid()
     }
     
-    init(service: GrubChaserServiceProtocol,
-         router: GrubChaserLoginRouterProtocol,
+    init(router: GrubChaserLoginRouterProtocol,
          firebaseAuth: Auth = Auth.auth(),
          fbLoginManager: LoginManager = LoginManager(),
          viewControllerRef: UIViewController) {
         self.firebaseAuth = firebaseAuth
         self.fbLoginManager = fbLoginManager
         self.viewControllerRef = viewControllerRef
-        super.init(service: service,
-                   router: router)
+        super.init(router: router)
     }
     
     override func setupBindings() {

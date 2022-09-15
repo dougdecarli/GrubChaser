@@ -6,26 +6,19 @@
 //
 
 import UIKit
+import Nuke
 
 extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.contentMode = .scaleAspectFill
-                self?.image = image
-            }
-        }.resume()
-    }
-    
-    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
+    func loadImage(imageURL: String,
+                   genericImage: UIImage) {
+        guard let url = URL(string: imageURL) else { return }
+        let options = ImageLoadingOptions(placeholder: genericImage,
+                                          contentModes: .init(success: .scaleAspectFill,
+                                                              failure: .center,
+                                                              placeholder: .scaleAspectFill))
+        
+        Nuke.loadImage(with: url,
+                       options: options,
+                       into: self)
     }
 }

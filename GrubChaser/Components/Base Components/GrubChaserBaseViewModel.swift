@@ -10,12 +10,10 @@ import RxSwift
 
 class GrubChaserBaseViewModel<Router>: GrubChaserViewModelProtocol {
     var disposeBag = DisposeBag(),
-        service: GrubChaserServiceProtocol,
+        service = GrubChaserService.instance,
         router: Router
     
-    init(service: GrubChaserServiceProtocol,
-         router: Router) {
-        self.service = service
+    init(router: Router) {
         self.router = router
     }
     

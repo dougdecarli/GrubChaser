@@ -48,6 +48,10 @@ def loader
   pod 'NVActivityIndicatorView'
 end
 
+def image
+  pod 'Nuke'
+end
+
 target 'GrubChaser' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
@@ -59,6 +63,7 @@ target 'GrubChaser' do
   json
   alamofire
   rswift
+  image
 
   target 'GrubChaserTests' do
     inherit! :search_paths

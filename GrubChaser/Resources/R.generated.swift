@@ -180,8 +180,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 11 images.
+  /// This `R.image` struct is generated, and contains static references to 12 images.
   struct image {
+    /// Image `check-in-disabled`.
+    static let checkInDisabled = Rswift.ImageResource(bundle: R.hostingBundle, name: "check-in-disabled")
     /// Image `check-in`.
     static let checkIn = Rswift.ImageResource(bundle: R.hostingBundle, name: "check-in")
     /// Image `distance`.
@@ -209,6 +211,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "check-in", bundle: ..., traitCollection: ...)`
     static func checkIn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.checkIn, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "check-in-disabled", bundle: ..., traitCollection: ...)`
+    static func checkInDisabled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.checkInDisabled, compatibleWith: traitCollection)
     }
     #endif
 
@@ -297,10 +306,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
     /// Nib `GrubChaserProdutsCollectionViewCell`.
     static let grubChaserProdutsCollectionViewCell = _R.nib._GrubChaserProdutsCollectionViewCell()
+    /// Nib `GrubChaserRestaurantCheckinCollectionViewCell`.
+    static let grubChaserRestaurantCheckinCollectionViewCell = _R.nib._GrubChaserRestaurantCheckinCollectionViewCell()
     /// Nib `GrubChaserRestaurantTableViewCell`.
     static let grubChaserRestaurantTableViewCell = _R.nib._GrubChaserRestaurantTableViewCell()
 
@@ -309,6 +320,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.grubChaserProdutsCollectionViewCell) instead")
     static func grubChaserProdutsCollectionViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.grubChaserProdutsCollectionViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "GrubChaserRestaurantCheckinCollectionViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.grubChaserRestaurantCheckinCollectionViewCell) instead")
+    static func grubChaserRestaurantCheckinCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.grubChaserRestaurantCheckinCollectionViewCell)
     }
     #endif
 
@@ -322,6 +341,10 @@ struct R: Rswift.Validatable {
 
     static func grubChaserProdutsCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GrubChaserProdutsCollectionViewCell? {
       return R.nib.grubChaserProdutsCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GrubChaserProdutsCollectionViewCell
+    }
+
+    static func grubChaserRestaurantCheckinCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GrubChaserRestaurantCheckinCollectionViewCell? {
+      return R.nib.grubChaserRestaurantCheckinCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GrubChaserRestaurantCheckinCollectionViewCell
     }
 
     static func grubChaserRestaurantTableViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GrubChaserRestaurantTableViewCell? {
@@ -391,6 +414,17 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
+    struct _GrubChaserRestaurantCheckinCollectionViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "GrubChaserRestaurantCheckinCollectionViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GrubChaserRestaurantCheckinCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GrubChaserRestaurantCheckinCollectionViewCell
+      }
+
+      fileprivate init() {}
+    }
+
     struct _GrubChaserRestaurantTableViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {
       typealias ReusableType = GrubChaserRestaurantTableViewCell
 
@@ -438,13 +472,14 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct checkin: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = GrubChaserCheckinViewController
 
       let bundle = R.hostingBundle
       let name = "Checkin"
 
       static func validate() throws {
         if UIKit.UIImage(named: "check-in", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check-in' is used in storyboard 'Checkin', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "check-in-disabled", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check-in-disabled' is used in storyboard 'Checkin', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -542,6 +577,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "check-in", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check-in' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().mainTabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainTabBar' could not be loaded from storyboard 'Main' as 'UIKit.UITabBarController'.") }

@@ -1,88 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q6y-mg-csm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Us4-bk-XPA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Check-in-->
         <scene sceneID="fn9-Lk-rdh">
             <objects>
-                <viewController title="Check-in" id="Us4-bk-XPA" sceneMemberID="viewController">
+                <viewController title="Check-in" id="Us4-bk-XPA" customClass="GrubChaserCheckinViewController" customModule="GrubChaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oUd-k8-7zr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMY-od-FqW">
-                                <rect key="frame" x="0.0" y="140" width="67" height="31"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sa5-9F-oCy">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bSc-ab-EUF">
+                                        <rect key="frame" x="0.0" y="423.5" width="414" height="160"/>
+                                        <color key="backgroundColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="ckl-jl-tVm"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="smv-69-QRo">
+                                            <size key="itemSize" width="145" height="160"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SRM-4g-Oif" customClass="GrubChaserRestaurantCheckinCollectionViewCell" customModule="GrubChaser" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="160"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VR0-oW-hdp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="145" height="160"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clique no restaurante que deseja realizar o checkin " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5W-BE-S3l">
+                                        <rect key="frame" x="10" y="356" width="394" height="57.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="F2w-DT-ldL"/>
-                                    <constraint firstAttribute="height" constant="31" id="as9-xf-LyB"/>
+                                    <constraint firstItem="bSc-ab-EUF" firstAttribute="top" secondItem="W5W-BE-S3l" secondAttribute="bottom" constant="10" id="8Bh-fK-jkC"/>
+                                    <constraint firstItem="W5W-BE-S3l" firstAttribute="leading" secondItem="sa5-9F-oCy" secondAttribute="leading" constant="10" id="OfN-vf-Dax"/>
+                                    <constraint firstItem="bSc-ab-EUF" firstAttribute="leading" secondItem="sa5-9F-oCy" secondAttribute="leading" id="VgU-u1-AFL"/>
+                                    <constraint firstItem="W5W-BE-S3l" firstAttribute="centerY" secondItem="sa5-9F-oCy" secondAttribute="centerY" constant="-21.75" id="Y0v-fK-rKf"/>
+                                    <constraint firstAttribute="trailing" secondItem="bSc-ab-EUF" secondAttribute="trailing" id="fHX-OZ-QdJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="W5W-BE-S3l" secondAttribute="trailing" constant="10" id="gvh-Rr-899"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bSc-ab-EUF" secondAttribute="bottom" constant="30" id="kpC-sj-a5w"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="HfD-PD-401" kind="show" id="65G-cX-65R"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2LO-cy-CGZ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="VMY-od-FqW" firstAttribute="top" secondItem="2LO-cy-CGZ" secondAttribute="top" id="bFD-IS-IqT"/>
-                            <constraint firstItem="VMY-od-FqW" firstAttribute="leading" secondItem="2LO-cy-CGZ" secondAttribute="leading" id="bfK-VC-nUe"/>
+                            <constraint firstAttribute="trailing" secondItem="sa5-9F-oCy" secondAttribute="trailing" id="2oz-8j-xyC"/>
+                            <constraint firstItem="sa5-9F-oCy" firstAttribute="top" secondItem="oUd-k8-7zr" secondAttribute="top" id="3ii-3w-xmK"/>
+                            <constraint firstItem="2LO-cy-CGZ" firstAttribute="bottom" secondItem="sa5-9F-oCy" secondAttribute="bottom" id="HAf-3j-u0C"/>
+                            <constraint firstItem="sa5-9F-oCy" firstAttribute="leading" secondItem="oUd-k8-7zr" secondAttribute="leading" id="VYb-x8-aDn"/>
+                            <constraint firstItem="sa5-9F-oCy" firstAttribute="top" secondItem="2LO-cy-CGZ" secondAttribute="top" constant="-44" id="w9e-rI-30m"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Check-in" image="check-in-disabled" selectedImage="check-in" id="ivF-8J-aik">
+                        <color key="badgeColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Check-in" id="MXj-sh-RFA"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="checkinCollectionView" destination="bSc-ab-EUF" id="3zL-cf-buR"/>
+                        <outlet property="descriptionLabel" destination="W5W-BE-S3l" id="x6g-Ac-nwL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZk-ye-ZU6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2348" y="-551"/>
-        </scene>
-        <!--Teste-->
-        <scene sceneID="vHs-NB-BxS">
-            <objects>
-                <viewController id="HfD-PD-401" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bj6-4z-9cd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="291-bv-Kzt"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Teste" id="YKh-wF-vvS"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xbx-pH-HE8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3219" y="-544"/>
-        </scene>
-        <!--Check-in-->
-        <scene sceneID="gat-FC-WFz">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q6y-mg-csm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Check-in" image="check-in" selectedImage="check-in" id="WJs-jh-W90"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="dp3-Fd-8hk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Us4-bk-XPA" kind="relationship" relationship="rootViewController" id="Moo-bP-UHp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pTQ-m5-wo0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1413" y="-551"/>
+            <point key="canvasLocation" x="1544.9275362318842" y="-548.4375"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="check-in" width="16" height="16"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="check-in-disabled" width="16" height="16"/>
     </resources>
 </document>

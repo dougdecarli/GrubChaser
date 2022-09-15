@@ -182,21 +182,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H9H-9P-ZSV">
-                                <rect key="frame" x="15" y="161" width="384" height="705"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H9H-9P-ZSV">
+                                <rect key="frame" x="15" y="171" width="384" height="695"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oeU-Jz-9Ev">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="K5w-Wr-5aa"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fH1-s6-MIx" customClass="GrubChaserProdutsCollectionViewCell" customModule="GrubChaser" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" semanticContentAttribute="forceLeftToRight" id="fH1-s6-MIx" customClass="GrubChaserProdutsCollectionViewCell" customModule="GrubChaser" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EFX-fp-B7e">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
@@ -214,7 +209,7 @@
                             <constraint firstItem="9N9-Wr-dnm" firstAttribute="trailing" secondItem="Y9V-zl-377" secondAttribute="trailing" constant="20" id="9o5-7c-9YY"/>
                             <constraint firstItem="SRy-l6-uz2" firstAttribute="top" secondItem="F4N-Dn-HeE" secondAttribute="bottom" constant="11" id="DQP-qg-F2Q"/>
                             <constraint firstItem="sYU-E7-jki" firstAttribute="top" secondItem="9N9-Wr-dnm" secondAttribute="top" constant="12" id="EUx-y9-PbX"/>
-                            <constraint firstItem="H9H-9P-ZSV" firstAttribute="top" secondItem="sYU-E7-jki" secondAttribute="bottom" constant="20" id="LQz-hd-E9a"/>
+                            <constraint firstItem="H9H-9P-ZSV" firstAttribute="top" secondItem="sYU-E7-jki" secondAttribute="bottom" constant="30" id="LQz-hd-E9a"/>
                             <constraint firstItem="qBC-EF-lXj" firstAttribute="centerY" secondItem="SRy-l6-uz2" secondAttribute="centerY" id="Lp0-hd-S91"/>
                             <constraint firstItem="Y9V-zl-377" firstAttribute="top" secondItem="HEO-Un-Iwb" secondAttribute="bottom" constant="8" id="PXN-7w-T3m"/>
                             <constraint firstItem="Y9V-zl-377" firstAttribute="leading" secondItem="sYU-E7-jki" secondAttribute="trailing" constant="8" id="Yq6-iu-Tp2"/>

@@ -340,6 +340,7 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
+  - Nuke (10.7.1)
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
@@ -409,6 +410,7 @@ DEPENDENCIES:
   - FacebookShare
   - FirebaseAuth
   - FirebaseFirestore
+  - Nuke
   - NVActivityIndicatorView
   - R.swift
   - RxCocoa
@@ -453,6 +455,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - Nuke
     - NVActivityIndicatorView
     - PromisesObjC
     - R.swift
@@ -500,6 +503,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
@@ -519,6 +523,6 @@ SPEC CHECKSUMS:
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 5faa536f5ae12e75d9b60fe57bd4c02ad425dd94
+PODFILE CHECKSUM: 17420f56259146fd0a100f3be779eccc8a32f9f2
 
 COCOAPODS: 1.11.3
