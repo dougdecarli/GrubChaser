@@ -20,8 +20,8 @@ class GrubChaserProdutsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    func bind(product: GrubChaserProductsCellModel) {
-        self.productPrice.text = product.price
+    func bind(product: GrubChaserProduct) {
+        self.productPrice.text = "\(String(product.price).currencyFormatting())"
         self.productName.text = product.name
         productImage.loadImage(imageURL: product.image,
                                   genericImage: R.image.genericFood()!)

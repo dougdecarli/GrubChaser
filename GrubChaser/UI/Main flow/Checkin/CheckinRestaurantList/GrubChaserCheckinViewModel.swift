@@ -102,7 +102,7 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
                                       style: .default,
                                       handler: { [weak self] alertAction in
             self?.startLoading()
-            self?.checkinFromCode(restaurantId: restaurant.id,
+            self?.checkinFromCode(restaurant: restaurant,
                                   code: alert.textFields![0].text ?? "")
         }))
         
@@ -111,7 +111,7 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
         viewControllerRef.present(alert, animated: true)
     }
     
-    private func checkinFromCode(restaurantId: String,
+    private func checkinFromCode(restaurant: GrubChaserRestaurantModel,
                                  code: String) {
         func handleSuccess(tableId: String?) {
             guard let id = tableId else {
@@ -119,7 +119,7 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
                 stopLoading()
                 return
             }
-            postCheckin(restaurantId: restaurantId,
+            postCheckin(restaurant: restaurant,
                         tableId: id)
         }
         
@@ -128,29 +128,34 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
             showAlert.onNext(getAlertErrorModel())
         }
         
-        service.checkinFromCode(restaurantId: restaurantId,
+        service.checkinFromCode(restaurantId: restaurant.id,
                                 code: code)
             .subscribe(onNext: handleSuccess,
                    onError: handleError)
             .disposed(by: disposeBag)
     }
     
-    private func postCheckin(restaurantId: String,
+    private func postCheckin(restaurant: GrubChaserRestaurantModel,
                              tableId: String) {
         func handleSuccess() {
             stopLoading()
-            print("Success")
+            goToRestaurantOrder(restaurant)
         }
         
         func handleError(_ error: Error) {
             showAlert.onNext(getAlertErrorModel())
         }
         
-        service.postTableCheckin(restaurantId: restaurantId,
+        service.postTableCheckin(restaurantId: restaurant.id,
                                  tableId: tableId)
             .subscribe(onNext: handleSuccess,
                        onError: handleError)
             .disposed(by: disposeBag)
+    }
+    
+    //MARK: Navigation
+    private func goToRestaurantOrder(_ restaurant: GrubChaserRestaurantModel) {
+        router.goToRestaurantOrder(restaurant: restaurant)
     }
     
     //MARK: - Helper methods

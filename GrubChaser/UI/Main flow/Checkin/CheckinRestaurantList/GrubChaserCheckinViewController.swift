@@ -21,7 +21,9 @@ class GrubChaserCheckinViewController: GrubChaserBaseViewController<GrubChaserCh
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.router = GrubChaserCheckinRouter(navigationController: navigationController ??                                                             UINavigationController())
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        self.router = GrubChaserCheckinRouter(navigationController: navigationController ?? UINavigationController())
         
         self.viewModel = GrubChaserCheckinViewModel(router: router,
                                                     viewControllerRef: self)

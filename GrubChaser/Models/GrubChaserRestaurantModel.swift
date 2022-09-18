@@ -33,7 +33,7 @@ struct GrubChaserProduct: Codable {
     let name: String
     let price: Double
     let image: String
-//    let category: GrubChaserProductCategory
+    let description: String
 }
 
 struct GrubChaserProductCategory: Codable {

@@ -180,7 +180,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 12 images.
+  /// This `R.image` struct is generated, and contains static references to 14 images.
   struct image {
     /// Image `check-in-disabled`.
     static let checkInDisabled = Rswift.ImageResource(bundle: R.hostingBundle, name: "check-in-disabled")
@@ -198,6 +198,10 @@ struct R: Rswift.Validatable {
     static let genericLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "generic-logo")
     /// Image `google`.
     static let google = Rswift.ImageResource(bundle: R.hostingBundle, name: "google")
+    /// Image `hamburguer2`.
+    static let hamburguer2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "hamburguer2")
+    /// Image `pngwing.com`.
+    static let pngwingCom = Rswift.ImageResource(bundle: R.hostingBundle, name: "pngwing.com")
     /// Image `product-image`.
     static let productImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "product-image")
     /// Image `show-list`.
@@ -260,6 +264,20 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "google", bundle: ..., traitCollection: ...)`
     static func google(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.google, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "hamburguer2", bundle: ..., traitCollection: ...)`
+    static func hamburguer2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.hamburguer2, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "pngwing.com", bundle: ..., traitCollection: ...)`
+    static func pngwingCom(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pngwingCom, compatibleWith: traitCollection)
     }
     #endif
 
@@ -472,16 +490,32 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct checkin: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = GrubChaserCheckinViewController
+      typealias InitialController = UIKit.UINavigationController
 
       let bundle = R.hostingBundle
       let name = "Checkin"
+      let productModalVC = StoryboardViewControllerResource<GrubChaserProductModalViewController>(identifier: "productModalVC")
+      let restaurantOrderVC = StoryboardViewControllerResource<GrubChaserRestaurantOrderViewController>(identifier: "restaurantOrderVC")
+
+      func productModalVC(_: Void = ()) -> GrubChaserProductModalViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: productModalVC)
+      }
+
+      func restaurantOrderVC(_: Void = ()) -> GrubChaserRestaurantOrderViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: restaurantOrderVC)
+      }
 
       static func validate() throws {
         if UIKit.UIImage(named: "check-in", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check-in' is used in storyboard 'Checkin', but couldn't be loaded.") }
         if UIKit.UIImage(named: "check-in-disabled", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check-in-disabled' is used in storyboard 'Checkin', but couldn't be loaded.") }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "minus") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'minus' is used in storyboard 'Checkin', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "plus") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'plus' is used in storyboard 'Checkin', but couldn't be loaded.") } }
+        if UIKit.UIImage(named: "restaurant-icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'restaurant-icon' is used in storyboard 'Checkin', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'star' is used in storyboard 'Checkin', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
+        if _R.storyboard.checkin().productModalVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'productModalVC' could not be loaded from storyboard 'Checkin' as 'GrubChaserProductModalViewController'.") }
+        if _R.storyboard.checkin().restaurantOrderVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'restaurantOrderVC' could not be loaded from storyboard 'Checkin' as 'GrubChaserRestaurantOrderViewController'.") }
       }
 
       fileprivate init() {}
@@ -578,6 +612,7 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "check-in", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'check-in' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "web-house", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'web-house' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().mainTabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'mainTabBar' could not be loaded from storyboard 'Main' as 'UIKit.UITabBarController'.") }

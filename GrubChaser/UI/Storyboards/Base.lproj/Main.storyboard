@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LYU-Re-lQ2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LYU-Re-lQ2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,7 +43,7 @@
         <scene sceneID="KeR-zS-nnq">
             <objects>
                 <viewControllerPlaceholder storyboardName="Inicio" id="6Ib-i0-Mgx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="WJB-A3-yUg"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="web-house" id="WJB-A3-yUg"/>
                     <navigationItem key="navigationItem" id="pP6-q4-0R4"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SqG-N1-Plk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -53,5 +54,6 @@
     <color key="tintColor" red="1" green="0.27058823529411763" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="check-in" width="16" height="16"/>
+        <image name="web-house" width="16" height="16"/>
     </resources>
 </document>

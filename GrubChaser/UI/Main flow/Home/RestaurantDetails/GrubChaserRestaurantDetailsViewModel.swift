@@ -13,13 +13,11 @@ class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHo
     let restaurant: GrubChaserRestaurantModel,
         onViewWillAppear = PublishRelay<Void>()
     
-    var restaurantCategory = BehaviorRelay<String>(value: ""),
-        restaurantAddress = BehaviorRelay<String>(value: ""),
-        distance = BehaviorRelay<String>(value: ""),
+    var distance = BehaviorRelay<String>(value: ""),
         isLoaderShowing = PublishSubject<Bool>(),
         locationService: GeolocationService
     
-    var productCells: Observable<[GrubChaserProductsCellModel]> {
+    var productCells: Observable<[GrubChaserProduct]> {
         setupProductCells()
     }
     
@@ -43,12 +41,13 @@ class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHo
     }
     
     //MARK: Outputs
-    private func setupProductCells() -> Observable<[GrubChaserProductsCellModel]> {
-        var cells: [GrubChaserProductsCellModel] = []
+    private func setupProductCells() -> Observable<[GrubChaserProduct]> {
+        var cells: [GrubChaserProduct] = []
         restaurant.products.forEach { product in
-            cells.append(.init(image: product.image,
-                               price: "R$ \(product.price)",
-                               name: product.name))
+            cells.append(.init(name: product.name,
+                               price: product.price,
+                               image: product.image,
+                               description: product.description))
         }
         return Observable.of(cells)
     }
