@@ -17,7 +17,7 @@ class GrubChaserRestaurantOrderViewController:
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
         setupCollectionViewLayout()
         setupCollectionViewCells()
         bind()

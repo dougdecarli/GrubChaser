@@ -15,6 +15,8 @@ class GrubChaserRestaurantOrderViewModel: GrubChaserBaseViewModel<GrubChaserChec
     
     internal var isLoaderShowing = PublishSubject<Bool>()
     
+    var productsSelected = BehaviorRelay<[GrubChaserProduct]>(value: [])
+    
     var productCells: Observable<[GrubChaserProduct]> {
         setupProductCells()
     }
