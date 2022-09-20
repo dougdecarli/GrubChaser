@@ -59,8 +59,9 @@ class GrubChaserRestaurantOrderViewController:
     private func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.estimatedItemSize = CGSize(width: (UIScreen.main.bounds.width / 3) - 30,
-                                          height: 212.5)
+        layout.minimumInteritemSpacing = 5
+        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width / 3) - 15,
+                                 height: 212.5)
         productsCollectionView.collectionViewLayout = layout
     }
     
