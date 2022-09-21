@@ -324,14 +324,24 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
+    /// Nib `GrubChaserProductsSelectedCollectionViewCell`.
+    static let grubChaserProductsSelectedCollectionViewCell = _R.nib._GrubChaserProductsSelectedCollectionViewCell()
     /// Nib `GrubChaserProdutsCollectionViewCell`.
     static let grubChaserProdutsCollectionViewCell = _R.nib._GrubChaserProdutsCollectionViewCell()
     /// Nib `GrubChaserRestaurantCheckinCollectionViewCell`.
     static let grubChaserRestaurantCheckinCollectionViewCell = _R.nib._GrubChaserRestaurantCheckinCollectionViewCell()
     /// Nib `GrubChaserRestaurantTableViewCell`.
     static let grubChaserRestaurantTableViewCell = _R.nib._GrubChaserRestaurantTableViewCell()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "GrubChaserProductsSelectedCollectionViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.grubChaserProductsSelectedCollectionViewCell) instead")
+    static func grubChaserProductsSelectedCollectionViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.grubChaserProductsSelectedCollectionViewCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "GrubChaserProdutsCollectionViewCell", in: bundle)`
@@ -356,6 +366,10 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.grubChaserRestaurantTableViewCell)
     }
     #endif
+
+    static func grubChaserProductsSelectedCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GrubChaserProductsSelectedCollectionViewCell? {
+      return R.nib.grubChaserProductsSelectedCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GrubChaserProductsSelectedCollectionViewCell
+    }
 
     static func grubChaserProdutsCollectionViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GrubChaserProdutsCollectionViewCell? {
       return R.nib.grubChaserProdutsCollectionViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GrubChaserProdutsCollectionViewCell
@@ -410,6 +424,17 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try _GrubChaserProdutsCollectionViewCell.validate()
       try _GrubChaserRestaurantTableViewCell.validate()
+    }
+
+    struct _GrubChaserProductsSelectedCollectionViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "GrubChaserProductsSelectedCollectionViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> GrubChaserProductsSelectedCollectionViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? GrubChaserProductsSelectedCollectionViewCell
+      }
+
+      fileprivate init() {}
     }
 
     struct _GrubChaserProdutsCollectionViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType, Rswift.Validatable {

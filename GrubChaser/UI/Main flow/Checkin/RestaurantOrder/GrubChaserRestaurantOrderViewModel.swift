@@ -21,6 +21,10 @@ class GrubChaserRestaurantOrderViewModel: GrubChaserBaseViewModel<GrubChaserChec
         setupProductCells()
     }
     
+    var productsSelectedCells: Observable<[GrubChaserProduct]> {
+        productsSelected.asObservable()
+    }
+    
     init(router: GrubChaserCheckinRouterProtocol,
          restaurant: GrubChaserRestaurantModel) {
         self.restaurant = restaurant

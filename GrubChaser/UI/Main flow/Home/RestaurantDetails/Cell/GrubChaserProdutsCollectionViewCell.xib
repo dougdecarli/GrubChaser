@@ -31,6 +31,12 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 50,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TE-PH-QHZ">
@@ -40,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição produto" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIy-fd-fFi">
-                                <rect key="frame" x="0.0" y="175" width="112" height="33.5"/>
+                                <rect key="frame" x="0.0" y="173" width="112" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -49,14 +55,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4TE-PH-QHZ" firstAttribute="leading" secondItem="W6j-Vg-ehP" secondAttribute="leading" id="5fR-EU-upR"/>
-                            <constraint firstItem="cIy-fd-fFi" firstAttribute="top" secondItem="4TE-PH-QHZ" secondAttribute="bottom" constant="4" id="C0L-53-xWC"/>
+                            <constraint firstItem="cIy-fd-fFi" firstAttribute="top" secondItem="4TE-PH-QHZ" secondAttribute="bottom" constant="2" id="C0L-53-xWC"/>
                             <constraint firstItem="4TE-PH-QHZ" firstAttribute="top" secondItem="Ffz-ec-8ek" secondAttribute="bottom" constant="4" id="DEZ-iL-ttb"/>
                             <constraint firstAttribute="trailing" secondItem="cIy-fd-fFi" secondAttribute="trailing" id="Zu7-xG-XtR"/>
                             <constraint firstAttribute="trailing" secondItem="4TE-PH-QHZ" secondAttribute="trailing" id="dkE-QJ-Vrr"/>
                             <constraint firstItem="cIy-fd-fFi" firstAttribute="leading" secondItem="W6j-Vg-ehP" secondAttribute="leading" id="eBN-Bc-vPP"/>
                             <constraint firstItem="Ffz-ec-8ek" firstAttribute="leading" secondItem="W6j-Vg-ehP" secondAttribute="leading" id="iX2-9V-Xnu"/>
                             <constraint firstAttribute="trailing" secondItem="Ffz-ec-8ek" secondAttribute="trailing" id="sFl-0J-Wgh"/>
-                            <constraint firstAttribute="bottom" secondItem="cIy-fd-fFi" secondAttribute="bottom" constant="4" id="xSF-Vc-cyc"/>
+                            <constraint firstAttribute="bottom" secondItem="cIy-fd-fFi" secondAttribute="bottom" constant="6" id="xSF-Vc-cyc"/>
                             <constraint firstItem="Ffz-ec-8ek" firstAttribute="top" secondItem="W6j-Vg-ehP" secondAttribute="top" id="y2P-j1-PEk"/>
                         </constraints>
                     </view>
@@ -70,6 +76,14 @@
                 <constraint firstAttribute="bottom" secondItem="W6j-Vg-ehP" secondAttribute="bottom" id="zkc-BB-Aem"/>
             </constraints>
             <size key="customSize" width="203" height="142"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="productImage" destination="Ffz-ec-8ek" id="dbL-g6-AWB"/>
                 <outlet property="productName" destination="cIy-fd-fFi" id="xg4-X5-bdI"/>

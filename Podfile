@@ -8,6 +8,7 @@ def rx
   pod 'RxGesture'
   pod 'RxCoreLocation'
   pod "RxMKMapView"
+  pod "RxAnimated"
 end
 
 def rx_test
