@@ -190,9 +190,6 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
     func showErrorOnLoginAlertView() {
         showAlert.onNext(.init(title: "Ocorreu um erro ao efetuar o seu login",
                                message: "Por favor, tente novamente",
-                               preferredStyle: .alert,
-                               actionStyle: .default,
-                               actionTitle: "Ok",
                                viewControllerRef: viewControllerRef))
     }
 }
@@ -257,8 +254,6 @@ extension GrubChaserLoginViewModel {
             .disposed(by: disposeBag)
     }
 }
-
-//TODO: Create func to verify user has account from user email to unificate methods
 
 extension GrubChaserLoginViewModel: GrubChaserAlertableViewModel {}
 extension GrubChaserLoginViewModel: GrubChaserLoadableViewModel {}

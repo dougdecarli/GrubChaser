@@ -44,7 +44,8 @@ class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHo
     private func setupProductCells() -> Observable<[GrubChaserProduct]> {
         var cells: [GrubChaserProduct] = []
         restaurant.products.forEach { product in
-            cells.append(.init(name: product.name,
+            cells.append(.init(id: product.id,
+                               name: product.name,
                                price: product.price,
                                image: product.image,
                                description: product.description))

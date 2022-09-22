@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4B093E3428DA85C500441EF6 /* GrubChaserProductsSelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B093E3228DA85C500441EF6 /* GrubChaserProductsSelectedCollectionViewCell.swift */; };
 		4B093E3528DA85C500441EF6 /* GrubChaserProductsSelectedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B093E3328DA85C500441EF6 /* GrubChaserProductsSelectedCollectionViewCell.xib */; };
+		4B093E3928DB925A00441EF6 /* GrubChaserOrderBagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B093E3828DB925900441EF6 /* GrubChaserOrderBagViewController.swift */; };
+		4B093E3B28DB926600441EF6 /* GrubChaserOrderBagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B093E3A28DB926600441EF6 /* GrubChaserOrderBagViewModel.swift */; };
+		4B11955328DBE0F3008CBC2E /* GrubChaserProductBagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11955128DBE0F3008CBC2E /* GrubChaserProductBagTableViewCell.swift */; };
+		4B11955428DBE0F3008CBC2E /* GrubChaserProductBagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B11955228DBE0F3008CBC2E /* GrubChaserProductBagTableViewCell.xib */; };
 		4B2EFA1328BD76D0000AA48F /* GrubChaserRestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2EFA1228BD76D0000AA48F /* GrubChaserRestaurantDetailsViewController.swift */; };
 		4B2EFA1528BD7700000AA48F /* GrubChaserRestaurantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2EFA1428BD7700000AA48F /* GrubChaserRestaurantDetailsViewModel.swift */; };
 		4B46CF3A28CBB1DF00278EF8 /* GrubChaserAlertableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46CF3928CBB1DF00278EF8 /* GrubChaserAlertableViewModel.swift */; };
@@ -31,6 +35,8 @@
 		4BA1D08528AEC86100992E35 /* GrubChaserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA1D08428AEC86100992E35 /* GrubChaserTests.swift */; };
 		4BA1D08F28AEC86100992E35 /* GrubChaserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA1D08E28AEC86100992E35 /* GrubChaserUITests.swift */; };
 		4BA1D09128AEC86100992E35 /* GrubChaserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA1D09028AEC86100992E35 /* GrubChaserUITestsLaunchTests.swift */; };
+		4BAD419E28DBFE3E00D3D723 /* GrubChaserProductBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAD419D28DBFE3E00D3D723 /* GrubChaserProductBag.swift */; };
+		4BAD41A028DCDF3C00D3D723 /* GrubChaserOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAD419F28DCDF3C00D3D723 /* GrubChaserOrderModel.swift */; };
 		4BC7A7F328D3F7DA001149BB /* GrubChaserRestaurantOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7A7F228D3F7DA001149BB /* GrubChaserRestaurantOrderViewController.swift */; };
 		4BC7A7F528D3F7F0001149BB /* GrubChaserRestaurantOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC7A7F428D3F7F0001149BB /* GrubChaserRestaurantOrderViewModel.swift */; };
 		4BDEE68D28BEF03C004ED59E /* GrubChaserProdutsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDEE68B28BEF03C004ED59E /* GrubChaserProdutsCollectionViewCell.swift */; };
@@ -112,6 +118,10 @@
 		3C1A259E14AD8E4146073DFA /* Pods_GrubChaser_GrubChaserUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrubChaser_GrubChaserUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B093E3228DA85C500441EF6 /* GrubChaserProductsSelectedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserProductsSelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B093E3328DA85C500441EF6 /* GrubChaserProductsSelectedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GrubChaserProductsSelectedCollectionViewCell.xib; sourceTree = "<group>"; };
+		4B093E3828DB925900441EF6 /* GrubChaserOrderBagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserOrderBagViewController.swift; sourceTree = "<group>"; };
+		4B093E3A28DB926600441EF6 /* GrubChaserOrderBagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserOrderBagViewModel.swift; sourceTree = "<group>"; };
+		4B11955128DBE0F3008CBC2E /* GrubChaserProductBagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserProductBagTableViewCell.swift; sourceTree = "<group>"; };
+		4B11955228DBE0F3008CBC2E /* GrubChaserProductBagTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GrubChaserProductBagTableViewCell.xib; sourceTree = "<group>"; };
 		4B2EFA1228BD76D0000AA48F /* GrubChaserRestaurantDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserRestaurantDetailsViewController.swift; sourceTree = "<group>"; };
 		4B2EFA1428BD7700000AA48F /* GrubChaserRestaurantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserRestaurantDetailsViewModel.swift; sourceTree = "<group>"; };
 		4B46CF3928CBB1DF00278EF8 /* GrubChaserAlertableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserAlertableViewModel.swift; sourceTree = "<group>"; };
@@ -138,6 +148,8 @@
 		4BA1D08A28AEC86100992E35 /* GrubChaserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrubChaserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA1D08E28AEC86100992E35 /* GrubChaserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserUITests.swift; sourceTree = "<group>"; };
 		4BA1D09028AEC86100992E35 /* GrubChaserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4BAD419D28DBFE3E00D3D723 /* GrubChaserProductBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserProductBag.swift; sourceTree = "<group>"; };
+		4BAD419F28DCDF3C00D3D723 /* GrubChaserOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserOrderModel.swift; sourceTree = "<group>"; };
 		4BC7A7F228D3F7DA001149BB /* GrubChaserRestaurantOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserRestaurantOrderViewController.swift; sourceTree = "<group>"; };
 		4BC7A7F428D3F7F0001149BB /* GrubChaserRestaurantOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserRestaurantOrderViewModel.swift; sourceTree = "<group>"; };
 		4BDEE68B28BEF03C004ED59E /* GrubChaserProdutsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserProdutsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -226,6 +238,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B093E3728DB91CE00441EF6 /* OrderBag */ = {
+			isa = PBXGroup;
+			children = (
+				4B093E3C28DB968500441EF6 /* Cells */,
+				4B093E3828DB925900441EF6 /* GrubChaserOrderBagViewController.swift */,
+				4B093E3A28DB926600441EF6 /* GrubChaserOrderBagViewModel.swift */,
+			);
+			path = OrderBag;
+			sourceTree = "<group>";
+		};
+		4B093E3C28DB968500441EF6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4B11955128DBE0F3008CBC2E /* GrubChaserProductBagTableViewCell.swift */,
+				4B11955228DBE0F3008CBC2E /* GrubChaserProductBagTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		4B2EFA1128BD704B000AA48F /* RestaurantDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +282,7 @@
 				4BC7A7F028D3F75A001149BB /* CheckinRestaurantList */,
 				4BC7A7F128D3F774001149BB /* RestaurantOrder */,
 				4BEE018C28D7A025000EA06F /* ProductModal */,
+				4B093E3728DB91CE00441EF6 /* OrderBag */,
 			);
 			path = Checkin;
 			sourceTree = "<group>";
@@ -464,6 +496,8 @@
 				4BE641A528AECC0400538E28 /* GrubChaserRestaurantModel.swift */,
 				4BF5902D28C96B1300854302 /* GrubChaserLoginModel.swift */,
 				4B46CF4328CBE31500278EF8 /* GrubChaserUserModel.swift */,
+				4BAD419D28DBFE3E00D3D723 /* GrubChaserProductBag.swift */,
+				4BAD419F28DCDF3C00D3D723 /* GrubChaserOrderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -733,6 +767,7 @@
 				4BA1D07A28AEC86000992E35 /* LaunchScreen.storyboard in Resources */,
 				4BF5901928C9257100854302 /* Login.storyboard in Resources */,
 				4BF5901C28C925FD00854302 /* Inicio.storyboard in Resources */,
+				4B11955428DBE0F3008CBC2E /* GrubChaserProductBagTableViewCell.xib in Resources */,
 				4BDEE68E28BEF03C004ED59E /* GrubChaserProdutsCollectionViewCell.xib in Resources */,
 				4B46CF6828D0FAFE00278EF8 /* GrubChaserRestaurantCheckinCollectionViewCell.xib in Resources */,
 				4BF5901E28C9263F00854302 /* Checkin.storyboard in Resources */,
@@ -898,6 +933,8 @@
 				4B46CF5E28D0EF5200278EF8 /* GrubChaserCheckinViewModel.swift in Sources */,
 				4BE6419728AECBC400538E28 /* Reactive+UICollectionViewCell.swift in Sources */,
 				4BE641CA28AED25A00538E28 /* R.generated.swift in Sources */,
+				4BAD41A028DCDF3C00D3D723 /* GrubChaserOrderModel.swift in Sources */,
+				4B11955328DBE0F3008CBC2E /* GrubChaserProductBagTableViewCell.swift in Sources */,
 				4BF5902C28C94FEE00854302 /* GrubChaserStarter.swift in Sources */,
 				4BE641AA28AECC2200538E28 /* GrubChaserService.swift in Sources */,
 				4BE641A628AECC0400538E28 /* GrubChaserRestaurantModel.swift in Sources */,
@@ -913,6 +950,8 @@
 				4BE4414328B5AAD800833519 /* GrubChaserRestaurantListViewModel.swift in Sources */,
 				4B46CF3C28CBC93C00278EF8 /* GrubChaserLoadableViewModel.swift in Sources */,
 				4BE641B928AECC7D00538E28 /* GrubChaserHomeRouter.swift in Sources */,
+				4B093E3B28DB926600441EF6 /* GrubChaserOrderBagViewModel.swift in Sources */,
+				4B093E3928DB925A00441EF6 /* GrubChaserOrderBagViewController.swift in Sources */,
 				4BE4412A28B4296200833519 /* GrubChaserBaseViewController.swift in Sources */,
 				4BE641A328AECBC400538E28 /* UIView+width.swift in Sources */,
 				4BE641A428AECBC400538E28 /* UIView+padding.swift in Sources */,
@@ -928,6 +967,7 @@
 				4BF5902928C94B3600854302 /* GrubChaserLoginRouterProtocol.swift in Sources */,
 				4BE4414528B5AAD800833519 /* GrubChaserRestaurantTableViewCell.swift in Sources */,
 				4BEE018E28D7A045000EA06F /* GrubChaserProductModalViewController.swift in Sources */,
+				4BAD419E28DBFE3E00D3D723 /* GrubChaserProductBag.swift in Sources */,
 				4BE6419B28AECBC400538E28 /* UIView+centerY.swift in Sources */,
 				4BE6419A28AECBC400538E28 /* UIButton+Rx.swift in Sources */,
 				4B093E3428DA85C500441EF6 /* GrubChaserProductsSelectedCollectionViewCell.swift in Sources */,

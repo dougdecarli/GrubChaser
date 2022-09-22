@@ -11,6 +11,11 @@ import RxCocoa
 import CoreLocation
 import RxCoreLocation
 
+protocol GrubChaserCheckinViewModelProtocol {
+    var restaurant: GrubChaserRestaurantModel { get set }
+    var tableId: String { get set }
+}
+
 class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRouterProtocol> {
     var checkinRestaurantCells: Observable<[GrubChaserRestaurantModel]> {
         setupCheckinRestaurantCells()
@@ -139,7 +144,7 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
                              tableId: String) {
         func handleSuccess() {
             stopLoading()
-            goToRestaurantOrder(restaurant)
+            goToRestaurantOrder(restaurant, tableId)
         }
         
         func handleError(_ error: Error) {
@@ -154,8 +159,10 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
     }
     
     //MARK: Navigation
-    private func goToRestaurantOrder(_ restaurant: GrubChaserRestaurantModel) {
-        router.goToRestaurantOrder(restaurant: restaurant)
+    private func goToRestaurantOrder(_ restaurant: GrubChaserRestaurantModel,
+                                     _ tableId: String) {
+        router.goToRestaurantOrder(restaurant: restaurant,
+                                   tableId: tableId)
     }
     
     //MARK: - Helper methods
@@ -169,11 +176,8 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
     
     private func getAlertErrorModel() -> ShowAlertModel {
         .init(title: "Não foi possível realizar o check-in",
-                               message: "Verifique se você digitou o código corretamente",
-                               preferredStyle: .alert,
-                               actionStyle: .default,
-                               actionTitle: "Ok",
-                               viewControllerRef: viewControllerRef)
+              message: "Verifique se você digitou o código corretamente",
+              viewControllerRef: viewControllerRef)
     }
 }
 

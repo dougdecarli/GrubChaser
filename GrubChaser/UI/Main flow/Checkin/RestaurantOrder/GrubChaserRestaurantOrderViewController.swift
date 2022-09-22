@@ -14,10 +14,12 @@ class GrubChaserRestaurantOrderViewController:
     @IBOutlet weak var restaurantCategory: UILabel!
     @IBOutlet weak var restaurantAddress: UILabel!
     @IBOutlet weak var productsCollectionView: UICollectionView!
+    @IBOutlet weak var productsCollectionViewBottomConstraint: NSLayoutConstraint!
     
     private let footerView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.isHidden = true
+        $0.backgroundColor = UIColor.systemBackground
         return $0
     }(UIView())
     
@@ -34,7 +36,7 @@ class GrubChaserRestaurantOrderViewController:
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .white
         $0.showsHorizontalScrollIndicator = false
-        $0.backgroundColor = UIColor.clear
+        $0.backgroundColor = UIColor.systemBackground
         $0.layer.cornerRadius = 10
         $0.clipsToBounds = true
         $0.backgroundView?.backgroundColor = UIColor.clear
@@ -64,6 +66,12 @@ class GrubChaserRestaurantOrderViewController:
     
     override func bindInputs() {
         super.bindInputs()
+        
+        seeBagButton
+            .rx
+            .tap
+            .bind(to: viewModel.onSeeBagButtonTouched)
+            .disposed(by: disposeBag)
         
         productsCollectionView
             .rx
@@ -102,6 +110,13 @@ class GrubChaserRestaurantOrderViewController:
         
         viewModel.productsSelected
             .map{ !($0.count > 0) }
+            .do(onNext: { [weak self] hasNotProductsSelected in
+                if hasNotProductsSelected {
+                    self?.productsCollectionViewBottomConstraint.constant = 30
+                } else {
+                    self?.productsCollectionViewBottomConstraint.constant = 122
+                }
+            })
             .bind(to: footerView.rx.isHidden)
             .disposed(by: disposeBag)
     }

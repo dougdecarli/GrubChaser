@@ -56,6 +56,19 @@ class GrubChaserService: GrubChaserServiceProtocol {
             .updateData(["isOccupied" : true])
     }
     
+    func postOrder(restaurantId: String,
+                   tableId: String,
+                   order: GrubChaserOrderModel) -> Observable<DocumentReference> {
+        dbFirestore
+            .collection("restaurants")
+            .document(restaurantId)
+            .collection("tables")
+            .document(tableId)
+            .collection("orders")
+            .rx
+            .addDocument(data: order.toDictionary!)
+    }
+    
     func getRestaurantCategory(categoryRef: DocumentReference) -> Observable<GrubChaserRestaurantCategory> {
         categoryRef
             .rx

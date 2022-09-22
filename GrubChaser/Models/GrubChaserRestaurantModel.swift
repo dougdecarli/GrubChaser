@@ -29,7 +29,8 @@ struct GrubChaserRestaurantCategory: Codable {
     let name: String
 }
 
-struct GrubChaserProduct: Codable {
+struct GrubChaserProduct: Codable, Hashable {
+    let id: String
     let name: String
     let price: Double
     let image: String

@@ -74,6 +74,6 @@ class GrubChaserProductModalViewController: GrubChaserBaseViewController<GrubCha
                 }
             }
         }
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 }
