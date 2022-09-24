@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class GrubChaserProductBagTableViewCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
@@ -17,12 +19,19 @@ class GrubChaserProductBagTableViewCell: UITableViewCell {
     static let identifier = "GrubChaserProductBagTableViewCell",
                nibName = "GrubChaserProductBagTableViewCell"
     
+    var disposeBag = DisposeBag()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     func bind(model: GrubChaserProductBag) {

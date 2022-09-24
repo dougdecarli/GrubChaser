@@ -15,6 +15,8 @@ class GrubChaserRestaurantOrderViewController:
     @IBOutlet weak var restaurantAddress: UILabel!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var productsCollectionViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var ordersButton: UIButton!
+    @IBOutlet weak var orderButtonBottomConstraint: NSLayoutConstraint!
     
     private let footerView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +48,7 @@ class GrubChaserRestaurantOrderViewController:
     private let seeBagButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = ColorPallete.defaultRed
-        $0.setTitle("Ver sacola", for: .normal)
+        $0.setTitle("Ver produtos", for: .normal)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 10
@@ -62,6 +64,7 @@ class GrubChaserRestaurantOrderViewController:
         setupCollectionViewCells()
         setupFooterLayout()
         bind()
+        ordersButton.isHidden = false
     }
     
     override func bindInputs() {
@@ -116,6 +119,7 @@ class GrubChaserRestaurantOrderViewController:
                 } else {
                     self?.productsCollectionViewBottomConstraint.constant = 122
                 }
+                self?.setupOrderButtonConstraints(hasFooterView: !hasNotProductsSelected)
             })
             .bind(to: footerView.rx.isHidden)
             .disposed(by: disposeBag)
@@ -150,6 +154,7 @@ extension GrubChaserRestaurantOrderViewController {
     }
     
     private func addFooterView() {
+        view.add(ordersButton)
         view.add(footerView)
         footerView.add(footerProductsSelectedCollection)
         footerView.add(seeBagButton)
@@ -173,5 +178,13 @@ extension GrubChaserRestaurantOrderViewController {
             .leading(footerProductsSelectedCollection.trailingAnchor, 5)
             .width(UIScreen.main.bounds.width * 0.3)
             .height(50)
+    }
+    
+    private func setupOrderButtonConstraints(hasFooterView: Bool) {
+        if hasFooterView {
+            orderButtonBottomConstraint.constant = 90
+        } else {
+            orderButtonBottomConstraint.constant = 50
+        }
     }
 }

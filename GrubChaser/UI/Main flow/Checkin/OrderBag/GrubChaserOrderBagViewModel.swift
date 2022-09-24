@@ -13,21 +13,22 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRout
     let products: [GrubChaserProduct],
         viewControllerRef: UIViewController,
         onMinusButtonTouched = PublishRelay<Void>(),
-        onPlusButtonTouched = PublishRelay<Void>(),
+        onPlusButtonTouched = PublishRelay<GrubChaserProduct>(),
         onSendOrderButtonTouched = PublishRelay<Void>()
     
     var isLoaderShowing = PublishSubject<Bool>(),
         showAlert = PublishSubject<ShowAlertModel>(),
         restaurant: GrubChaserRestaurantModel,
-        tableId: String,
-        productsBag = BehaviorRelay<[GrubChaserProductBag]>(value: [])
+        tableId: String
+    
+    var productsBag = BehaviorRelay<[GrubChaserProductBag]>(value: [])
     
     var productsBagCells: Observable<[GrubChaserProductBag]> {
-        productsBag.asObservable()
+        segregateProducts(products: products)
     }
     
     var segregatedProducts: Observable<[GrubChaserProductBag]> {
-        segregateProducts()
+        segregateProducts(products: products)
     }
     
     lazy var productsArrayObservable = BehaviorRelay<[GrubChaserProduct]>(value: products)
@@ -59,6 +60,8 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRout
     override func setupBindings() {
         super.setupBindings()
         setupOnSendOrderButtonTouched()
+        setupOnPlusButtonTouched()
+        setupProductsArrayObservable()
         
         segregatedProducts
             .bind(to: productsBag)
@@ -75,8 +78,21 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRout
             .disposed(by: disposeBag)
     }
     
+    private func setupOnPlusButtonTouched() {
+        onPlusButtonTouched
+            .subscribe(onNext: addProductBag)
+            .disposed(by: disposeBag)
+    }
+    
     //MARK: - Outputs
-    private func segregateProducts() -> Observable<[GrubChaserProductBag]> {
+    private func setupProductsArrayObservable() {
+        productsArrayObservable
+            .flatMap(segregateProducts)
+            .bind(to: productsBag)
+            .disposed(by: disposeBag)
+    }
+    
+    private func segregateProducts(products: [GrubChaserProduct]) -> Observable<[GrubChaserProductBag]> {
         return Observable
             .of(products
                 .reduce(into: [GrubChaserProduct:Int]()) { partialResult, nextProduct in
@@ -103,6 +119,10 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRout
     }
     
     //MARK: - Helper methods
+    private func addProductBag(product: GrubChaserProduct) {
+        productsArrayObservable.accept(productsArrayObservable.value + [product])
+    }
+    
     private func buildOrderModel(products: [GrubChaserProductBag]) -> Observable<GrubChaserOrderModel> {
         .just(.init(userId: UserDefaults.standard.getLoggedUser()?.uid ?? "", products: productsBag.value))
     }

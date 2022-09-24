@@ -160,6 +160,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT1-hn-ct7">
+                                <rect key="frame" x="344" y="762" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="bOP-W5-XvI"/>
+                                    <constraint firstAttribute="height" constant="50" id="iFK-CO-VOF"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="order-bag" title=""/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2c2-oW-l4I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -170,7 +191,9 @@
                             <constraint firstItem="2HB-uR-rTa" firstAttribute="top" secondItem="2c2-oW-l4I" secondAttribute="top" constant="19" id="Bgs-kb-t1Q"/>
                             <constraint firstItem="PW6-i1-K7T" firstAttribute="top" secondItem="2HB-uR-rTa" secondAttribute="bottom" constant="11" id="Ged-DA-HCe"/>
                             <constraint firstAttribute="bottom" secondItem="lBO-aK-EqG" secondAttribute="bottom" constant="30" id="KFG-hw-CXU"/>
+                            <constraint firstItem="2c2-oW-l4I" firstAttribute="bottom" secondItem="AT1-hn-ct7" secondAttribute="bottom" constant="50" id="Mr6-gK-l95"/>
                             <constraint firstItem="lBO-aK-EqG" firstAttribute="leading" secondItem="2c2-oW-l4I" secondAttribute="leading" constant="15" id="QXT-6g-mEc"/>
+                            <constraint firstItem="2c2-oW-l4I" firstAttribute="trailing" secondItem="AT1-hn-ct7" secondAttribute="trailing" constant="20" id="TFZ-C8-6QR"/>
                             <constraint firstItem="PW6-i1-K7T" firstAttribute="leading" secondItem="Q0V-h0-Kfw" secondAttribute="trailing" constant="8" id="TSG-Am-HhH"/>
                             <constraint firstItem="Q0V-h0-Kfw" firstAttribute="leading" secondItem="2c2-oW-l4I" secondAttribute="leading" constant="20" id="VyF-Us-0TV"/>
                             <constraint firstItem="KnA-KI-dFc" firstAttribute="top" secondItem="5Rn-ip-a4x" secondAttribute="bottom" constant="9.5" id="ZWN-lr-ep9"/>
@@ -182,6 +205,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="orderButtonBottomConstraint" destination="Mr6-gK-l95" id="Jj7-wF-vqz"/>
+                        <outlet property="ordersButton" destination="AT1-hn-ct7" id="OQg-t4-vAJ"/>
                         <outlet property="productsCollectionView" destination="lBO-aK-EqG" id="P76-mP-wgy"/>
                         <outlet property="productsCollectionViewBottomConstraint" destination="KFG-hw-CXU" id="1ZB-io-4cg"/>
                         <outlet property="restaurantAddress" destination="KnA-KI-dFc" id="Ce6-wb-vqF"/>
@@ -416,6 +441,7 @@
         <image name="check-in" width="16" height="16"/>
         <image name="check-in-disabled" width="16" height="16"/>
         <image name="minus" catalog="system" width="128" height="26"/>
+        <image name="order-bag" width="21.333333969116211" height="21.333333969116211"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="restaurant-icon" width="500" height="500"/>
         <image name="star" width="16" height="16"/>

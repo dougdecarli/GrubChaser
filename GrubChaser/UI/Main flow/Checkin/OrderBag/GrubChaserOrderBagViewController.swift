@@ -48,12 +48,13 @@ class GrubChaserOrderBagViewController: GrubChaserBaseViewController<GrubChaserO
     private func setupCellButtonsActions(_ cell: GrubChaserProductBagTableViewCell,
                                          product: GrubChaserProductBag) {
         cell.plusButton.rx.tap
+            .flatMap { Observable.of(product.product) }
             .bind(to: viewModel.onPlusButtonTouched)
-            .disposed(by: disposeBag)
-        
+            .disposed(by: cell.disposeBag)
+
         cell.minusButton.rx.tap
             .bind(to: viewModel.onMinusButtonTouched)
-            .disposed(by: disposeBag)
+            .disposed(by: cell.disposeBag)
     }
     
     private func setupTableViewCells() {
