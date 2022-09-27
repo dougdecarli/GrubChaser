@@ -575,7 +575,6 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "generic-logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'generic-logo' is used in nib 'GrubChaserRestaurantTableViewCell', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'star' is used in nib 'GrubChaserRestaurantTableViewCell', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
@@ -647,7 +646,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "order", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'order' is used in storyboard 'Checkin', but couldn't be loaded.") }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "plus") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'plus' is used in storyboard 'Checkin', but couldn't be loaded.") } }
         if UIKit.UIImage(named: "restaurant-icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'restaurant-icon' is used in storyboard 'Checkin', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'star' is used in storyboard 'Checkin', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.checkin().checkinTabBar() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'checkinTabBar' could not be loaded from storyboard 'Checkin' as 'GrubChaserCheckinTabBarController'.") }
@@ -687,7 +685,6 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "distance", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'distance' is used in storyboard 'Inicio', but couldn't be loaded.") }
         if UIKit.UIImage(named: "restaurant-icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'restaurant-icon' is used in storyboard 'Inicio', but couldn't be loaded.") }
         if UIKit.UIImage(named: "show-list", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'show-list' is used in storyboard 'Inicio', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "star", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'star' is used in storyboard 'Inicio', but couldn't be loaded.") }
         if UIKit.UIImage(named: "web-house", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'web-house' is used in storyboard 'Inicio', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }

@@ -8,10 +8,10 @@
 import UIKit
 
 class GrubChaserRestaurantTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var restaurantImage: UIImageView!
     @IBOutlet weak var restaurantName: UILabel!
-    @IBOutlet weak var restaurantRating: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    
     static let identifier = "GrubChaserRestaurantTableViewCell",
                nibName: String = "GrubChaserRestaurantTableViewCell"
 
@@ -26,6 +26,7 @@ class GrubChaserRestaurantTableViewCell: UITableViewCell {
     
     func bind(cellModel: GrubChaserRestaurantModel) {
         self.restaurantName.text = cellModel.name
+        self.categoryLabel.text = cellModel.categoryName
         restaurantImage.loadImage(imageURL: cellModel.logo,
                                   genericImage: R.image.genericLogo()!)
     }

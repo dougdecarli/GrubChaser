@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,6 +17,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="413" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2e5-D5-Wb6">
+                        <rect key="frame" x="83" y="20.5" width="314" height="44.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hamburgueria do Júnior" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLa-TX-dzs">
+                                <rect key="frame" x="0.0" y="0.0" width="188" height="19.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lanches" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqs-b1-RJT">
+                                <rect key="frame" x="0.0" y="27.5" width="53.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="generic-logo" translatesAutoresizingMaskIntoConstraints="NO" id="K3X-Rd-Bds">
                         <rect key="frame" x="15" y="10" width="60" height="65"/>
                         <constraints>
@@ -29,68 +46,26 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1Q-r7-8PR">
-                        <rect key="frame" x="90" y="10" width="303" height="60"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="X2I-5m-WHI">
-                                <rect key="frame" x="0.0" y="37" width="15" height="15"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="15" id="G5f-2I-w3B"/>
-                                    <constraint firstAttribute="width" constant="15" id="JSq-pF-AsC"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="15" id="P9b-OS-EuS"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="Ua1-xi-tBx"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4,8 (200)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3f-q8-JcM">
-                                <rect key="frame" x="19" y="36" width="284" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hamburgueria do Júnior" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLa-TX-dzs">
-                                <rect key="frame" x="0.0" y="9" width="303" height="19"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="hLa-TX-dzs" firstAttribute="top" secondItem="S1Q-r7-8PR" secondAttribute="top" constant="9" id="7Zq-dY-D91"/>
-                            <constraint firstAttribute="trailing" secondItem="hLa-TX-dzs" secondAttribute="trailing" id="Q7W-ig-8fE"/>
-                            <constraint firstItem="r3f-q8-JcM" firstAttribute="centerY" secondItem="X2I-5m-WHI" secondAttribute="centerY" id="TVq-6f-dXc"/>
-                            <constraint firstItem="r3f-q8-JcM" firstAttribute="leading" secondItem="X2I-5m-WHI" secondAttribute="trailing" constant="4" id="Wbs-XX-MMM"/>
-                            <constraint firstAttribute="bottom" secondItem="X2I-5m-WHI" secondAttribute="bottom" constant="8" id="fhW-jI-eS0"/>
-                            <constraint firstItem="X2I-5m-WHI" firstAttribute="leading" secondItem="S1Q-r7-8PR" secondAttribute="leading" id="lgr-Y3-6Un"/>
-                            <constraint firstAttribute="trailing" secondItem="r3f-q8-JcM" secondAttribute="trailing" id="qj7-x0-jLj"/>
-                            <constraint firstItem="hLa-TX-dzs" firstAttribute="leading" secondItem="S1Q-r7-8PR" secondAttribute="leading" id="ssZ-CJ-kPm"/>
-                        </constraints>
-                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="K3X-Rd-Bds" secondAttribute="bottom" constant="10" id="2Fv-wp-iiz"/>
-                    <constraint firstItem="S1Q-r7-8PR" firstAttribute="leading" secondItem="K3X-Rd-Bds" secondAttribute="trailing" constant="15" id="7yk-vb-Mdd"/>
-                    <constraint firstItem="S1Q-r7-8PR" firstAttribute="centerY" secondItem="K3X-Rd-Bds" secondAttribute="centerY" constant="-2.5" id="96K-0T-hRs"/>
-                    <constraint firstAttribute="trailing" secondItem="S1Q-r7-8PR" secondAttribute="trailing" constant="20" id="FpW-6s-V49"/>
-                    <constraint firstItem="S1Q-r7-8PR" firstAttribute="top" secondItem="K3X-Rd-Bds" secondAttribute="top" id="X0P-oL-f8C"/>
+                    <constraint firstItem="2e5-D5-Wb6" firstAttribute="centerY" secondItem="K3X-Rd-Bds" secondAttribute="centerY" id="C31-xS-q9B"/>
+                    <constraint firstItem="2e5-D5-Wb6" firstAttribute="leading" secondItem="K3X-Rd-Bds" secondAttribute="trailing" constant="8" symbolic="YES" id="ODR-4z-wHS"/>
+                    <constraint firstAttribute="trailing" secondItem="2e5-D5-Wb6" secondAttribute="trailing" constant="16" id="Opr-df-epi"/>
                     <constraint firstItem="K3X-Rd-Bds" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="kLf-D4-V2U"/>
                     <constraint firstItem="K3X-Rd-Bds" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="qyf-K6-oE2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="categoryLabel" destination="Iqs-b1-RJT" id="HK8-uv-Vb7"/>
                 <outlet property="restaurantImage" destination="K3X-Rd-Bds" id="goe-wP-3BT"/>
                 <outlet property="restaurantName" destination="hLa-TX-dzs" id="adu-fq-DSx"/>
-                <outlet property="restaurantRating" destination="r3f-q8-JcM" id="OLm-ix-fYc"/>
             </connections>
             <point key="canvasLocation" x="70.28985507246378" y="173.10267857142856"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="generic-logo" width="16" height="16"/>
-        <image name="star" width="16" height="16"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

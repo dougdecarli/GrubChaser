@@ -12,7 +12,7 @@ class GrubChaserRestaurantOrderViewController:
     GrubChaserBaseViewController<GrubChaserRestaurantOrderViewModel> {
     @IBOutlet weak var restaurantLogo: UIImageView!
     @IBOutlet weak var restaurantCategory: UILabel!
-    @IBOutlet weak var restaurantAddress: UILabel!
+    @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var productsCollectionViewBottomConstraint: NSLayoutConstraint!
     
@@ -61,6 +61,8 @@ class GrubChaserRestaurantOrderViewController:
         setupCollectionViewCells()
         setupFooterLayout()
         bind()
+        
+        
     }
     
     override func bindInputs() {
@@ -85,7 +87,7 @@ class GrubChaserRestaurantOrderViewController:
         restaurantLogo.loadImage(imageURL: viewModel.restaurant.logo,
                                  genericImage: R.image.genericLogo()!)
         restaurantCategory.text = viewModel.restaurant.categoryName
-        restaurantAddress.text = viewModel.restaurant.location.address
+        restaurantNameLabel.text = viewModel.restaurant.name
         
         viewModel.isLoaderShowing
             .asDriver(onErrorJustReturn: false)

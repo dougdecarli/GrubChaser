@@ -11,7 +11,6 @@ class GrubChaserRestaurantDetailsViewController: GrubChaserBaseViewController<Gr
     
     @IBOutlet weak var restaurantLogo: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
