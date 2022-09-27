@@ -10,4 +10,5 @@ import Foundation
 struct GrubChaserOrderModel: Codable {
     let userId: String
     let products: [GrubChaserProductBag]
+    let timestamp: Double
 }

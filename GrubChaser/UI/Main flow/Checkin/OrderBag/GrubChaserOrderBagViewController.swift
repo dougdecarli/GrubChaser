@@ -43,6 +43,11 @@ class GrubChaserOrderBagViewController: GrubChaserBaseViewController<GrubChaserO
             .totalPriceDriver
             .drive(totalPrice.rx.text)
             .disposed(by: disposeBag)
+        
+        viewModel
+            .onSendOrderSuccess
+            .subscribe(onNext: goToOrdersVC)
+            .disposed(by: disposeBag)
     }
     
     private func setupCellButtonsActions(_ cell: GrubChaserProductBagTableViewCell,
@@ -55,6 +60,18 @@ class GrubChaserOrderBagViewController: GrubChaserBaseViewController<GrubChaserO
         cell.minusButton.rx.tap
             .bind(to: viewModel.onMinusButtonTouched)
             .disposed(by: cell.disposeBag)
+    }
+    
+    private func goToOrdersVC() {
+        guard let tabBar = presentingViewController as? UITabBarController,
+              let mainNavBar = tabBar.viewControllers![1] as? UINavigationController,
+              let checkinTabBar = mainNavBar.topViewController as? GrubChaserCheckinTabBarController,
+              let orderNavBar = checkinTabBar.viewControllers![0] as? UINavigationController,
+              let presenter = orderNavBar.topViewController as? GrubChaserRestaurantOrderViewController
+        else { return }
+        presenter.viewModel.productsSelected.accept([])
+        checkinTabBar.selectedIndex = 1
+        dismiss(animated: true)
     }
     
     private func setupTableViewCells() {

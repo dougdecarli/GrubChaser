@@ -9,7 +9,7 @@ import CoreLocation
 import RxCocoa
 import RxSwift
 
-class GrubChaserRestaurantOrderViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRouterProtocol>,
+class GrubChaserRestaurantOrderViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenuRouterProtocol>,
                                             GrubChaserCheckinViewModelProtocol {
     var restaurant: GrubChaserRestaurantModel,
         onProductSelected = PublishRelay<GrubChaserProduct>(),
@@ -28,7 +28,7 @@ class GrubChaserRestaurantOrderViewModel: GrubChaserBaseViewModel<GrubChaserChec
         productsSelected.asObservable()
     }
     
-    init(router: GrubChaserCheckinRouterProtocol,
+    init(router: GrubChaserCheckinMenuRouterProtocol,
          restaurant: GrubChaserRestaurantModel,
          tableId: String) {
         self.restaurant = restaurant

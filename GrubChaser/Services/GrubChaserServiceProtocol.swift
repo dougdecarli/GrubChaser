@@ -19,6 +19,9 @@ protocol GrubChaserServiceProtocol {
     func postOrder(restaurantId: String,
                    tableId: String,
                    order: GrubChaserOrderModel) -> Observable<DocumentReference>
+    func getUserOrdersInTable(restaurantId: String,
+                              tableId: String,
+                              userId: String) -> Observable<[GrubChaserOrderModel]>
     func getRestaurantCategory(categoryRef: DocumentReference) -> Observable<GrubChaserRestaurantCategory>
     func createUser(userModel: GrubChaserUserModel) -> Observable<DocumentReference>
     func checkUserHasAccount(uid: String) -> Observable<Bool>

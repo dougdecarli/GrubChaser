@@ -67,10 +67,14 @@ class GrubChaserProductModalViewController: GrubChaserBaseViewController<GrubCha
     
     private func onModalDismiss(products: [GrubChaserProduct]) {
         if let tabBar = presentingViewController as? UITabBarController {
-            if let navBar = tabBar.viewControllers![1] as? UINavigationController {
-                if let presenter = navBar.topViewController as? GrubChaserRestaurantOrderViewController {
-                    let currentProductsSelected = presenter.viewModel.productsSelected.value
-                    presenter.viewModel.productsSelected.accept(currentProductsSelected + products)
+            if let mainNavBar = tabBar.viewControllers![1] as? UINavigationController {
+                if let checkinNavBar = mainNavBar.topViewController as? GrubChaserCheckinTabBarController {
+                    if let orderNavBar = checkinNavBar.viewControllers![0] as? UINavigationController {
+                        if let presenter = orderNavBar.topViewController as? GrubChaserRestaurantOrderViewController {
+                            let currentProductsSelected = presenter.viewModel.productsSelected.value
+                            presenter.viewModel.productsSelected.accept(currentProductsSelected + products)
+                        }
+                    }
                 }
             }
         }

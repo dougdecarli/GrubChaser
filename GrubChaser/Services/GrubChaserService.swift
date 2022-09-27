@@ -69,6 +69,22 @@ class GrubChaserService: GrubChaserServiceProtocol {
             .addDocument(data: order.toDictionary!)
     }
     
+    func getUserOrdersInTable(restaurantId: String,
+                              tableId: String,
+                              userId: String) -> Observable<[GrubChaserOrderModel]> {
+        dbFirestore
+            .collection("restaurants")
+            .document(restaurantId)
+            .collection("tables")
+            .document(tableId)
+            .collection("orders")
+            .whereField("userId", isEqualTo: userId)
+            .order(by: "timestamp", descending: true)
+            .rx
+            .getDocuments()
+            .decode(GrubChaserOrderModel.self)
+    }
+    
     func getRestaurantCategory(categoryRef: DocumentReference) -> Observable<GrubChaserRestaurantCategory> {
         categoryRef
             .rx

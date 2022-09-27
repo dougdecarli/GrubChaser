@@ -49,6 +49,3 @@ struct GrubChaserTable: Codable {
 }
 
 extension DocumentReference: DocumentReferenceType {}
-extension GeoPoint: GeoPointType {}
-extension FieldValue: FieldValueType {}
-extension Timestamp: TimestampType {}

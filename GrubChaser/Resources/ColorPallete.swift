@@ -16,7 +16,6 @@ class ColorPallete {
     static var commonWhite = UIColor(hexString: "#F2F2F2")
     static var commonDarkGray = UIColor(hexString: "#706F6F")
     static var commonMiddleGray = UIColor(hexString: "#ACACAC")
-    
 }
 
 public extension UIColor {

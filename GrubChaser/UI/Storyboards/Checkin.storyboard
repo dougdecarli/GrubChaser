@@ -100,16 +100,120 @@
             </objects>
             <point key="canvasLocation" x="1544.9275362318842" y="-548.4375"/>
         </scene>
-        <!--Grub Chaser Restaurant Order View Controller-->
+        <!--Grub Chaser Checkin Tab Bar Controller-->
+        <scene sceneID="ShV-aK-tpA">
+            <objects>
+                <tabBarController storyboardIdentifier="checkinTabBar" id="I1y-Hw-pSx" customClass="GrubChaserCheckinTabBarController" customModule="GrubChaser" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="di0-w4-zlM">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="fMb-XT-hXT" kind="relationship" relationship="viewControllers" id="th8-r2-Ehh"/>
+                        <segue destination="zWW-Ic-A5G" kind="relationship" relationship="viewControllers" id="e1J-FY-NTm"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ji5-sc-jRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2513" y="-548"/>
+        </scene>
+        <!--Pedidos-->
+        <scene sceneID="nZy-eO-Mrr">
+            <objects>
+                <viewController storyboardIdentifier="ordersVC" title="Pedidos" id="zWW-Ic-A5G" customClass="GrubChaserOrdersViewController" customModule="GrubChaser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F8T-f6-H8L">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DMl-hL-AFb">
+                                <rect key="frame" x="0.0" y="48" width="414" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfG-2w-yiA">
+                                <rect key="frame" x="0.0" y="763" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total parcial dos pedidos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA9-wt-4Jc">
+                                        <rect key="frame" x="8" y="15" width="178.5" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 20,99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mas-hc-kKw">
+                                        <rect key="frame" x="336" y="15" width="70" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="zA9-wt-4Jc" firstAttribute="centerY" secondItem="qfG-2w-yiA" secondAttribute="centerY" id="6eb-gW-YJ6"/>
+                                    <constraint firstItem="zA9-wt-4Jc" firstAttribute="leading" secondItem="qfG-2w-yiA" secondAttribute="leading" constant="8" id="Hsg-Yf-iL0"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mas-hc-kKw" secondAttribute="trailing" constant="8" id="XZk-lv-j5W"/>
+                                    <constraint firstAttribute="height" constant="50" id="aD0-NH-3e9"/>
+                                    <constraint firstItem="Mas-hc-kKw" firstAttribute="centerY" secondItem="qfG-2w-yiA" secondAttribute="centerY" id="awo-Ua-Oz1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="God-JB-rVa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DMl-hL-AFb" firstAttribute="leading" secondItem="God-JB-rVa" secondAttribute="leading" id="0jn-0C-9qS"/>
+                            <constraint firstItem="qfG-2w-yiA" firstAttribute="trailing" secondItem="God-JB-rVa" secondAttribute="trailing" id="353-mI-4Q8"/>
+                            <constraint firstItem="God-JB-rVa" firstAttribute="trailing" secondItem="DMl-hL-AFb" secondAttribute="trailing" id="Ufd-Jx-hgm"/>
+                            <constraint firstItem="qfG-2w-yiA" firstAttribute="top" secondItem="DMl-hL-AFb" secondAttribute="bottom" id="cRj-0N-FWU"/>
+                            <constraint firstItem="DMl-hL-AFb" firstAttribute="top" secondItem="God-JB-rVa" secondAttribute="top" id="ckt-le-udt"/>
+                            <constraint firstItem="qfG-2w-yiA" firstAttribute="bottom" secondItem="God-JB-rVa" secondAttribute="bottom" id="cnf-ql-ooj"/>
+                            <constraint firstItem="qfG-2w-yiA" firstAttribute="leading" secondItem="God-JB-rVa" secondAttribute="leading" id="fPL-2H-6V6"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Pedidos" image="order" id="zpo-qo-l6y"/>
+                    <navigationItem key="navigationItem" id="Rrr-on-aK9"/>
+                    <connections>
+                        <outlet property="orderTableView" destination="DMl-hL-AFb" id="wwC-lB-LgN"/>
+                        <outlet property="priceLabel" destination="Mas-hc-kKw" id="n5S-2l-EBW"/>
+                        <outlet property="totalPriceView" destination="qfG-2w-yiA" id="rHk-Vr-LIi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEa-Zs-dRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3597.1014492753625" y="-57.589285714285708"/>
+        </scene>
+        <!--Cardápio-->
+        <scene sceneID="PWb-6k-iVJ">
+            <objects>
+                <navigationController id="fMb-XT-hXT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cardápio" id="eVn-3S-zR7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fht-aG-lYw">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Lvl-oF-Uka" kind="relationship" relationship="rootViewController" id="5oB-Nk-7Bm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fYR-je-EJg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3597" y="-893"/>
+        </scene>
+        <!--Cardápio-->
         <scene sceneID="Hjk-Vv-L30">
             <objects>
-                <viewController storyboardIdentifier="restaurantOrderVC" id="Lvl-oF-Uka" customClass="GrubChaserRestaurantOrderViewController" customModule="GrubChaser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="restaurantOrderVC" title="Cardápio" id="Lvl-oF-Uka" customClass="GrubChaserRestaurantOrderViewController" customModule="GrubChaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JfS-dr-bY6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="restaurant-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Q0V-h0-Kfw">
-                                <rect key="frame" x="20" y="60" width="80" height="85"/>
+                                <rect key="frame" x="20" y="104" width="80" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="H5x-NP-s5f"/>
                                     <constraint firstAttribute="width" constant="80" id="yut-d5-tbe"/>
@@ -121,32 +225,32 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lanches" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HB-uR-rTa">
-                                <rect key="frame" x="108" y="67" width="54" height="17"/>
+                                <rect key="frame" x="108" y="111" width="54" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="PW6-i1-K7T">
-                                <rect key="frame" x="108" y="95" width="15" height="15"/>
+                                <rect key="frame" x="108" y="139" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Irn-oL-NkS"/>
                                     <constraint firstAttribute="width" constant="15" id="l4y-f2-ZWD"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4,8 (200)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rn-ip-a4x">
-                                <rect key="frame" x="127" y="94" width="58" height="17"/>
+                                <rect key="frame" x="127" y="138" width="58" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua dos Andradas, 197, Porto Alegre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnA-KI-dFc">
-                                <rect key="frame" x="108" y="120.5" width="286" height="17"/>
+                                <rect key="frame" x="108" y="164.5" width="286" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lBO-aK-EqG">
-                                <rect key="frame" x="15" y="175" width="384" height="691"/>
+                                <rect key="frame" x="15" y="219" width="384" height="594"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="CxK-6L-72i"/>
                                 <cells>
@@ -160,27 +264,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT1-hn-ct7">
-                                <rect key="frame" x="344" y="762" width="50" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="bOP-W5-XvI"/>
-                                    <constraint firstAttribute="height" constant="50" id="iFK-CO-VOF"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="order-bag" title=""/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2c2-oW-l4I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -190,12 +273,10 @@
                             <constraint firstItem="2HB-uR-rTa" firstAttribute="leading" secondItem="Q0V-h0-Kfw" secondAttribute="trailing" constant="8" id="9dE-pq-Onn"/>
                             <constraint firstItem="2HB-uR-rTa" firstAttribute="top" secondItem="2c2-oW-l4I" secondAttribute="top" constant="19" id="Bgs-kb-t1Q"/>
                             <constraint firstItem="PW6-i1-K7T" firstAttribute="top" secondItem="2HB-uR-rTa" secondAttribute="bottom" constant="11" id="Ged-DA-HCe"/>
-                            <constraint firstAttribute="bottom" secondItem="lBO-aK-EqG" secondAttribute="bottom" constant="30" id="KFG-hw-CXU"/>
-                            <constraint firstItem="2c2-oW-l4I" firstAttribute="bottom" secondItem="AT1-hn-ct7" secondAttribute="bottom" constant="50" id="Mr6-gK-l95"/>
                             <constraint firstItem="lBO-aK-EqG" firstAttribute="leading" secondItem="2c2-oW-l4I" secondAttribute="leading" constant="15" id="QXT-6g-mEc"/>
-                            <constraint firstItem="2c2-oW-l4I" firstAttribute="trailing" secondItem="AT1-hn-ct7" secondAttribute="trailing" constant="20" id="TFZ-C8-6QR"/>
                             <constraint firstItem="PW6-i1-K7T" firstAttribute="leading" secondItem="Q0V-h0-Kfw" secondAttribute="trailing" constant="8" id="TSG-Am-HhH"/>
                             <constraint firstItem="Q0V-h0-Kfw" firstAttribute="leading" secondItem="2c2-oW-l4I" secondAttribute="leading" constant="20" id="VyF-Us-0TV"/>
+                            <constraint firstItem="lBO-aK-EqG" firstAttribute="bottom" secondItem="2c2-oW-l4I" secondAttribute="bottom" id="YGK-yL-DtV"/>
                             <constraint firstItem="KnA-KI-dFc" firstAttribute="top" secondItem="5Rn-ip-a4x" secondAttribute="bottom" constant="9.5" id="ZWN-lr-ep9"/>
                             <constraint firstItem="Q0V-h0-Kfw" firstAttribute="top" secondItem="2c2-oW-l4I" secondAttribute="top" constant="12" id="clQ-mf-HMe"/>
                             <constraint firstItem="5Rn-ip-a4x" firstAttribute="centerY" secondItem="PW6-i1-K7T" secondAttribute="centerY" id="q3E-jP-SI6"/>
@@ -204,11 +285,11 @@
                             <constraint firstItem="KnA-KI-dFc" firstAttribute="leading" secondItem="Q0V-h0-Kfw" secondAttribute="trailing" constant="8" id="vHJ-oj-leM"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Cardápio" image="menucard.fill" catalog="system" id="y3V-Gh-iAe"/>
+                    <navigationItem key="navigationItem" id="pQC-Ki-yTh"/>
                     <connections>
-                        <outlet property="orderButtonBottomConstraint" destination="Mr6-gK-l95" id="Jj7-wF-vqz"/>
-                        <outlet property="ordersButton" destination="AT1-hn-ct7" id="OQg-t4-vAJ"/>
                         <outlet property="productsCollectionView" destination="lBO-aK-EqG" id="P76-mP-wgy"/>
-                        <outlet property="productsCollectionViewBottomConstraint" destination="KFG-hw-CXU" id="1ZB-io-4cg"/>
+                        <outlet property="productsCollectionViewBottomConstraint" destination="YGK-yL-DtV" id="e0m-LJ-EeK"/>
                         <outlet property="restaurantAddress" destination="KnA-KI-dFc" id="Ce6-wb-vqF"/>
                         <outlet property="restaurantCategory" destination="2HB-uR-rTa" id="yhp-PJ-Z4F"/>
                         <outlet property="restaurantLogo" destination="Q0V-h0-Kfw" id="7Gv-kD-Mhx"/>
@@ -216,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77k-Z9-f0A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2303" y="-548"/>
+            <point key="canvasLocation" x="4551" y="-893"/>
         </scene>
         <!--Grub Chaser Product Modal View Controller-->
         <scene sceneID="abC-cQ-HCx">
@@ -330,7 +411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="92u-87-p1d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3087" y="-548"/>
+            <point key="canvasLocation" x="5393" y="-893"/>
         </scene>
         <!--Grub Chaser Order Bag View Controller-->
         <scene sceneID="1IG-Bo-enT">
@@ -433,15 +514,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ttE-GM-tcl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3840.579710144928" y="-548.4375"/>
+            <point key="canvasLocation" x="6151" y="-893"/>
         </scene>
     </scenes>
     <color key="tintColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="check-in" width="16" height="16"/>
         <image name="check-in-disabled" width="16" height="16"/>
+        <image name="menucard.fill" catalog="system" width="105" height="128"/>
         <image name="minus" catalog="system" width="128" height="26"/>
-        <image name="order-bag" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="order" width="16" height="16"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="restaurant-icon" width="500" height="500"/>
         <image name="star" width="16" height="16"/>

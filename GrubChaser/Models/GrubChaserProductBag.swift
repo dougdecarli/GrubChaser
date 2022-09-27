@@ -6,8 +6,14 @@
 //
 
 import Foundation
+import Differentiator
 
-struct GrubChaserProductBag: Codable {
+struct GrubChaserProductBag: Codable, IdentifiableType, Equatable {
+    var identity: UUID {
+        return UUID()
+    }
+    typealias Identity = UUID
+    
     let product: GrubChaserProduct
     let quantity: Int
 }

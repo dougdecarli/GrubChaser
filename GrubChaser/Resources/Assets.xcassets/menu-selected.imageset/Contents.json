@@ -1,16 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "orderBag.png",
+      "filename" : "menu-selected.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "menu-selected@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "order-bag@2x.png",
+      "filename" : "menu-selected@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -18,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }

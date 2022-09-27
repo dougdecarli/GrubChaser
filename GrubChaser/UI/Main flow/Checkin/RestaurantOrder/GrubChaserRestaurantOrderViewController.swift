@@ -15,8 +15,6 @@ class GrubChaserRestaurantOrderViewController:
     @IBOutlet weak var restaurantAddress: UILabel!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var productsCollectionViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var ordersButton: UIButton!
-    @IBOutlet weak var orderButtonBottomConstraint: NSLayoutConstraint!
     
     private let footerView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -57,14 +55,12 @@ class GrubChaserRestaurantOrderViewController:
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.isHidden = true
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        title = viewModel.restaurant.name
+        tabBarController?.parent?.tabBarController?.tabBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
         setupCollectionViewLayout()
         setupCollectionViewCells()
         setupFooterLayout()
         bind()
-        ordersButton.isHidden = false
     }
     
     override func bindInputs() {
@@ -86,7 +82,6 @@ class GrubChaserRestaurantOrderViewController:
     override func bindOutputs() {
         super.bindOutputs()
         
-        self.title = viewModel.restaurant.name
         restaurantLogo.loadImage(imageURL: viewModel.restaurant.logo,
                                  genericImage: R.image.genericLogo()!)
         restaurantCategory.text = viewModel.restaurant.categoryName
@@ -115,11 +110,10 @@ class GrubChaserRestaurantOrderViewController:
             .map{ !($0.count > 0) }
             .do(onNext: { [weak self] hasNotProductsSelected in
                 if hasNotProductsSelected {
-                    self?.productsCollectionViewBottomConstraint.constant = 30
+                    self?.productsCollectionViewBottomConstraint.constant = 0
                 } else {
-                    self?.productsCollectionViewBottomConstraint.constant = 122
+                    self?.productsCollectionViewBottomConstraint.constant = -90
                 }
-                self?.setupOrderButtonConstraints(hasFooterView: !hasNotProductsSelected)
             })
             .bind(to: footerView.rx.isHidden)
             .disposed(by: disposeBag)
@@ -154,7 +148,6 @@ extension GrubChaserRestaurantOrderViewController {
     }
     
     private func addFooterView() {
-        view.add(ordersButton)
         view.add(footerView)
         footerView.add(footerProductsSelectedCollection)
         footerView.add(seeBagButton)
@@ -162,29 +155,22 @@ extension GrubChaserRestaurantOrderViewController {
     
     func setupFooterConstraints() {
         footerView
-            .bottom()
+            .bottom(view.safeAreaLayoutGuide.bottomAnchor, -30)
             .leading()
             .trailing()
-            .height(120)
-        
-        footerProductsSelectedCollection
-            .top(20)
-            .leading(20)
             .height(50)
         
+        footerProductsSelectedCollection
+            .top()
+            .leading(20)
+            .height(50)
+            .bottom()
+        
         seeBagButton
-            .top(20)
+            .top()
             .trailing(-20)
             .leading(footerProductsSelectedCollection.trailingAnchor, 5)
             .width(UIScreen.main.bounds.width * 0.3)
             .height(50)
-    }
-    
-    private func setupOrderButtonConstraints(hasFooterView: Bool) {
-        if hasFooterView {
-            orderButtonBottomConstraint.constant = 90
-        } else {
-            orderButtonBottomConstraint.constant = 50
-        }
     }
 }

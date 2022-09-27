@@ -161,8 +161,8 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
     //MARK: Navigation
     private func goToRestaurantOrder(_ restaurant: GrubChaserRestaurantModel,
                                      _ tableId: String) {
-        router.goToRestaurantOrder(restaurant: restaurant,
-                                   tableId: tableId)
+        router.goToCheckinTabBar(restaurant: restaurant,
+                                 tableId: tableId)
     }
     
     //MARK: - Helper methods

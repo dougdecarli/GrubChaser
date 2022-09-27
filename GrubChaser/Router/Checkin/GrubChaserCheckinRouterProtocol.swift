@@ -8,10 +8,6 @@
 import Foundation
 
 protocol GrubChaserCheckinRouterProtocol {
-    func goToRestaurantOrder(restaurant: GrubChaserRestaurantModel,
-                             tableId: String)
-    func presentProductModal(product: GrubChaserProduct)
-    func presentBagOrderModal(products: [GrubChaserProduct],
-                              restaurant: GrubChaserRestaurantModel,
-                              tableId: String)
+    func goToCheckinTabBar(restaurant: GrubChaserRestaurantModel,
+                           tableId: String)
 }

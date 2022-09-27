@@ -7,14 +7,17 @@
 
 import RxSwift
 import RxCocoa
+import CodableFirebase
+import FirebaseFirestore
 
-class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRouterProtocol>,
+class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenuRouterProtocol>,
                                    GrubChaserCheckinViewModelProtocol {
     let products: [GrubChaserProduct],
         viewControllerRef: UIViewController,
         onMinusButtonTouched = PublishRelay<Void>(),
         onPlusButtonTouched = PublishRelay<GrubChaserProduct>(),
-        onSendOrderButtonTouched = PublishRelay<Void>()
+        onSendOrderButtonTouched = PublishRelay<Void>(),
+        onSendOrderSuccess = PublishRelay<Void>()
     
     var isLoaderShowing = PublishSubject<Bool>(),
         showAlert = PublishSubject<ShowAlertModel>(),
@@ -45,7 +48,7 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRout
             .asDriver(onErrorJustReturn: "")
     }
     
-    init(router: GrubChaserCheckinRouterProtocol,
+    init(router: GrubChaserCheckinMenuRouterProtocol,
          products: [GrubChaserProduct],
          restaurant: GrubChaserRestaurantModel,
          tableId: String,
@@ -104,7 +107,7 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRout
     private func postOrder(order: GrubChaserOrderModel) {
         func handleSuccess(_: Any?) {
             stopLoading()
-            print("us guri")
+            onSendOrderSuccess.accept(())
         }
         
         func handleError(_: Error) {
@@ -124,7 +127,9 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRout
     }
     
     private func buildOrderModel(products: [GrubChaserProductBag]) -> Observable<GrubChaserOrderModel> {
-        .just(.init(userId: UserDefaults.standard.getLoggedUser()?.uid ?? "", products: productsBag.value))
+        .just(.init(userId: UserDefaults.standard.getLoggedUser()?.uid ?? "",
+                    products: productsBag.value,
+                    timestamp: Date.now.timeIntervalSince1970))
     }
     
     private func buildAlertModel() -> ShowAlertModel {

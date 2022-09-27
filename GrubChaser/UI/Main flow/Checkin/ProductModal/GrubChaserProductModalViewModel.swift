@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-class GrubChaserProductModalViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRouterProtocol> {
+class GrubChaserProductModalViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenuRouterProtocol> {
     let product: GrubChaserProduct,
         onAddButtonTouched = PublishRelay<Void>(),
         onPlusButtonTouched = PublishRelay<Void>(),
@@ -34,7 +34,7 @@ class GrubChaserProductModalViewModel: GrubChaserBaseViewModel<GrubChaserCheckin
         setupAddButtonTextDriver()
     }
     
-    init(router: GrubChaserCheckinRouterProtocol,
+    init(router: GrubChaserCheckinMenuRouterProtocol,
          product: GrubChaserProduct) {
         self.product = product
         super.init(router: router)
