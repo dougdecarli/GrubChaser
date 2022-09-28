@@ -6,13 +6,10 @@
 //
 
 import UIKit
-import Foundation
+import RxDataSources
 
 class GrubChaserRestaurantOrderViewController:
     GrubChaserBaseViewController<GrubChaserRestaurantOrderViewModel> {
-    @IBOutlet weak var restaurantLogo: UIImageView!
-    @IBOutlet weak var restaurantCategory: UILabel!
-    @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var productsCollectionViewBottomConstraint: NSLayoutConstraint!
     
@@ -53,6 +50,30 @@ class GrubChaserRestaurantOrderViewController:
         return $0
     }(UIButton())
     
+    typealias ProductsSectionModel = SectionModel<String, GrubChaserProduct>
+    typealias CollectionViewDataSource = RxCollectionViewSectionedReloadDataSource<ProductsSectionModel>
+    
+    lazy var dataSource = CollectionViewDataSource(configureCell: { (dataSource, collectionView, indexPath, item) in
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GrubChaserProdutsCollectionViewCell.identifier,
+                                                         for: indexPath) as? GrubChaserProdutsCollectionViewCell {
+            cell.bind(product: item)
+            return cell
+        }
+        else {
+            return UICollectionViewCell()
+        }
+    }, configureSupplementaryView: { [weak self] (dataSource, collectionView, kind, indexPath) in
+        guard let self = self else { return UICollectionReusableView() }
+        if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                        withReuseIdentifier: GrubChaserProductsHeaderCollectionReusableView.identifier,
+                                                                        for: indexPath) as? GrubChaserProductsHeaderCollectionReusableView {
+            header.bind(restaurant: self.viewModel.restaurant)
+            return header
+        } else {
+            return UICollectionReusableView()
+        }
+    })
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.parent?.tabBarController?.tabBar.isHidden = true
@@ -61,8 +82,6 @@ class GrubChaserRestaurantOrderViewController:
         setupCollectionViewCells()
         setupFooterLayout()
         bind()
-        
-        
     }
     
     override func bindInputs() {
@@ -84,11 +103,6 @@ class GrubChaserRestaurantOrderViewController:
     override func bindOutputs() {
         super.bindOutputs()
         
-        restaurantLogo.loadImage(imageURL: viewModel.restaurant.logo,
-                                 genericImage: R.image.genericLogo()!)
-        restaurantCategory.text = viewModel.restaurant.categoryName
-        restaurantNameLabel.text = viewModel.restaurant.name
-        
         viewModel.isLoaderShowing
             .asDriver(onErrorJustReturn: false)
             .drive(productsCollectionView.rx.isHidden)
@@ -96,10 +110,11 @@ class GrubChaserRestaurantOrderViewController:
         
         viewModel
             .productCells
-            .bind(to: productsCollectionView.rx.items(cellIdentifier: GrubChaserProdutsCollectionViewCell.identifier,
-                                                      cellType: GrubChaserProdutsCollectionViewCell.self)) { (row, element, cell) in
-                cell.bind(product: element)
-            }.disposed(by: disposeBag)
+            .map { items -> [ProductsSectionModel] in
+                return [ProductsSectionModel(model: "", items: items)]
+            }
+            .bind(to: productsCollectionView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         
         viewModel
             .productsSelectedCells.asObservable()
@@ -124,6 +139,7 @@ class GrubChaserRestaurantOrderViewController:
     //MARK: Layout setup
     private func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
+        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 95)
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (UIScreen.main.bounds.width / 3) - 15,
@@ -135,6 +151,11 @@ class GrubChaserRestaurantOrderViewController:
         productsCollectionView.register(UINib(nibName: GrubChaserProdutsCollectionViewCell.nibName,
                                               bundle: .main),
                                         forCellWithReuseIdentifier: GrubChaserProdutsCollectionViewCell.identifier)
+        
+        productsCollectionView.register(UINib(nibName: GrubChaserProductsHeaderCollectionReusableView.nibName,
+                                              bundle: .main),
+                                        forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                        withReuseIdentifier: GrubChaserProductsHeaderCollectionReusableView.identifier)
         
         footerProductsSelectedCollection.register(UINib(nibName: GrubChaserProductsSelectedCollectionViewCell.nibName,
                                                         bundle: .main),

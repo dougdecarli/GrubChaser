@@ -133,68 +133,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="restaurant-icon" translatesAutoresizingMaskIntoConstraints="NO" id="sYU-E7-jki">
-                                <rect key="frame" x="16" y="60" width="80" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="5eh-dm-Roi"/>
-                                    <constraint firstAttribute="height" constant="85" id="EwE-Mf-SiC"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Fc5-cs-yiL">
-                                <rect key="frame" x="104" y="68" width="294" height="69"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lanches" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4N-Dn-HeE">
-                                        <rect key="frame" x="0.0" y="0.0" width="53.5" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UH-ta-xU4">
-                                        <rect key="frame" x="0.0" y="26" width="215" height="17"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j6R-ZA-KKl">
-                                                <rect key="frame" x="0.0" y="0.0" width="215" height="17"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distance" translatesAutoresizingMaskIntoConstraints="NO" id="HEO-Un-Iwb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="17"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="16" id="BfK-1d-t0x"/>
-                                                            <constraint firstAttribute="height" constant="17" id="wDN-KN-xld"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2,5 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTc-FH-dGs">
-                                                        <rect key="frame" x="24" y="0.0" width="191" height="17"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="j6R-ZA-KKl" firstAttribute="leading" secondItem="3UH-ta-xU4" secondAttribute="leading" id="0aN-cs-37s"/>
-                                            <constraint firstAttribute="trailing" secondItem="j6R-ZA-KKl" secondAttribute="trailing" id="5e8-dA-R8Z"/>
-                                            <constraint firstItem="j6R-ZA-KKl" firstAttribute="top" secondItem="3UH-ta-xU4" secondAttribute="top" id="9uq-cD-2N5"/>
-                                            <constraint firstAttribute="bottom" secondItem="j6R-ZA-KKl" secondAttribute="bottom" id="WAQ-rg-BOb"/>
-                                            <constraint firstAttribute="height" constant="17" id="bVN-dr-3f9"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua dos Andradas, 197, Porto Alegre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9V-zl-377">
-                                        <rect key="frame" x="0.0" y="52" width="227" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H9H-9P-ZSV">
-                                <rect key="frame" x="10" y="155" width="394" height="711"/>
+                                <rect key="frame" x="10" y="48" width="394" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="J49-xa-wkC">
                                     <size key="itemSize" width="128" height="128"/>
@@ -217,23 +157,14 @@
                         <viewLayoutGuide key="safeArea" id="9N9-Wr-dnm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9N9-Wr-dnm" firstAttribute="trailing" secondItem="Fc5-cs-yiL" secondAttribute="trailing" constant="16" id="6Gh-Bb-Xzk"/>
-                            <constraint firstItem="sYU-E7-jki" firstAttribute="leading" secondItem="9N9-Wr-dnm" secondAttribute="leading" constant="16" id="9Lr-of-VZg"/>
-                            <constraint firstItem="sYU-E7-jki" firstAttribute="top" secondItem="9N9-Wr-dnm" secondAttribute="top" constant="12" id="EUx-y9-PbX"/>
-                            <constraint firstItem="Fc5-cs-yiL" firstAttribute="centerY" secondItem="sYU-E7-jki" secondAttribute="centerY" id="LAw-6S-r54"/>
-                            <constraint firstItem="H9H-9P-ZSV" firstAttribute="top" secondItem="sYU-E7-jki" secondAttribute="bottom" constant="10" id="LQz-hd-E9a"/>
+                            <constraint firstItem="H9H-9P-ZSV" firstAttribute="top" secondItem="9N9-Wr-dnm" secondAttribute="top" id="Tes-CB-IgE"/>
                             <constraint firstItem="H9H-9P-ZSV" firstAttribute="leading" secondItem="9N9-Wr-dnm" secondAttribute="leading" constant="10" id="asy-D1-2do"/>
-                            <constraint firstItem="Fc5-cs-yiL" firstAttribute="leading" secondItem="sYU-E7-jki" secondAttribute="trailing" constant="8" symbolic="YES" id="gr0-KE-of4"/>
                             <constraint firstAttribute="bottom" secondItem="H9H-9P-ZSV" secondAttribute="bottom" constant="30" id="hwl-6n-kah"/>
                             <constraint firstItem="H9H-9P-ZSV" firstAttribute="trailing" secondItem="9N9-Wr-dnm" secondAttribute="trailing" constant="-10" id="qLD-ed-zmf"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addressLabel" destination="Y9V-zl-377" id="t7Y-Hv-ril"/>
-                        <outlet property="categoryLabel" destination="F4N-Dn-HeE" id="pcv-mf-x8R"/>
                         <outlet property="collectionView" destination="H9H-9P-ZSV" id="san-8l-AWP"/>
-                        <outlet property="distanceLabel" destination="BTc-FH-dGs" id="LRh-Zi-vZ0"/>
-                        <outlet property="restaurantLogo" destination="sYU-E7-jki" id="WOk-2J-1JO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0RU-pQ-YDx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -243,8 +174,6 @@
     </scenes>
     <color key="tintColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
-        <image name="distance" width="16" height="16"/>
-        <image name="restaurant-icon" width="500" height="500"/>
         <image name="show-list" width="16" height="16"/>
         <image name="web-house" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">

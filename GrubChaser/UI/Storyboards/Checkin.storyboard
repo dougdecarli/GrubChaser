@@ -207,20 +207,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="restaurant-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Q0V-h0-Kfw">
-                                <rect key="frame" x="20" y="92" width="80" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="H5x-NP-s5f"/>
-                                    <constraint firstAttribute="width" constant="80" id="yut-d5-tbe"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lBO-aK-EqG">
-                                <rect key="frame" x="15" y="187" width="384" height="626"/>
+                                <rect key="frame" x="15" y="92" width="384" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="CxK-6L-72i"/>
                                 <cells>
@@ -234,36 +222,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hue-kK-zPA">
-                                <rect key="frame" x="108" y="113.5" width="290" height="42"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vT-qH-vBF">
-                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="17"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lanches" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HB-uR-rTa">
-                                        <rect key="frame" x="0.0" y="25" width="53.5" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2c2-oW-l4I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lBO-aK-EqG" firstAttribute="trailing" secondItem="2c2-oW-l4I" secondAttribute="trailing" constant="-15" id="3h4-Pf-C4d"/>
-                            <constraint firstItem="hue-kK-zPA" firstAttribute="leading" secondItem="Q0V-h0-Kfw" secondAttribute="trailing" constant="8" symbolic="YES" id="6DE-vN-XQp"/>
-                            <constraint firstItem="hue-kK-zPA" firstAttribute="centerY" secondItem="Q0V-h0-Kfw" secondAttribute="centerY" id="GrE-Tx-YfU"/>
                             <constraint firstItem="lBO-aK-EqG" firstAttribute="leading" secondItem="2c2-oW-l4I" secondAttribute="leading" constant="15" id="QXT-6g-mEc"/>
-                            <constraint firstItem="Q0V-h0-Kfw" firstAttribute="leading" secondItem="2c2-oW-l4I" secondAttribute="leading" constant="20" id="VyF-Us-0TV"/>
-                            <constraint firstItem="2c2-oW-l4I" firstAttribute="trailing" secondItem="hue-kK-zPA" secondAttribute="trailing" constant="16" id="Xjm-Nz-8Mt"/>
+                            <constraint firstItem="lBO-aK-EqG" firstAttribute="top" secondItem="2c2-oW-l4I" secondAttribute="top" id="UWU-Yi-idT"/>
                             <constraint firstItem="lBO-aK-EqG" firstAttribute="bottom" secondItem="2c2-oW-l4I" secondAttribute="bottom" id="YGK-yL-DtV"/>
-                            <constraint firstItem="Q0V-h0-Kfw" firstAttribute="top" secondItem="2c2-oW-l4I" secondAttribute="top" id="clQ-mf-HMe"/>
-                            <constraint firstItem="lBO-aK-EqG" firstAttribute="top" secondItem="Q0V-h0-Kfw" secondAttribute="bottom" constant="10" id="t5i-a9-Gfg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cardápio" image="menucard.fill" catalog="system" id="y3V-Gh-iAe"/>
@@ -271,9 +237,6 @@
                     <connections>
                         <outlet property="productsCollectionView" destination="lBO-aK-EqG" id="P76-mP-wgy"/>
                         <outlet property="productsCollectionViewBottomConstraint" destination="YGK-yL-DtV" id="e0m-LJ-EeK"/>
-                        <outlet property="restaurantCategory" destination="2HB-uR-rTa" id="yhp-PJ-Z4F"/>
-                        <outlet property="restaurantLogo" destination="Q0V-h0-Kfw" id="7Gv-kD-Mhx"/>
-                        <outlet property="restaurantNameLabel" destination="0vT-qH-vBF" id="COR-vQ-1QU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77k-Z9-f0A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -506,7 +469,6 @@
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="order" width="16" height="16"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="restaurant-icon" width="500" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

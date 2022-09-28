@@ -13,9 +13,12 @@ class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHo
     let restaurant: GrubChaserRestaurantModel,
         onViewWillAppear = PublishRelay<Void>()
     
-    var distance = BehaviorRelay<String>(value: ""),
-        isLoaderShowing = PublishSubject<Bool>(),
+    var isLoaderShowing = PublishSubject<Bool>(),
         locationService: GeolocationService
+    
+    var distance: String {
+        calculateDistanceBetweenUser()
+    }
     
     var productCells: Observable<[GrubChaserProduct]> {
         setupProductCells()
@@ -30,14 +33,7 @@ class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHo
     }
     
     override func setupBindings() {
-        setupOnViewDidLoad()
-    }
-    
-    //MARK: Inputs
-    private func setupOnViewDidLoad() {
-        onViewWillAppear
-            .subscribe(onNext: calculateDistanceBetweenUser)
-            .disposed(by: disposeBag)
+        super.setupBindings()
     }
     
     //MARK: Outputs
@@ -54,13 +50,11 @@ class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHo
     }
     
     //MARK: - Distance between user
-    private func calculateDistanceBetweenUser() {
-        //TODO: get user location -> from user model
+    private func calculateDistanceBetweenUser() -> String {
         let restaurantCoordinates = CLLocation(latitude: restaurant.location.latitude,
                                                longitude: restaurant.location.longitude)
-        guard let userCoordinates = locationService.location else { return }
-        distance
-            .accept("\(restaurantCoordinates.distance(from: userCoordinates).rounded(toPlaces: -2)/1000)Km")
+        guard let userCoordinates = locationService.location else { return "" }
+        return "\(restaurantCoordinates.distance(from: userCoordinates).rounded(toPlaces: -2)/1000)Km"
     }
     
     //MARK: - Helper methods
