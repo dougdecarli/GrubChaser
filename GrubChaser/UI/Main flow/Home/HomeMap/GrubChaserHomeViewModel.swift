@@ -13,7 +13,7 @@ import MapKit
 
 class GrubChaserHomeViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
     
-    var restaurants = [GrubChaserRestaurantModel](),
+    var restaurants = BehaviorRelay<[GrubChaserRestaurantModel]>(value: []),
         restaurantsCoordinates = PublishRelay<[CLLocationCoordinate2D]>()
     
     override init(router: GrubChaserHomeRouterProtocol) {
@@ -24,9 +24,8 @@ class GrubChaserHomeViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProto
     //MARK: Service
     private func getRestaurants() {
         func handleSuccess(_ model: [GrubChaserRestaurantModel]) {
-            self.restaurants = model
+            self.restaurants.accept(model)
             service.restaurants = model
-            setupRestaurantsCoordinates()
         }
         
         func handleError(_ error: Error) {
@@ -39,17 +38,12 @@ class GrubChaserHomeViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProto
             .disposed(by: disposeBag)
     }
     
-    //MARK: Location setup
-    private func setupRestaurantsCoordinates() {
-        var coordinates = [CLLocationCoordinate2D]()
-        restaurants.forEach { restaurant in
-            coordinates.append(CLLocationCoordinate2D(latitude: restaurant.location.latitude, longitude: restaurant.location.longitude))
-        }
-        restaurantsCoordinates.accept(coordinates)
-    }
-    
     //MARK: Navigation
     func goToRestaurantsList() {
-        router.goToRestaurantList(restaurants: restaurants)
+        router.goToRestaurantList(restaurants: restaurants.value)
+    }
+    
+    func presentRestaurantDetail(_ restaurant: GrubChaserRestaurantModel) {
+        router.presentRestaurantDetailsFromMap(restaurant: restaurant)
     }
 }

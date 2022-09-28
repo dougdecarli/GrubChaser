@@ -10,4 +10,5 @@ import Foundation
 protocol GrubChaserHomeRouterProtocol {
     func goToRestaurantList(restaurants: [GrubChaserRestaurantModel])
     func goToRestaurantDetails(restaurant: GrubChaserRestaurantModel)
+    func presentRestaurantDetailsFromMap(restaurant: GrubChaserRestaurantModel)
 }

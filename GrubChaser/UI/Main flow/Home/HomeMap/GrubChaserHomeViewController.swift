@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 import MapKit
 import RxMKMapView
+import RxDataSources
 
 class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChaserHomeViewModel> {
     @IBOutlet weak var mapView: MKMapView!
@@ -48,16 +49,28 @@ class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChaserHomeV
     
     override func bindInputs() {
         super.bindInputs()
-        viewModel.restaurantsCoordinates.asObservable()
-            .map { coordinates -> [MKPointAnnotation] in
-                var annotations = [MKPointAnnotation]()
-                coordinates.forEach { coordinate in
-                    annotations.append(MKPointAnnotation(__coordinate: coordinate))
+        viewModel.restaurants.asObservable()
+            .map { restaurants -> [RestaurantAnnotation] in
+                var annotations = [RestaurantAnnotation]()
+                restaurants.forEach { restaurant in
+                    let annotation = RestaurantAnnotation(restaurant: restaurant)
+                    annotation.title = restaurant.name
+                    annotations.append(annotation)
                 }
                 return annotations
             }
             .asDriver(onErrorJustReturn: [])
             .drive(mapView.rx.annotations)
+            .disposed(by: disposeBag)
+        
+        mapView
+            .rx
+            .didSelectAnnotationView
+            .map(\.annotation)
+            .subscribe(onNext: { [weak self] annotationTouched in
+                guard let annotation = annotationTouched as? RestaurantAnnotation else { return }
+                self?.viewModel.presentRestaurantDetail(annotation.restaurant)
+            })
             .disposed(by: disposeBag)
         
         mapView
@@ -83,3 +96,13 @@ class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChaserHomeV
 
 extension GrubChaserHomeViewController: MKMapViewDelegate {}
 
+class RestaurantAnnotation: MKPointAnnotation {
+    var restaurant: GrubChaserRestaurantModel
+    
+    init(restaurant: GrubChaserRestaurantModel) {
+        self.restaurant = restaurant
+        super.init()
+        self.coordinate = CLLocationCoordinate2D(latitude: restaurant.location.latitude,
+                                                 longitude: restaurant.location.longitude)
+    }
+}
