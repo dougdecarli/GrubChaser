@@ -24,10 +24,6 @@ class GrubChaserProductBagTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -39,5 +35,8 @@ class GrubChaserProductBagTableViewCell: UITableViewCell {
         productNameLabel.text = model.product.name
         productPriceLabel.text = "\(String(model.product.price * Double(model.quantity)).currencyFormatting())"
         productsNumberLabel.text = String(model.quantity)
+        minusButton.setImage(model.quantity <= 1 ?
+                             UIImage(systemName: "trash") :
+                                UIImage(systemName: "minus"), for: .normal)
     }
 }
