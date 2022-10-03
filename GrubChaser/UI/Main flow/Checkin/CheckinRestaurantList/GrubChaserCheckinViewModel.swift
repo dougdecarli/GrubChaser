@@ -136,7 +136,7 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
         service.checkinFromCode(restaurantId: restaurant.id,
                                 code: code)
             .subscribe(onNext: handleSuccess,
-                   onError: handleError)
+                       onError: handleError)
             .disposed(by: disposeBag)
     }
     

@@ -44,6 +44,6 @@ class GrubChaserHomeViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProto
     }
     
     func presentRestaurantDetail(_ restaurant: GrubChaserRestaurantModel) {
-        router.presentRestaurantDetailsFromMap(restaurant: restaurant)
+        router.goToRestaurantDetailsFromMap(restaurant: restaurant)
     }
 }

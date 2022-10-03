@@ -57,8 +57,9 @@ class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrders
             ordersSection.accept([])
             totalPrice.accept(0)
             userOrders.forEach { order in
-                ordersSection.accept(ordersSection.value + [.init(model: Date.getDateFormatter(timestamp: order.timestamp),
-                                                                  items: order.products)])
+                ordersSection.accept(ordersSection.value +
+                                     [.init(model: "\(Date.getDateFormatter(timestamp: order.timestamp)) - \(order.status.rawValue)",
+                                            items: order.products)])
                 var price: Double = 0
                 order.products.forEach { productBag in
                     price += productBag.product.price * Double(productBag.quantity)

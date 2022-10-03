@@ -32,10 +32,11 @@ class GrubChaserHomeRouter: GrubChaserHomeRouterProtocol {
                                                 animated: true)
     }
     
-    func presentRestaurantDetailsFromMap(restaurant: GrubChaserRestaurantModel) {
+    func goToRestaurantDetailsFromMap(restaurant: GrubChaserRestaurantModel) {
         let vc = storyboard.instantiateViewController(withIdentifier: "restaurantDetailsVC") as! GrubChaserRestaurantDetailsViewController
         vc.viewModel = GrubChaserRestaurantDetailsViewModel(router: self,
                                                             restaurant: restaurant)
-        navigationController.present(vc, animated: true)
+        navigationController.pushViewController(vc,
+                                                animated: true)
     }
 }

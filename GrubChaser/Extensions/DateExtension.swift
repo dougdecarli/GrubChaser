@@ -11,7 +11,7 @@ extension Date {
     static func getDateFormatter(timestamp: Double) -> String {
         let date = Date(timeIntervalSince1970: timestamp)
         let dateFormatter = getDateFormatterConfig()
-        dateFormatter.dateFormat = "dd LLLL - HH:mm"
+        dateFormatter.dateFormat = "HH:mm"
         return dateFormatter.string(from: date)
     }
     

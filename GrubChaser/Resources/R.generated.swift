@@ -180,7 +180,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 18 images.
+  /// This `R.image` struct is generated, and contains static references to 19 images.
   struct image {
     /// Image `check-in-disabled`.
     static let checkInDisabled = Rswift.ImageResource(bundle: R.hostingBundle, name: "check-in-disabled")
@@ -198,6 +198,8 @@ struct R: Rswift.Validatable {
     static let genericLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "generic-logo")
     /// Image `google`.
     static let google = Rswift.ImageResource(bundle: R.hostingBundle, name: "google")
+    /// Image `grubchaser`.
+    static let grubchaser = Rswift.ImageResource(bundle: R.hostingBundle, name: "grubchaser")
     /// Image `hamburguer2`.
     static let hamburguer2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "hamburguer2")
     /// Image `menu-disabled`.
@@ -272,6 +274,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "google", bundle: ..., traitCollection: ...)`
     static func google(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.google, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "grubchaser", bundle: ..., traitCollection: ...)`
+    static func grubchaser(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.grubchaser, compatibleWith: traitCollection)
     }
     #endif
 
@@ -767,6 +776,7 @@ struct _R: Rswift.Validatable {
       let name = "LaunchScreen"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "grubchaser", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'grubchaser' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }

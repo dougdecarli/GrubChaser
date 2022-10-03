@@ -39,6 +39,9 @@ class GrubChaserRestaurantDetailsViewController: GrubChaserBaseViewController<Gr
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionViewCells()
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = false
         title = viewModel.restaurant.name
         bind()
         setupCollectionViewLayout()
@@ -84,7 +87,7 @@ class GrubChaserRestaurantDetailsViewController: GrubChaserBaseViewController<Gr
     //MARK: Layout setup
     private func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
-        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 100)
+        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 120)
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (UIScreen.main.bounds.width / 3) - 15,

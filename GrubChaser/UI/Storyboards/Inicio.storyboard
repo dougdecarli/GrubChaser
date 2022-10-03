@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lsd-bA-KZG">
-                                <rect key="frame" x="0.0" y="56" width="414" height="806"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <connections>
                                     <outlet property="delegate" destination="1aW-pC-pTd" id="vXp-tA-ga5"/>
                                 </connections>
@@ -47,7 +47,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="AS1-tf-9jN" firstAttribute="bottom" secondItem="Lsd-bA-KZG" secondAttribute="bottom" id="4Xd-ux-c9l"/>
-                            <constraint firstItem="Lsd-bA-KZG" firstAttribute="top" secondItem="AS1-tf-9jN" secondAttribute="top" constant="-88" id="NiU-oE-Sg1"/>
+                            <constraint firstItem="Lsd-bA-KZG" firstAttribute="top" secondItem="AS1-tf-9jN" secondAttribute="top" constant="-92" id="NiU-oE-Sg1"/>
                             <constraint firstItem="AS1-tf-9jN" firstAttribute="trailing" secondItem="Lsd-bA-KZG" secondAttribute="trailing" id="W8m-Xk-45n"/>
                             <constraint firstItem="AS1-tf-9jN" firstAttribute="trailing" secondItem="fnc-yU-sI1" secondAttribute="trailing" constant="20" id="b9c-p3-zT9"/>
                             <constraint firstItem="Lsd-bA-KZG" firstAttribute="leading" secondItem="AS1-tf-9jN" secondAttribute="leading" id="i9C-wD-op1"/>
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieY-PB-sDC" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2231.8840579710145" y="722.54464285714278"/>
+            <point key="canvasLocation" x="2230.434782608696" y="722.54464285714278"/>
         </scene>
         <!--Home-->
         <scene sceneID="ceb-Vi-Fak">
@@ -69,8 +69,8 @@
                 <navigationController storyboardIdentifier="homeNavBar" automaticallyAdjustsScrollViewInsets="NO" id="MwS-f0-kjy" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="web-house" id="Xam-bO-7ZM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="0Ai-lT-lYa">
-                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Ai-lT-lYa">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

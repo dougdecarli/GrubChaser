@@ -64,7 +64,6 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenu
         super.setupBindings()
         setupOnSendOrderButtonTouched()
         setupOnPlusButtonTouched()
-        setupProductsArrayObservable()
         
         segregatedProducts
             .bind(to: productsBag)
@@ -88,19 +87,14 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenu
     }
     
     //MARK: - Outputs
-    private func setupProductsArrayObservable() {
-        productsArrayObservable
-            .flatMap(segregateProducts)
-            .bind(to: productsBag)
-            .disposed(by: disposeBag)
-    }
-    
     private func segregateProducts(products: [GrubChaserProduct]) -> Observable<[GrubChaserProductBag]> {
-        return Observable
-            .of(products
-                .reduce(into: [GrubChaserProduct:Int]()) { partialResult, nextProduct in
-                    partialResult[nextProduct, default: 0] += 1
-                }.map(GrubChaserProductBag.init(product:quantity:)))
+        productsArrayObservable
+            .map { products -> [GrubChaserProductBag] in
+                products
+                    .reduce(into: [GrubChaserProduct:Int]()) { partialResult, nextProduct in
+                        partialResult[nextProduct, default: 0] += 1
+                    }.map(GrubChaserProductBag.init(product:quantity:))
+            }
     }
     
     //MARK: - Service
@@ -129,6 +123,7 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenu
     private func buildOrderModel(products: [GrubChaserProductBag]) -> Observable<GrubChaserOrderModel> {
         .just(.init(userId: UserDefaults.standard.getLoggedUser()?.uid ?? "",
                     products: productsBag.value,
+                    status: .waitingConfirmation,
                     timestamp: Date.now.timeIntervalSince1970))
     }
     
