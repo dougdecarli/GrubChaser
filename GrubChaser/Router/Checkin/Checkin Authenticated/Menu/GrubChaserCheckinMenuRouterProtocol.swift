@@ -11,5 +11,5 @@ protocol GrubChaserCheckinMenuRouterProtocol {
     func presentProductModal(product: GrubChaserProduct)
     func presentBagOrderModal(products: [GrubChaserProduct],
                               restaurant: GrubChaserRestaurantModel,
-                              tableId: String)
+                              table: GrubChaserTableModel)
 }

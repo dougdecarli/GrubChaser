@@ -14,7 +14,7 @@ class GrubChaserRestaurantOrderViewModel: GrubChaserBaseViewModel<GrubChaserChec
     var restaurant: GrubChaserRestaurantModel,
         onProductSelected = PublishRelay<GrubChaserProduct>(),
         onSeeBagButtonTouched = PublishRelay<Void>(),
-        tableId: String
+        table: GrubChaserTableModel
     
     internal var isLoaderShowing = PublishSubject<Bool>()
     
@@ -30,9 +30,9 @@ class GrubChaserRestaurantOrderViewModel: GrubChaserBaseViewModel<GrubChaserChec
     
     init(router: GrubChaserCheckinMenuRouterProtocol,
          restaurant: GrubChaserRestaurantModel,
-         tableId: String) {
+         table: GrubChaserTableModel) {
         self.restaurant = restaurant
-        self.tableId = tableId
+        self.table = table
         super.init(router: router)
     }
     
@@ -76,7 +76,7 @@ class GrubChaserRestaurantOrderViewModel: GrubChaserBaseViewModel<GrubChaserChec
     private func goToOrderBag() {
         router.presentBagOrderModal(products: productsSelected.value,
                                     restaurant: restaurant,
-                                    tableId: tableId)
+                                    table: table)
     }
     
     //MARK: - Helper methods

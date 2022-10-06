@@ -13,7 +13,7 @@ import FirebaseFirestore
 protocol GrubChaserServiceProtocol {
     func getRestaurants() -> Observable<[GrubChaserRestaurantModel]>
     func checkinFromCode(restaurantId: String,
-                         code: String) -> Observable<String?>
+                         code: String) -> Observable<GrubChaserTableModel>
     func postTableCheckin(restaurantId: String,
                           tableId: String) -> Observable<Void>
     func postOrder(restaurantId: String,

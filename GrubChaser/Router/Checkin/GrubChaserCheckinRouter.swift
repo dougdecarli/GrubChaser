@@ -16,10 +16,10 @@ class GrubChaserCheckinRouter: GrubChaserCheckinRouterProtocol {
     }
     
     func goToCheckinTabBar(restaurant: GrubChaserRestaurantModel,
-                           tableId: String) {
+                           table: GrubChaserTableModel) {
         let tabBar = storyboard.instantiateViewController(withIdentifier: "checkinTabBar") as! GrubChaserCheckinTabBarController
         tabBar.restaurant = restaurant
-        tabBar.tableId = tableId
+        tabBar.table = table
         navigationController.pushViewController(tabBar, animated: true)
     }
 }

@@ -13,7 +13,7 @@ import RxCoreLocation
 
 protocol GrubChaserCheckinViewModelProtocol {
     var restaurant: GrubChaserRestaurantModel { get set }
-    var tableId: String { get set }
+    var table: GrubChaserTableModel { get set }
 }
 
 class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRouterProtocol> {
@@ -118,14 +118,9 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
     
     private func checkinFromCode(restaurant: GrubChaserRestaurantModel,
                                  code: String) {
-        func handleSuccess(tableId: String?) {
-            guard let id = tableId else {
-                showAlert.onNext(getAlertErrorModel())
-                stopLoading()
-                return
-            }
+        func handleSuccess(table: GrubChaserTableModel) {
             postCheckin(restaurant: restaurant,
-                        tableId: id)
+                        table: table)
         }
         
         func handleError(_ error: Error) {
@@ -141,10 +136,10 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
     }
     
     private func postCheckin(restaurant: GrubChaserRestaurantModel,
-                             tableId: String) {
+                             table: GrubChaserTableModel) {
         func handleSuccess() {
             stopLoading()
-            goToRestaurantOrder(restaurant, tableId)
+            goToRestaurantOrder(restaurant, table)
         }
         
         func handleError(_ error: Error) {
@@ -152,7 +147,7 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
         }
         
         service.postTableCheckin(restaurantId: restaurant.id,
-                                 tableId: tableId)
+                                 tableId: table.id)
             .subscribe(onNext: handleSuccess,
                        onError: handleError)
             .disposed(by: disposeBag)
@@ -160,9 +155,9 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
     
     //MARK: Navigation
     private func goToRestaurantOrder(_ restaurant: GrubChaserRestaurantModel,
-                                     _ tableId: String) {
+                                     _ table: GrubChaserTableModel) {
         router.goToCheckinTabBar(restaurant: restaurant,
-                                 tableId: tableId)
+                                 table: table)
     }
     
     //MARK: - Helper methods

@@ -180,7 +180,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 19 images.
+  /// This `R.image` struct is generated, and contains static references to 20 images.
   struct image {
     /// Image `check-in-disabled`.
     static let checkInDisabled = Rswift.ImageResource(bundle: R.hostingBundle, name: "check-in-disabled")
@@ -198,6 +198,8 @@ struct R: Rswift.Validatable {
     static let genericLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "generic-logo")
     /// Image `google`.
     static let google = Rswift.ImageResource(bundle: R.hostingBundle, name: "google")
+    /// Image `grubchaser-translucent`.
+    static let grubchaserTranslucent = Rswift.ImageResource(bundle: R.hostingBundle, name: "grubchaser-translucent")
     /// Image `grubchaser`.
     static let grubchaser = Rswift.ImageResource(bundle: R.hostingBundle, name: "grubchaser")
     /// Image `hamburguer2`.
@@ -281,6 +283,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "grubchaser", bundle: ..., traitCollection: ...)`
     static func grubchaser(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.grubchaser, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "grubchaser-translucent", bundle: ..., traitCollection: ...)`
+    static func grubchaserTranslucent(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.grubchaserTranslucent, compatibleWith: traitCollection)
     }
     #endif
 
@@ -797,6 +806,7 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "facebook", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'facebook' is used in storyboard 'Login', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "grubchaser-translucent", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'grubchaser-translucent' is used in storyboard 'Login', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.login().loginVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginVC' could not be loaded from storyboard 'Login' as 'GrubChaserLoginViewController'.") }

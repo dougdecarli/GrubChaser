@@ -9,5 +9,5 @@ import Foundation
 
 protocol GrubChaserCheckinRouterProtocol {
     func goToCheckinTabBar(restaurant: GrubChaserRestaurantModel,
-                           tableId: String)
+                           table: GrubChaserTableModel)
 }

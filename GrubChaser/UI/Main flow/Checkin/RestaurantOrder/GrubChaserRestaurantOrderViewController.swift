@@ -50,10 +50,10 @@ class GrubChaserRestaurantOrderViewController:
         return $0
     }(UIButton())
     
-    typealias ProductsSectionModel = SectionModel<String, GrubChaserProduct>
-    typealias CollectionViewDataSource = RxCollectionViewSectionedReloadDataSource<ProductsSectionModel>
+    typealias ProductsSectionModel = AnimatableSectionModel<String, GrubChaserProduct>
+    typealias CollectionViewDataSource = RxCollectionViewSectionedAnimatedDataSource<ProductsSectionModel>
     
-    lazy var dataSource = CollectionViewDataSource(configureCell: { (dataSource, collectionView, indexPath, item) in
+    lazy var dataSource = CollectionViewDataSource(animationConfiguration: .init(insertAnimation: .automatic), configureCell: { (dataSource, collectionView, indexPath, item) in
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GrubChaserProdutsCollectionViewCell.identifier,
                                                          for: indexPath) as? GrubChaserProdutsCollectionViewCell {
             cell.bind(product: item)

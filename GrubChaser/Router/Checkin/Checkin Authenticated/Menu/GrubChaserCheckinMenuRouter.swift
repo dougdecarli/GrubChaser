@@ -24,12 +24,12 @@ class GrubChaserCheckinMenuRouter: GrubChaserCheckinMenuRouterProtocol {
     
     func presentBagOrderModal(products: [GrubChaserProduct],
                               restaurant: GrubChaserRestaurantModel,
-                              tableId: String) {
+                              table: GrubChaserTableModel) {
         let vc = storyboard.instantiateViewController(withIdentifier: "orderBagVC") as! GrubChaserOrderBagViewController
         vc.viewModel = GrubChaserOrderBagViewModel(router: self,
                                                    products: products,
                                                    restaurant: restaurant,
-                                                   tableId: tableId,
+                                                   table: table,
                                                    viewControllerRef: vc)
         navigationController.present(vc, animated: true)
     }

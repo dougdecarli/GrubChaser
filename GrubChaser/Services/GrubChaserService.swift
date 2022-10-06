@@ -34,15 +34,15 @@ class GrubChaserService: GrubChaserServiceProtocol {
     }
     
     func checkinFromCode(restaurantId: String,
-                         code: String) -> Observable<String?> {
+                         code: String) -> Observable<GrubChaserTableModel> {
         dbFirestore
             .collection("restaurants")
             .document(restaurantId)
             .collection("tables")
             .whereField("code", isEqualTo: code)
             .rx
-            .getDocuments()
-            .map(\.documents.first?.documentID)
+            .getFirstDocument()
+            .decodeDocument(GrubChaserTableModel.self)
     }
     
     func postTableCheckin(restaurantId: String,
@@ -62,8 +62,6 @@ class GrubChaserService: GrubChaserServiceProtocol {
         dbFirestore
             .collection("restaurants")
             .document(restaurantId)
-            .collection("tables")
-            .document(tableId)
             .collection("orders")
             .rx
             .addDocument(data: order.toDictionary!)
@@ -75,10 +73,9 @@ class GrubChaserService: GrubChaserServiceProtocol {
         dbFirestore
             .collection("restaurants")
             .document(restaurantId)
-            .collection("tables")
-            .document(tableId)
             .collection("orders")
             .whereField("userId", isEqualTo: userId)
+            .whereField("tableId", isEqualTo: tableId)
             .order(by: "timestamp", descending: true)
             .rx
             .getDocuments()

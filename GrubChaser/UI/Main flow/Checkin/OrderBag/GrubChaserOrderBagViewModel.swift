@@ -23,7 +23,7 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenu
     var isLoaderShowing = PublishSubject<Bool>(),
         showAlert = PublishSubject<ShowAlertModel>(),
         restaurant: GrubChaserRestaurantModel,
-        tableId: String
+        table: GrubChaserTableModel
     
     var productsBagCells: Observable<[GrubChaserProductBag]> {
         segregateProducts()
@@ -46,11 +46,11 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenu
     init(router: GrubChaserCheckinMenuRouterProtocol,
          products: [GrubChaserProduct],
          restaurant: GrubChaserRestaurantModel,
-         tableId: String,
+         table: GrubChaserTableModel,
          viewControllerRef: UIViewController) {
         self.products = products
         self.restaurant = restaurant
-        self.tableId = tableId
+        self.table = table
         self.viewControllerRef = viewControllerRef
         super.init(router: router)
     }
@@ -116,7 +116,7 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenu
             showAlert.onNext(buildAlertModel())
         }
         
-        service.postOrder(restaurantId: restaurant.id, tableId: tableId, order: order)
+        service.postOrder(restaurantId: restaurant.id, tableId: table.id, order: order)
             .subscribe(onNext: handleSuccess,
                        onError: handleError)
             .disposed(by: disposeBag)
@@ -135,6 +135,9 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenu
     
     private func buildOrderModel(products: [GrubChaserProductBag]) -> Observable<GrubChaserOrderModel> {
         .just(.init(userId: UserDefaults.standard.getLoggedUser()?.uid ?? "",
+                    userName: UserDefaults.standard.getLoggedUser()?.name ?? "",
+                    tableId: table.id,
+                    tableName: table.name,
                     products: products,
                     status: .waitingConfirmation,
                     timestamp: Date.now.timeIntervalSince1970))

@@ -88,9 +88,11 @@ class GrubChaserOrderBagViewController: GrubChaserBaseViewController<GrubChaserO
               let orderNavBar = checkinTabBar.viewControllers![0] as? UINavigationController,
               let presenter = orderNavBar.topViewController as? GrubChaserRestaurantOrderViewController
         else { return }
-        presenter.viewModel.productsSelected.accept([])
-        checkinTabBar.selectedIndex = 1
-        dismiss()
+        
+        dismiss(animated: true) {
+            presenter.viewModel.productsSelected.accept([])
+            checkinTabBar.selectedIndex = 1
+        }
     }
     
     private func dismiss() {

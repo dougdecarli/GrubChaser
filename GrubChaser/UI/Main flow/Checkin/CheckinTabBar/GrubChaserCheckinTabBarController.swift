@@ -9,7 +9,7 @@ import UIKit
 
 class GrubChaserCheckinTabBarController: UITabBarController {
     var restaurant: GrubChaserRestaurantModel!,
-        tableId: String!
+        table: GrubChaserTableModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class GrubChaserCheckinTabBarController: UITabBarController {
         let router = GrubChaserCheckinMenuRouter(navigationController: orderVC.navigationController ?? UINavigationController())
         let viewModel = GrubChaserRestaurantOrderViewModel(router: router,
                                                            restaurant: restaurant,
-                                                           tableId: tableId)
+                                                           table: table)
         orderVC.viewModel = viewModel
     }
     
@@ -45,7 +45,7 @@ class GrubChaserCheckinTabBarController: UITabBarController {
         let router = GrubChaserCheckinOrdersRouter(navigationController: ordersVC.navigationController ?? UINavigationController())
         let viewModel = GrubChaserOrdersViewModel(router: router,
                                                   restaurant: restaurant,
-                                                  tableId: tableId,
+                                                  table: table,
                                                   viewControllerRef: ordersVC)
         ordersVC.viewModel = viewModel
     }

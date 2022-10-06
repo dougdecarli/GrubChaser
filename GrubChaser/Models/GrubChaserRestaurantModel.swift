@@ -8,6 +8,7 @@
 import Foundation
 import CodableFirebase
 import FirebaseFirestore
+import Differentiator
 
 struct GrubChaserRestaurantModel: Codable {
     let id: String
@@ -29,12 +30,17 @@ struct GrubChaserRestaurantCategory: Codable {
     let name: String
 }
 
-struct GrubChaserProduct: Codable, Hashable {
+struct GrubChaserProduct: Codable, Hashable, IdentifiableType, Equatable {
     let id: String
     let name: String
     let price: Double
     let image: String
     let description: String
+    
+    var identity: UUID {
+        return UUID()
+    }
+    typealias Identity = UUID
 }
 
 struct GrubChaserProductCategory: Codable {

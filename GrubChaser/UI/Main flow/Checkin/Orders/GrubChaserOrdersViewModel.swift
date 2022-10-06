@@ -11,7 +11,7 @@ import RxCocoa
 class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrdersRouterProtocol> {
     let onViewWillAppear = PublishRelay<Void>(),
         restaurant: GrubChaserRestaurantModel,
-        tableId: String,
+        table: GrubChaserTableModel,
         viewControllerRef: UIViewController
     
     internal var showAlert = PublishSubject<ShowAlertModel>(),
@@ -29,10 +29,10 @@ class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrders
     
     init(router: GrubChaserCheckinOrdersRouterProtocol,
          restaurant: GrubChaserRestaurantModel,
-         tableId: String,
+         table: GrubChaserTableModel,
          viewControllerRef: UIViewController) {
         self.restaurant = restaurant
-        self.tableId = tableId
+        self.table = table
         self.viewControllerRef = viewControllerRef
         super.init(router: router)
     }
@@ -74,7 +74,7 @@ class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrders
         }
         
         service.getUserOrdersInTable(restaurantId: restaurant.id,
-                                     tableId: tableId,
+                                     tableId: table.id,
                                      userId: UserDefaults.standard.getLoggedUser()?.uid ?? "")
         .subscribe(onNext: handleSuccess,
                    onError: handleError)

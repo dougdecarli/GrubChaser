@@ -87,6 +87,7 @@
 		4BE641B928AECC7D00538E28 /* GrubChaserHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE641B728AECC7D00538E28 /* GrubChaserHomeRouter.swift */; };
 		4BE641C828AED23A00538E28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BE641C728AED23A00538E28 /* GoogleService-Info.plist */; };
 		4BE641CA28AED25A00538E28 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE641C928AED25A00538E28 /* R.generated.swift */; };
+		4BE67F1528EF38510082F6FC /* GrubChaserTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE67F1428EF38510082F6FC /* GrubChaserTableModel.swift */; };
 		4BEE018E28D7A045000EA06F /* GrubChaserProductModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE018D28D7A045000EA06F /* GrubChaserProductModalViewController.swift */; };
 		4BEE019028D7A051000EA06F /* GrubChaserProductModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE018F28D7A051000EA06F /* GrubChaserProductModalViewModel.swift */; };
 		4BEE019228D7CB39000EA06F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE019128D7CB39000EA06F /* StringExtensions.swift */; };
@@ -214,6 +215,7 @@
 		4BE641B728AECC7D00538E28 /* GrubChaserHomeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrubChaserHomeRouter.swift; sourceTree = "<group>"; };
 		4BE641C728AED23A00538E28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4BE641C928AED25A00538E28 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		4BE67F1428EF38510082F6FC /* GrubChaserTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserTableModel.swift; sourceTree = "<group>"; };
 		4BEE018D28D7A045000EA06F /* GrubChaserProductModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserProductModalViewController.swift; sourceTree = "<group>"; };
 		4BEE018F28D7A051000EA06F /* GrubChaserProductModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserProductModalViewModel.swift; sourceTree = "<group>"; };
 		4BEE019128D7CB39000EA06F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -584,6 +586,7 @@
 				4B46CF4328CBE31500278EF8 /* GrubChaserUserModel.swift */,
 				4BAD419D28DBFE3E00D3D723 /* GrubChaserProductBag.swift */,
 				4BAD419F28DCDF3C00D3D723 /* GrubChaserOrderModel.swift */,
+				4BE67F1428EF38510082F6FC /* GrubChaserTableModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1058,6 +1061,7 @@
 				4B46CF6128D0EFB600278EF8 /* GrubChaserCheckinRouterProtocol.swift in Sources */,
 				4BC7A7F328D3F7DA001149BB /* GrubChaserRestaurantOrderViewController.swift in Sources */,
 				4BE4414328B5AAD800833519 /* GrubChaserRestaurantListViewModel.swift in Sources */,
+				4BE67F1528EF38510082F6FC /* GrubChaserTableModel.swift in Sources */,
 				4B46CF3C28CBC93C00278EF8 /* GrubChaserLoadableViewModel.swift in Sources */,
 				4BE641B928AECC7D00538E28 /* GrubChaserHomeRouter.swift in Sources */,
 				4B093E3B28DB926600441EF6 /* GrubChaserOrderBagViewModel.swift in Sources */,
