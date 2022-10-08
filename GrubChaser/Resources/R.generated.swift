@@ -799,9 +799,14 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let loginVC = StoryboardViewControllerResource<GrubChaserLoginViewController>(identifier: "loginVC")
       let name = "Login"
+      let signUpVC = StoryboardViewControllerResource<GrubChaserSignUpViewController>(identifier: "signUpVC")
 
       func loginVC(_: Void = ()) -> GrubChaserLoginViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginVC)
+      }
+
+      func signUpVC(_: Void = ()) -> GrubChaserSignUpViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: signUpVC)
       }
 
       static func validate() throws {
@@ -810,6 +815,7 @@ struct _R: Rswift.Validatable {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.login().loginVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginVC' could not be loaded from storyboard 'Login' as 'GrubChaserLoginViewController'.") }
+        if _R.storyboard.login().signUpVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signUpVC' could not be loaded from storyboard 'Login' as 'GrubChaserSignUpViewController'.") }
       }
 
       fileprivate init() {}

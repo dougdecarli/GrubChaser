@@ -37,6 +37,13 @@ class GrubChaserLoginRouter: GrubChaserLoginRouterProtocol {
         window?.rootViewController = navigationController
     }
     
+    func goToSignUp() {
+        let vc = loginStoryboard.instantiateViewController(withIdentifier: "signUpVC") as! GrubChaserSignUpViewController
+        vc.viewModel = GrubChaserSignUpViewModel(router: self,
+                                                 viewControllerRef: vc)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
     private func setupNavigationController(_ vc: UIViewController) {
         navigationController = UINavigationController(rootViewController: vc)
         navigationController.navigationBar.prefersLargeTitles = true

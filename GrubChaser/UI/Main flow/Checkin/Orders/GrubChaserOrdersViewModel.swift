@@ -39,6 +39,7 @@ class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrders
     
     override func setupBindings() {
         super.setupBindings()
+        observeOrdersStatus()
         setupOnViewWillAppear()
     }
     
@@ -46,6 +47,12 @@ class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrders
     private func setupOnViewWillAppear() {
         onViewWillAppear
             .do(onNext: startLoading)
+            .subscribe(onNext: getOrders)
+            .disposed(by: disposeBag)
+    }
+    
+    private func observeOrdersStatus() {
+        service.listenOrderStatusChanged(restaurantId: restaurant.id)
             .subscribe(onNext: getOrders)
             .disposed(by: disposeBag)
     }
@@ -68,17 +75,21 @@ class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrders
             }
         }
         
-        func handleError(_: Error) {
+        func handleError(_ error: Error) {
             stopLoading()
+            if error is DecodableErrorType {
+                showAlert.onNext(getAlertEmptyErrorModel())
+                return
+            }
             showAlert.onNext(getAlertErrorModel())
         }
         
         service.getUserOrdersInTable(restaurantId: restaurant.id,
                                      tableId: table.id,
                                      userId: UserDefaults.standard.getLoggedUser()?.uid ?? "")
-        .subscribe(onNext: handleSuccess,
-                   onError: handleError)
-        .disposed(by: disposeBag)
+            .subscribe(onNext: handleSuccess,
+                    onError: handleError)
+            .disposed(by: disposeBag)
     }
     
     //MARK: - Helper methods
@@ -93,6 +104,12 @@ class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrders
     private func getAlertErrorModel() -> ShowAlertModel {
         .init(title: "Não foi possível recuperar seus pedidos",
               message: "Tente novamente mais tarde",
+              viewControllerRef: viewControllerRef)
+    }
+    
+    private func getAlertEmptyErrorModel() -> ShowAlertModel {
+        .init(title: "Você ainda não realizou nenhum pedido!",
+              message: "",
               viewControllerRef: viewControllerRef)
     }
 }

@@ -17,18 +17,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grubchaser" translatesAutoresizingMaskIntoConstraints="NO" id="qmz-ni-cV4">
-                                <rect key="frame" x="16" y="326.66666666666669" width="358" height="204.00000000000006"/>
+                                <rect key="frame" x="15" y="328.66666666666669" width="360" height="200.00000000000006"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="358" id="AEj-aN-cUi"/>
-                                    <constraint firstAttribute="height" constant="204" id="Xq0-4s-5cj"/>
+                                    <constraint firstAttribute="height" constant="200" id="820-sE-eeQ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="qmz-ni-cV4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="G4E-eh-81o"/>
-                            <constraint firstItem="qmz-ni-cV4" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="lXE-2S-sl7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qmz-ni-cV4" secondAttribute="trailing" constant="15" id="2kU-pA-nsN"/>
+                            <constraint firstItem="qmz-ni-cV4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="7bv-fl-5sk"/>
+                            <constraint firstItem="qmz-ni-cV4" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="d2w-pF-sQE"/>
+                            <constraint firstItem="qmz-ni-cV4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jSQ-sH-ME1"/>
                         </constraints>
                     </view>
                 </viewController>

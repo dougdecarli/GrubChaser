@@ -13,12 +13,6 @@ import FacebookCore
 import FacebookLogin
 import FirebaseAuth
 import UIKit
-import NVActivityIndicatorView
-
-enum AuthType {
-    case firebase
-    case facebook
-}
 
 class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterProtocol> {
     private let fbReadPermissions: [Permission] = [.publicProfile,
@@ -30,6 +24,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
     var emailValue = BehaviorRelay<String>(value: ""),
         passwordValue = BehaviorRelay<String>(value: ""),
         onLoginButtonTouched = PublishRelay<Void>(),
+        onSignUpButtonTouched = PublishRelay<Void>(),
         onFacebookButtonTouched = PublishRelay<Void>(),
         showAlert = PublishSubject<ShowAlertModel>(),
         isLoaderShowing = PublishSubject<Bool>()
@@ -57,8 +52,10 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
     }
     
     override func setupBindings() {
+        super.setupBindings()
         setupOnLoginButtonTouched()
         setupOnFacebookLoginTouched()
+        setupOnSignUpButtonTouched()
     }
     
     //MARK: Inputs
@@ -67,7 +64,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
             .withLatestFrom(Observable.combineLatest(emailValue, passwordValue))
             .flatMap(buildLoginModel)
             .do(onNext: startLoading)
-            .subscribe(onNext: firebaseLoggingUserHasAccount)
+            .subscribe(onNext: firebaseLogin)
             .disposed(by: disposeBag)
     }
     
@@ -75,6 +72,12 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
         onFacebookButtonTouched
             .do(onNext: startLoading)
             .subscribe(onNext: facebookLogin)
+            .disposed(by: disposeBag)
+    }
+    
+    private func setupOnSignUpButtonTouched() {
+        onSignUpButtonTouched
+            .subscribe(onNext: router.goToSignUp)
             .disposed(by: disposeBag)
     }
     
@@ -92,27 +95,10 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
     
     private func setupIsPasswordValid() -> Observable<Bool> {
         passwordValue
-            .map { $0.count > 4 }
+            .map { $0.count > 6 }
     }
     
     //MARK: - Firebase sign in
-    private func firebaseLoggingUserHasAccount(loginModel: GrubChaserLoginModel) {
-        func handleSuccess(_ providers: [String]) {
-            providers.count > 0 ?
-            firebaseLogin(loginModel) :
-            signUp(loginModel)
-        }
-        
-        func handleError(_ error: Error) {
-            showErrorOnLoginAlertView()
-        }
-        
-        firebaseAuth.rx.fetchProviders(forEmail: loginModel.email)
-            .subscribe(onNext: handleSuccess,
-                       onError: handleError)
-            .disposed(by: disposeBag)
-    }
-    
     private func firebaseLogin(_ loginModel: GrubChaserLoginModel) {
         func handleSuccess(_ authResult: AuthDataResult) {
             stopLoading()
@@ -134,27 +120,7 @@ class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterPro
         .disposed(by: disposeBag)
     }
     
-    //MARK: - Sign up
-    private func signUp(_ userModel: GrubChaserLoginModel) {
-        func handleSuccess(_ authResult: AuthDataResult) {
-            let userModel = GrubChaserUserModel(uid: authResult.user.uid,
-                                                name: "")
-            saveUserSignUpData(userModel)
-        }
-        
-        func handleError(_: Error) {
-            stopLoading()
-            showErrorOnLoginAlertView()
-        }
-        
-        firebaseAuth.rx.createUser(withEmail: userModel.email,
-                                   password: userModel.password)
-        .subscribe(onNext: handleSuccess,
-                   onError: handleError)
-        .disposed(by: disposeBag)
-    }
-    
-    //MARK: - Save user data into database
+    //MARK: - Save facebook user data into database
     private func saveUserSignUpData(_ userModel: GrubChaserUserModel) {
         func handleSuccess(_: Any) {
             stopLoading()

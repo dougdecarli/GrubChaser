@@ -106,7 +106,23 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenu
     
     //MARK: - Service
     private func postOrder(order: GrubChaserOrderModel) {
-        func handleSuccess(_: Any?) {
+        func handleSuccess(orderRef: DocumentReference) {
+            saveOrderIdIntoDocument(orderRef: orderRef)
+        }
+        
+        func handleError(_: Error) {
+            stopLoading()
+            showAlert.onNext(buildAlertModel())
+        }
+        
+        service.postOrder(restaurantId: restaurant.id, tableId: table.id, order: order)
+            .subscribe(onNext: handleSuccess,
+                       onError: handleError)
+            .disposed(by: disposeBag)
+    }
+    
+    private func saveOrderIdIntoDocument(orderRef: DocumentReference) {
+        func handleSuccess() {
             stopLoading()
             onSendOrderSuccess.accept(())
         }
@@ -116,7 +132,7 @@ class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenu
             showAlert.onNext(buildAlertModel())
         }
         
-        service.postOrder(restaurantId: restaurant.id, tableId: table.id, order: order)
+        service.putOrderIdIntoDocument(orderRef: orderRef)
             .subscribe(onNext: handleSuccess,
                        onError: handleError)
             .disposed(by: disposeBag)

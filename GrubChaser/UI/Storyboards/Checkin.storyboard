@@ -39,7 +39,7 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bSc-ab-EUF">
                                         <rect key="frame" x="0.0" y="424" width="414" height="160"/>
-                                        <color key="backgroundColor" red="1" green="0.27058823529999998" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="160" id="ckl-jl-tVm"/>
                                         </constraints>
@@ -67,7 +67,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.27058823529411763" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="bSc-ab-EUF" firstAttribute="top" secondItem="W5W-BE-S3l" secondAttribute="bottom" constant="10" id="8Bh-fK-jkC"/>
                                     <constraint firstItem="W5W-BE-S3l" firstAttribute="leading" secondItem="sa5-9F-oCy" secondAttribute="leading" constant="10" id="OfN-vf-Dax"/>
@@ -113,7 +113,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="fMb-XT-hXT" kind="relationship" relationship="viewControllers" id="th8-r2-Ehh"/>
-                        <segue destination="zWW-Ic-A5G" kind="relationship" relationship="viewControllers" id="e1J-FY-NTm"/>
+                        <segue destination="zWW-Ic-A5G" kind="relationship" relationship="viewControllers" id="5dz-kD-LAm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ji5-sc-jRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -171,7 +171,6 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pedidos" image="order" id="zpo-qo-l6y"/>
-                    <navigationItem key="navigationItem" id="Rrr-on-aK9"/>
                     <connections>
                         <outlet property="orderTableView" destination="DMl-hL-AFb" id="wwC-lB-LgN"/>
                         <outlet property="priceLabel" destination="Mas-hc-kKw" id="n5S-2l-EBW"/>
@@ -180,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEa-Zs-dRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3597.1014492753625" y="-57.589285714285708"/>
+            <point key="canvasLocation" x="3596" y="-68"/>
         </scene>
         <!--Cardápio-->
         <scene sceneID="PWb-6k-iVJ">
