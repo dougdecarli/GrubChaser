@@ -85,6 +85,7 @@ struct R: Rswift.Validatable {
   }
 
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
 
@@ -166,15 +167,40 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.file` struct is generated, and contains static references to 1 files.
+  /// This `R.file` struct is generated, and contains static references to 2 files.
   struct file {
+    /// Resource file `ChauPhilomeneOne-Regular.ttf`.
+    static let chauPhilomeneOneRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "ChauPhilomeneOne-Regular", pathExtension: "ttf")
     /// Resource file `GoogleService-Info.plist`.
     static let googleServiceInfoPlist = Rswift.FileResource(bundle: R.hostingBundle, name: "GoogleService-Info", pathExtension: "plist")
+
+    /// `bundle.url(forResource: "ChauPhilomeneOne-Regular", withExtension: "ttf")`
+    static func chauPhilomeneOneRegularTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.chauPhilomeneOneRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
 
     /// `bundle.url(forResource: "GoogleService-Info", withExtension: "plist")`
     static func googleServiceInfoPlist(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.googleServiceInfoPlist
       return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.font` struct is generated, and contains static references to 1 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `ChauPhilomeneOne-Regular`.
+    static let chauPhilomeneOneRegular = Rswift.FontResource(fontName: "ChauPhilomeneOne-Regular")
+
+    /// `UIFont(name: "ChauPhilomeneOne-Regular", size: ...)`
+    static func chauPhilomeneOneRegular(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: chauPhilomeneOneRegular, size: size)
+    }
+
+    static func validate() throws {
+      if R.font.chauPhilomeneOneRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'ChauPhilomeneOne-Regular' could not be loaded, is 'ChauPhilomeneOne-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
     }
 
     fileprivate init() {}

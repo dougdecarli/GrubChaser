@@ -53,10 +53,15 @@ def image
   pod 'Nuke'
 end
 
+def fonts
+  pod 'FontBlaster'
+end
+
 target 'GrubChaser' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
+  fonts
   firebase
   facebook
   loader

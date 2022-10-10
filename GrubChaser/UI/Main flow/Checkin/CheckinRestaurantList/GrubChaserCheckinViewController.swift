@@ -72,7 +72,7 @@ class GrubChaserCheckinViewController: GrubChaserBaseViewController<GrubChaserCh
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 145,
-                                          height: 160)
+                                 height: 160)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         checkinCollectionView.collectionViewLayout = layout
     }

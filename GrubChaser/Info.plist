@@ -34,5 +34,9 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ChauPhilomeneOne-Regular.ttf</string>
+	</array>
 </dict>
 </plist>
