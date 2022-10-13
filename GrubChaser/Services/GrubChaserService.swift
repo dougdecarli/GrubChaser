@@ -46,14 +46,16 @@ class GrubChaserService: GrubChaserServiceProtocol {
     }
     
     func postTableCheckin(restaurantId: String,
-                          tableId: String) -> Observable<Void> {
+                          tableId: String,
+                          userModel: GrubChaserUserModel) -> Observable<Void> {
         dbFirestore
             .collection("restaurants")
             .document(restaurantId)
             .collection("tables")
             .document(tableId)
             .rx
-            .updateData(["isOccupied" : true])
+            .updateData(["clients": FieldValue.arrayUnion([userModel.toDictionary!])])
+            .map { _ in }
     }
     
     func postOrder(restaurantId: String,

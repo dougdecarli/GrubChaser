@@ -15,7 +15,8 @@ protocol GrubChaserServiceProtocol {
     func checkinFromCode(restaurantId: String,
                          code: String) -> Observable<GrubChaserTableModel>
     func postTableCheckin(restaurantId: String,
-                          tableId: String) -> Observable<Void>
+                          tableId: String,
+                          userModel: GrubChaserUserModel) -> Observable<Void>
     func postOrder(restaurantId: String,
                    tableId: String,
                    order: GrubChaserOrderModel) -> Observable<DocumentReference>

@@ -8,7 +8,7 @@
 import Foundation
 import Differentiator
 
-struct GrubChaserProductBag: Codable, IdentifiableType, Equatable {
+struct GrubChaserProductBag: Codable, Equatable, IdentifiableType {
     var identity: UUID {
         return UUID()
     }

@@ -147,7 +147,8 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
         }
         
         service.postTableCheckin(restaurantId: restaurant.id,
-                                 tableId: table.id)
+                                 tableId: table.id,
+                                 userModel: UserDefaults.standard.getLoggedUser()!)
             .subscribe(onNext: handleSuccess,
                        onError: handleError)
             .disposed(by: disposeBag)
