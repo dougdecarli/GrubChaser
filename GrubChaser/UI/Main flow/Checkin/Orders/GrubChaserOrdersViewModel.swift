@@ -8,11 +8,13 @@
 import RxSwift
 import RxCocoa
 
-class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrdersRouterProtocol> {
+final class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrdersRouterProtocol> {
     let onViewWillAppear = PublishRelay<Void>(),
         restaurant: GrubChaserRestaurantModel,
         table: GrubChaserTableModel,
         viewControllerRef: UIViewController
+    
+    private let ordersSection = BehaviorRelay<[OrderSectionModel]>(value: [])
     
     internal var showAlert = PublishSubject<ShowAlertModel>(),
                  isLoaderShowing = PublishSubject<Bool>()
@@ -21,11 +23,8 @@ class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrders
         ordersSection.asObservable()
     }
     
-    private var ordersSection = BehaviorRelay<[OrderSectionModel]>(value: [])
-    
-    var orders: [GrubChaserProductBag] = []
-    
-    var totalPrice = BehaviorRelay<Double>(value: 0)
+    var orders: [GrubChaserProductBag] = [],
+        totalPrice = BehaviorRelay<Double>(value: 0)
     
     init(router: GrubChaserCheckinOrdersRouterProtocol,
          restaurant: GrubChaserRestaurantModel,
@@ -78,6 +77,8 @@ class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckinOrders
         func handleError(_ error: Error) {
             stopLoading()
             if error is DecodableErrorType {
+                ordersSection.accept([])
+                totalPrice.accept(0)
                 showAlert.onNext(getAlertEmptyErrorModel())
                 return
             }

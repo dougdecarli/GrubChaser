@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GrubChaserCheckinTabBarController: UITabBarController {
+final class GrubChaserCheckinTabBarController: UITabBarController {
     var restaurant: GrubChaserRestaurantModel!,
         table: GrubChaserTableModel!
 
@@ -23,12 +23,14 @@ class GrubChaserCheckinTabBarController: UITabBarController {
         }
         
         for viewController in viewControllers {
-            if let orderNavBar = viewController as? UINavigationController {
-                if let orderVC = orderNavBar.topViewController as? GrubChaserRestaurantOrderViewController {
+            if let navBar = viewController as? UINavigationController {
+                if let orderVC = navBar.topViewController as? GrubChaserRestaurantOrderViewController {
                     loadOrderVC(orderVC)
+                } else {
+                    if let ordersVC = navBar.topViewController as? GrubChaserOrdersViewController {
+                        loadOrdersVC(ordersVC)
+                    }
                 }
-            } else if let tableOrdersVC = viewController as? GrubChaserOrdersViewController {
-                loadOrdersVC(tableOrdersVC)
             }
         }
     }

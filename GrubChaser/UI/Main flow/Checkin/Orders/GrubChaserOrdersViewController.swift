@@ -11,7 +11,7 @@ import RxDataSources
 typealias OrderSectionModel = SectionModel<String, GrubChaserProductBag>
 typealias DataSource = RxTableViewSectionedReloadDataSource<OrderSectionModel>
 
-class GrubChaserOrdersViewController: GrubChaserBaseViewController<GrubChaserOrdersViewModel> {
+final class GrubChaserOrdersViewController: GrubChaserBaseViewController<GrubChaserOrdersViewModel> {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var totalPriceView: UIView!
     @IBOutlet weak var orderTableView: UITableView!
@@ -56,6 +56,12 @@ class GrubChaserOrdersViewController: GrubChaserBaseViewController<GrubChaserOrd
             .totalPrice
             .map { String($0).currencyFormatting() }
             .bind(to: priceLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .orderCells
+            .map { !($0.count > 0) }
+            .bind(to: totalPriceView.rx.isHidden)
             .disposed(by: disposeBag)
     }
     

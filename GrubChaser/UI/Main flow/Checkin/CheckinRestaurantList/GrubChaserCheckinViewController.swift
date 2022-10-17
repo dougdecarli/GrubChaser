@@ -13,7 +13,7 @@ import RxCocoa
 import MapKit
 import RxMKMapView
 
-class GrubChaserCheckinViewController: GrubChaserBaseViewController<GrubChaserCheckinViewModel> {
+final class GrubChaserCheckinViewController: GrubChaserBaseViewController<GrubChaserCheckinViewModel> {
     @IBOutlet weak var checkinCollectionView: UICollectionView!
     @IBOutlet weak var descriptionLabel: UILabel!
     

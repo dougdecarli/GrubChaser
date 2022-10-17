@@ -113,23 +113,40 @@
                     </tabBar>
                     <connections>
                         <segue destination="fMb-XT-hXT" kind="relationship" relationship="viewControllers" id="th8-r2-Ehh"/>
-                        <segue destination="zWW-Ic-A5G" kind="relationship" relationship="viewControllers" id="5dz-kD-LAm"/>
+                        <segue destination="VOZ-k0-TFY" kind="relationship" relationship="viewControllers" id="MYQ-70-6WQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ji5-sc-jRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2513" y="-548"/>
         </scene>
-        <!--Pedidos-->
+        <!--Item-->
+        <scene sceneID="lW8-tP-kgA">
+            <objects>
+                <navigationController id="VOZ-k0-TFY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="vXE-av-05K"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="MCd-TL-axX">
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zWW-Ic-A5G" kind="relationship" relationship="rootViewController" id="Q0g-Zl-tMP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xaF-9s-glC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3458" y="-70"/>
+        </scene>
+        <!--Meus Pedidos-->
         <scene sceneID="nZy-eO-Mrr">
             <objects>
-                <viewController storyboardIdentifier="ordersVC" title="Pedidos" id="zWW-Ic-A5G" customClass="GrubChaserOrdersViewController" customModule="GrubChaser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ordersVC" title="Meus Pedidos" id="zWW-Ic-A5G" customClass="GrubChaserOrdersViewController" customModule="GrubChaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F8T-f6-H8L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DMl-hL-AFb">
-                                <rect key="frame" x="0.0" y="48" width="414" height="715"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="619"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfG-2w-yiA">
@@ -171,15 +188,16 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pedidos" image="order" id="zpo-qo-l6y"/>
+                    <navigationItem key="navigationItem" title="Meus Pedidos" largeTitleDisplayMode="always" id="lj6-A7-qAJ"/>
                     <connections>
                         <outlet property="orderTableView" destination="DMl-hL-AFb" id="wwC-lB-LgN"/>
                         <outlet property="priceLabel" destination="Mas-hc-kKw" id="n5S-2l-EBW"/>
-                        <outlet property="totalPriceView" destination="qfG-2w-yiA" id="rHk-Vr-LIi"/>
+                        <outlet property="totalPriceView" destination="qfG-2w-yiA" id="NKu-H9-D60"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEa-Zs-dRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3596" y="-68"/>
+            <point key="canvasLocation" x="4309" y="-70"/>
         </scene>
         <!--Cardápio-->
         <scene sceneID="PWb-6k-iVJ">

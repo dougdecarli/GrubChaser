@@ -16,7 +16,7 @@ protocol GrubChaserCheckinViewModelProtocol {
     var table: GrubChaserTableModel { get set }
 }
 
-class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRouterProtocol> {
+final class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRouterProtocol> {
     var checkinRestaurantCells: Observable<[GrubChaserRestaurantModel]> {
         setupCheckinRestaurantCells()
     }
@@ -26,12 +26,10 @@ class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserCheckinRoute
     }
     
     let onViewWillAppear = PublishRelay<Void>(),
-        onRestaurantTouched = PublishRelay<GrubChaserRestaurantModel>()
-    
-    private var restaurants = BehaviorRelay<[GrubChaserRestaurantModel]>(value: []),
-                userLocation = PublishRelay<[CLLocation]>(),
-                locationService: GeolocationService,
-                viewControllerRef: UIViewController
+        onRestaurantTouched = PublishRelay<GrubChaserRestaurantModel>(),
+        viewControllerRef: UIViewController,
+        locationService: GeolocationService,
+        restaurants = BehaviorRelay<[GrubChaserRestaurantModel]>(value: [])
     
     internal var showAlert = PublishSubject<ShowAlertModel>(),
                  isLoaderShowing = PublishSubject<Bool>()

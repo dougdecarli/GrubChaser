@@ -8,7 +8,7 @@
 import UIKit
 import Nuke
 
-class GrubChaserProdutsCollectionViewCell: UICollectionViewCell {
+final class GrubChaserProdutsCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productPrice: UILabel!

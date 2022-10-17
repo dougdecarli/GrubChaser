@@ -8,7 +8,7 @@
 import UIKit
 import RxDataSources
 
-class GrubChaserRestaurantDetailsViewController: GrubChaserBaseViewController<GrubChaserRestaurantDetailsViewModel> {
+final class GrubChaserRestaurantDetailsViewController: GrubChaserBaseViewController<GrubChaserRestaurantDetailsViewModel> {
     @IBOutlet weak var collectionView: UICollectionView!
     
     typealias ProductsSectionModel = SectionModel<String, GrubChaserProduct>

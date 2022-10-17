@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 import CoreLocation
 
-class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
+final class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
     let restaurant: GrubChaserRestaurantModel,
         onViewWillAppear = PublishRelay<Void>()
     

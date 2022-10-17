@@ -9,15 +9,15 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class GrubChaserRestaurantListViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
+final class GrubChaserRestaurantListViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
+    private var restaurants: [GrubChaserRestaurantModel],
+                restaurantAddress: String = ""
     
-    private var restaurants: [GrubChaserRestaurantModel]
     let onRestaurantCellTouched = PublishRelay<GrubChaserRestaurantModel>()
+    
     var restaurantCells: Observable<[GrubChaserRestaurantModel]> {
         setupRestaurantCells()
     }
-    
-    private var restaurantAddress: String = ""
     
     init(router: GrubChaserHomeRouterProtocol,
          restaurants: [GrubChaserRestaurantModel]) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GrubChaserRestaurantDetailHeaderCollectionReusableView: UICollectionReusableView {
+final class GrubChaserRestaurantDetailHeaderCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var restaurantDistance: UILabel!
     @IBOutlet weak var restaurantCategoryLabel: UILabel!
     @IBOutlet weak var restaurantImageView: UIImageView!

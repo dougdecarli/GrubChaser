@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class GrubChaserOrderBagViewController: GrubChaserBaseViewController<GrubChaserOrderBagViewModel> {
+final class GrubChaserOrderBagViewController: GrubChaserBaseViewController<GrubChaserOrderBagViewModel> {
     @IBOutlet weak var sendOrderButton: UIButton!
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var orderBagTableView: UITableView!

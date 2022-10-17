@@ -8,7 +8,7 @@
 import UIKit
 import RxAnimated
 
-class GrubChaserProductModalViewController: GrubChaserBaseViewController<GrubChaserProductModalViewModel> {
+final class GrubChaserProductModalViewController: GrubChaserBaseViewController<GrubChaserProductModalViewModel> {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productDescription: UILabel!
     @IBOutlet weak var productPrice: UILabel!

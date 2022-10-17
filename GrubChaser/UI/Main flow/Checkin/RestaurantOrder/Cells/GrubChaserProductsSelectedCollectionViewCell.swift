@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GrubChaserProductsSelectedCollectionViewCell: UICollectionViewCell {
+final class GrubChaserProductsSelectedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productImage: UIImageView!
     static let identifier = "GrubChaserProductsSelectedCollectionViewCell",
                nibName = "GrubChaserProductsSelectedCollectionViewCell"

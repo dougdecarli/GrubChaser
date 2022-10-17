@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GrubChaserRestaurantCheckinCollectionViewCell: UICollectionViewCell {
+final class GrubChaserRestaurantCheckinCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var restaurantLogo: UIImageView!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var restaurantCategory: UILabel!

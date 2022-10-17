@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class GrubChaserProductBagTableViewCell: UITableViewCell {
+final class GrubChaserProductBagTableViewCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productsNumberLabel: UILabel!
     @IBOutlet weak var plusButton: UIButton!

@@ -12,17 +12,17 @@ import FirebaseAuth
 import FirebaseAuth
 import UIKit
 
-class GrubChaserSignUpViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterProtocol> {
+final class GrubChaserSignUpViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterProtocol> {
     private let firebaseAuth: Auth,
                 viewControllerRef: UIViewController
     
-    let onSignUpButtonTouched = PublishRelay<Void>()
-    
-    var showAlert = PublishSubject<ShowAlertModel>(),
-        isLoaderShowing = PublishSubject<Bool>(),
+    let onSignUpButtonTouched = PublishRelay<Void>(),
         nameValue = BehaviorRelay<String>(value: ""),
         emailValue = BehaviorRelay<String>(value: ""),
         passwordValue = BehaviorRelay<String>(value: "")
+    
+    var showAlert = PublishSubject<ShowAlertModel>(),
+        isLoaderShowing = PublishSubject<Bool>()
     
     var isSignUpButtonEnabled: Observable<Bool> {
         setupIsSignUpButtonEnabled()

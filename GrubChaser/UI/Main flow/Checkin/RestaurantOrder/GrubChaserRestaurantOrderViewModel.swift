@@ -9,12 +9,13 @@ import CoreLocation
 import RxCocoa
 import RxSwift
 
-class GrubChaserRestaurantOrderViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenuRouterProtocol>,
+final class GrubChaserRestaurantOrderViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenuRouterProtocol>,
                                             GrubChaserCheckinViewModelProtocol {
     var restaurant: GrubChaserRestaurantModel,
-        onProductSelected = PublishRelay<GrubChaserProduct>(),
-        onSeeBagButtonTouched = PublishRelay<Void>(),
         table: GrubChaserTableModel
+    
+    let onProductSelected = PublishRelay<GrubChaserProduct>(),
+        onSeeBagButtonTouched = PublishRelay<Void>()
     
     internal var isLoaderShowing = PublishSubject<Bool>()
     

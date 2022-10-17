@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-class GrubChaserProductModalViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenuRouterProtocol> {
+final class GrubChaserProductModalViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenuRouterProtocol> {
     let product: GrubChaserProduct,
         onAddButtonTouched = PublishRelay<Void>(),
         onPlusButtonTouched = PublishRelay<Void>(),

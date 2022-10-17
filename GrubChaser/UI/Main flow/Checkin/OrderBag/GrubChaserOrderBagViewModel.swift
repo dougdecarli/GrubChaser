@@ -10,7 +10,7 @@ import RxCocoa
 import CodableFirebase
 import FirebaseFirestore
 
-class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenuRouterProtocol>,
+final class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheckinMenuRouterProtocol>,
                                    GrubChaserCheckinViewModelProtocol {
     let products: [GrubChaserProduct],
         viewControllerRef: UIViewController,

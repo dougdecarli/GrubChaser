@@ -8,7 +8,7 @@
 import UIKit
 import RxDataSources
 
-class GrubChaserRestaurantOrderViewController:
+final class GrubChaserRestaurantOrderViewController:
     GrubChaserBaseViewController<GrubChaserRestaurantOrderViewModel> {
     @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var productsCollectionViewBottomConstraint: NSLayoutConstraint!
@@ -164,13 +164,13 @@ class GrubChaserRestaurantOrderViewController:
 }
 
 //MARK: - Footer
-extension GrubChaserRestaurantOrderViewController {
-    private func setupFooterLayout() {
+private extension GrubChaserRestaurantOrderViewController {
+    func setupFooterLayout() {
         addFooterView()
         setupFooterConstraints()
     }
     
-    private func addFooterView() {
+    func addFooterView() {
         view.add(footerView)
         footerView.add(footerProductsSelectedCollection)
         footerView.add(seeBagButton)

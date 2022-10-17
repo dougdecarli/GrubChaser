@@ -17,9 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grubchaser" translatesAutoresizingMaskIntoConstraints="NO" id="qmz-ni-cV4">
-                                <rect key="frame" x="15" y="328.66666666666669" width="360" height="200.00000000000006"/>
+                                <rect key="frame" x="15" y="318.66666666666669" width="360" height="220.00000000000006"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="820-sE-eeQ"/>
+                                    <constraint firstAttribute="height" constant="220" id="820-sE-eeQ"/>
                                 </constraints>
                             </imageView>
                         </subviews>

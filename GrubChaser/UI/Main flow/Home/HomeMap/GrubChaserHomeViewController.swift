@@ -14,7 +14,7 @@ import MapKit
 import RxMKMapView
 import RxDataSources
 
-class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChaserHomeViewModel> {
+final class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChaserHomeViewModel> {
     @IBOutlet weak var mapView: MKMapView!
     
     private var router: GrubChaserHomeRouterProtocol!,
@@ -96,8 +96,8 @@ class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChaserHomeV
 
 extension GrubChaserHomeViewController: MKMapViewDelegate {}
 
-class RestaurantAnnotation: MKPointAnnotation {
-    var restaurant: GrubChaserRestaurantModel
+final class RestaurantAnnotation: MKPointAnnotation {
+    let restaurant: GrubChaserRestaurantModel
     
     init(restaurant: GrubChaserRestaurantModel) {
         self.restaurant = restaurant

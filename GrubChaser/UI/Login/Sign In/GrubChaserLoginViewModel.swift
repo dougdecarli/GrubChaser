@@ -14,19 +14,20 @@ import FacebookLogin
 import FirebaseAuth
 import UIKit
 
-class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterProtocol> {
+final class GrubChaserLoginViewModel: GrubChaserBaseViewModel<GrubChaserLoginRouterProtocol> {
     private let fbReadPermissions: [Permission] = [.publicProfile,
                                                    .email],
                 firebaseAuth: Auth,
                 fbLoginManager: LoginManager,
                 viewControllerRef: UIViewController
     
-    var emailValue = BehaviorRelay<String>(value: ""),
-        passwordValue = BehaviorRelay<String>(value: ""),
-        onLoginButtonTouched = PublishRelay<Void>(),
+    let onLoginButtonTouched = PublishRelay<Void>(),
         onSignUpButtonTouched = PublishRelay<Void>(),
         onFacebookButtonTouched = PublishRelay<Void>(),
-        showAlert = PublishSubject<ShowAlertModel>(),
+        passwordValue = BehaviorRelay<String>(value: ""),
+        emailValue = BehaviorRelay<String>(value: "")
+    
+    var showAlert = PublishSubject<ShowAlertModel>(),
         isLoaderShowing = PublishSubject<Bool>()
     
     var isLoginButtonEnabled: Observable<Bool> {

@@ -9,13 +9,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class GrubChaserRestaurantListViewController: GrubChaserBaseViewController<GrubChaserRestaurantListViewModel> {
+final class GrubChaserRestaurantListViewController: GrubChaserBaseViewController<GrubChaserRestaurantListViewModel> {
 
+    @IBOutlet weak var navigationbar: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.items?.first?.backButtonTitle = ""
         navigationController?.setNavigationBarHidden(false, animated: true)
         setupTableViewCells()
         bind()

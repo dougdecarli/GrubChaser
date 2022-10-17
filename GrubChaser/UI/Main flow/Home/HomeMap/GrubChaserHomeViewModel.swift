@@ -11,9 +11,9 @@ import RxSwift
 import RxCocoa
 import MapKit
 
-class GrubChaserHomeViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
+final class GrubChaserHomeViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
     
-    var restaurants = BehaviorRelay<[GrubChaserRestaurantModel]>(value: []),
+    let restaurants = BehaviorRelay<[GrubChaserRestaurantModel]>(value: []),
         restaurantsCoordinates = PublishRelay<[CLLocationCoordinate2D]>()
     
     override init(router: GrubChaserHomeRouterProtocol) {

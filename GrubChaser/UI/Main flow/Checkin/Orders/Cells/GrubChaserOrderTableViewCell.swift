@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GrubChaserOrderTableViewCell: UITableViewCell {
+final class GrubChaserOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var productQuantity: UILabel!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Grub Chaser Home View Controller-->
+        <!--Mapa-->
         <scene sceneID="pGZ-NS-0xD">
             <objects>
-                <viewController id="1aW-pC-pTd" customClass="GrubChaserHomeViewController" customModule="GrubChaser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Mapa" id="1aW-pC-pTd" customClass="GrubChaserHomeViewController" customModule="GrubChaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iBT-IR-fAV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,10 +114,9 @@
                             <constraint firstItem="sFq-zI-pFk" firstAttribute="bottom" secondItem="oUO-ZU-5pA" secondAttribute="bottom" constant="20" id="ftY-oS-3N8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Restaurantes" largeTitleDisplayMode="always" id="dxz-YE-v6a">
-                        <barButtonItem key="backBarButtonItem" title="Mapa" id="wlr-To-IbG"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Restaurantes" largeTitleDisplayMode="always" id="dxz-YE-v6a"/>
                     <connections>
+                        <outlet property="navigationbar" destination="dxz-YE-v6a" id="3kb-cO-iQL"/>
                         <outlet property="tableView" destination="oUO-ZU-5pA" id="Kn5-jh-XLO"/>
                     </connections>
                 </viewController>
@@ -163,6 +162,9 @@
                             <constraint firstItem="H9H-9P-ZSV" firstAttribute="trailing" secondItem="9N9-Wr-dnm" secondAttribute="trailing" constant="-10" id="qLD-ed-zmf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nBz-hK-eT6">
+                        <barButtonItem key="backBarButtonItem" title=" " id="n0Y-IC-bPt"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="H9H-9P-ZSV" id="san-8l-AWP"/>
                     </connections>

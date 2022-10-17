@@ -10,7 +10,7 @@ import RxSwift
 import RxGesture
 import FirebaseCore
 
-class GrubChaserLoginViewController: GrubChaserBaseViewController<GrubChaserLoginViewModel> {
+final class GrubChaserLoginViewController: GrubChaserBaseViewController<GrubChaserLoginViewModel> {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
