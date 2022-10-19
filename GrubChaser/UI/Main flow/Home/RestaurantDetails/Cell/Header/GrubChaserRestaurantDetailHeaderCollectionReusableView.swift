@@ -12,6 +12,7 @@ final class GrubChaserRestaurantDetailHeaderCollectionReusableView: UICollection
     @IBOutlet weak var restaurantCategoryLabel: UILabel!
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var restaurantAddressLabel: UILabel!
+    @IBOutlet weak var occupancyLabel: UILabel!
     
     static let identifier = "GrubChaserRestaurantDetailHeaderCollectionReusableView",
                nibName = "GrubChaserRestaurantDetailHeaderCollectionReusableView"
@@ -21,11 +22,14 @@ final class GrubChaserRestaurantDetailHeaderCollectionReusableView: UICollection
     }
     
     func bind(restaurant: GrubChaserRestaurantModel,
-              distance: String) {
+              distance: String,
+              numberOfTables: String,
+              numberOfTablesOccupied: String) {
         restaurantImageView.loadImage(imageURL: restaurant.logo,
                                       genericImage: R.image.genericLogo()!)
         restaurantCategoryLabel.text = restaurant.categoryName
         restaurantAddressLabel.text = restaurant.location.address
         restaurantDistance.text = distance
+        occupancyLabel.text = "\(numberOfTablesOccupied) mesas num total de \(numberOfTables) estão ocupadas"
     }
 }

@@ -29,7 +29,9 @@ final class GrubChaserRestaurantDetailsViewController: GrubChaserBaseViewControl
                                                                         withReuseIdentifier: GrubChaserRestaurantDetailHeaderCollectionReusableView.identifier,
                                                                         for: indexPath) as? GrubChaserRestaurantDetailHeaderCollectionReusableView {
             header.bind(restaurant: self.viewModel.restaurant,
-                        distance: self.viewModel.distance)
+                        distance: self.viewModel.distance,
+                        numberOfTables: self.viewModel.numberOfTables,
+                        numberOfTablesOccupied: self.viewModel.numberOfTablesOccupied)
             return header
         } else {
             return UICollectionReusableView()
@@ -87,7 +89,7 @@ final class GrubChaserRestaurantDetailsViewController: GrubChaserBaseViewControl
     //MARK: Layout setup
     private func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
-        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 120)
+        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 142)
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (UIScreen.main.bounds.width / 3) - 15,

@@ -108,6 +108,7 @@
 		4BFC308028E22F7C005DB6B2 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC307F28E22F7C005DB6B2 /* DateExtension.swift */; };
 		4BFC308428E25C13005DB6B2 /* GrubChaserCheckinOrdersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC308328E25C13005DB6B2 /* GrubChaserCheckinOrdersRouter.swift */; };
 		4BFC308628E25C44005DB6B2 /* GrubChaserCheckinOrdersRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFC308528E25C44005DB6B2 /* GrubChaserCheckinOrdersRouterProtocol.swift */; };
+		4BFCB50228FF1EA300D6E385 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFCB50128FF1EA300D6E385 /* UIImageExtensions.swift */; };
 		4C126D5C240F78100F09EDE9 /* Pods_GrubChaserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF48B5AC82CAEA949394A674 /* Pods_GrubChaserTests.framework */; };
 		4F78AA7FC360290C902676C6 /* Pods_GrubChaser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C448AA8F8F027951A14B732 /* Pods_GrubChaser.framework */; };
 		718668404ABF33172CDED6B9 /* Pods_GrubChaser_GrubChaserUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1A259E14AD8E4146073DFA /* Pods_GrubChaser_GrubChaserUITests.framework */; };
@@ -241,6 +242,7 @@
 		4BFC307F28E22F7C005DB6B2 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		4BFC308328E25C13005DB6B2 /* GrubChaserCheckinOrdersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserCheckinOrdersRouter.swift; sourceTree = "<group>"; };
 		4BFC308528E25C44005DB6B2 /* GrubChaserCheckinOrdersRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrubChaserCheckinOrdersRouterProtocol.swift; sourceTree = "<group>"; };
+		4BFCB50128FF1EA300D6E385 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		56BDBAA5691AEB04A1B9A69E /* Pods-GrubChaser-GrubChaserUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChaser-GrubChaserUITests.debug.xcconfig"; path = "Target Support Files/Pods-GrubChaser-GrubChaserUITests/Pods-GrubChaser-GrubChaserUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C448AA8F8F027951A14B732 /* Pods_GrubChaser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrubChaser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D33298B32A558EC641E77B /* Pods-GrubChaser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChaser.debug.xcconfig"; path = "Target Support Files/Pods-GrubChaser/Pods-GrubChaser.debug.xcconfig"; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 				4B46CF4728CD437100278EF8 /* UserDefaultsExtensions.swift */,
 				4BEE019128D7CB39000EA06F /* StringExtensions.swift */,
 				4BFC307F28E22F7C005DB6B2 /* DateExtension.swift */,
+				4BFCB50128FF1EA300D6E385 /* UIImageExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1111,6 +1114,7 @@
 				4BE641A128AECBC400538E28 /* UIView+add.swift in Sources */,
 				4BE4413328B5A81F00833519 /* ColorPallete.swift in Sources */,
 				4BE641A228AECBC400538E28 /* UIView+leading.swift in Sources */,
+				4BFCB50228FF1EA300D6E385 /* UIImageExtensions.swift in Sources */,
 				4BE6419828AECBC400538E28 /* Reactive+UITableViewCell.swift in Sources */,
 				4B7918A528E3BEF3009B2CF5 /* GrubChaserRestaurantDetailHeaderCollectionReusableView.swift in Sources */,
 				4BFC308428E25C13005DB6B2 /* GrubChaserCheckinOrdersRouter.swift in Sources */,

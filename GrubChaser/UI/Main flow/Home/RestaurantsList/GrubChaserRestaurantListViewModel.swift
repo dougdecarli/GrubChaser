@@ -47,6 +47,27 @@ final class GrubChaserRestaurantListViewModel: GrubChaserBaseViewModel<GrubChase
     
     //MARK: Navigation
     private func goToRestaurantDetail(_ restaurant: GrubChaserRestaurantModel) {
-        router.goToRestaurantDetails(restaurant: restaurant)
+        getRestaurantOccupiance(restaurant)
+    }
+    
+    //MARK: Service
+    private func getRestaurantOccupiance(_ restaurant: GrubChaserRestaurantModel) {
+        func handleSuccess(tables: [GrubChaserTableModel]) {
+            let tablesOccupied = tables.filter { $0.clients != nil }
+            router.goToRestaurantDetails(restaurant: restaurant,
+                                         numberOfTables: String(tables.count),
+                                         numberOfTablesOccupied: String(tablesOccupied.count))
+        }
+        
+        func handleError(_: Error) {
+            router.goToRestaurantDetails(restaurant: restaurant,
+                                         numberOfTables: "",
+                                         numberOfTablesOccupied: "")
+        }
+        
+        service.getTables(from: restaurant.id)
+            .subscribe(onNext: handleSuccess,
+                       onError: handleError)
+            .disposed(by: disposeBag)
     }
 }

@@ -107,6 +107,28 @@ class GrubChaserService: GrubChaserServiceProtocol {
             .decodeDocument(GrubChaserRestaurantCategory.self)
     }
     
+    func getTables(from restaurantId: String) -> Observable<[GrubChaserTableModel]> {
+        dbFirestore
+            .collection("restaurants")
+            .document(restaurantId)
+            .collection("tables")
+            .rx
+            .getDocuments()
+            .decode(GrubChaserTableModel.self)
+    }
+    
+    func isUserChechedIn(restaurantId: String,
+                         userModel: GrubChaserUserModel) -> Observable<GrubChaserTableModel> {
+        dbFirestore
+            .collection("restaurants")
+            .document(restaurantId)
+            .collection("tables")
+            .whereField("clients", arrayContainsAny: [userModel.toDictionary!])
+            .rx
+            .getFirstDocument()
+            .decodeDocument(GrubChaserTableModel.self)
+    }
+    
     //MARK: - Sign in & Sign up
     func createUser(userModel: GrubChaserUserModel) -> Observable<DocumentReference> {
         dbFirestore

@@ -24,18 +24,14 @@ class GrubChaserHomeRouter: GrubChaserHomeRouterProtocol {
                                                 animated: true)
     }
     
-    func goToRestaurantDetails(restaurant: GrubChaserRestaurantModel) {
+    func goToRestaurantDetails(restaurant: GrubChaserRestaurantModel,
+                               numberOfTables: String,
+                               numberOfTablesOccupied: String) {
         let vc = storyboard.instantiateViewController(withIdentifier: "restaurantDetailsVC") as! GrubChaserRestaurantDetailsViewController
         vc.viewModel = GrubChaserRestaurantDetailsViewModel(router: self,
-                                                            restaurant: restaurant)
-        navigationController.pushViewController(vc,
-                                                animated: true)
-    }
-    
-    func goToRestaurantDetailsFromMap(restaurant: GrubChaserRestaurantModel) {
-        let vc = storyboard.instantiateViewController(withIdentifier: "restaurantDetailsVC") as! GrubChaserRestaurantDetailsViewController
-        vc.viewModel = GrubChaserRestaurantDetailsViewModel(router: self,
-                                                            restaurant: restaurant)
+                                                            restaurant: restaurant,
+                                                            numberOfTables: numberOfTables,
+                                                            numberOfTablesOccupied: numberOfTablesOccupied)
         navigationController.pushViewController(vc,
                                                 animated: true)
     }

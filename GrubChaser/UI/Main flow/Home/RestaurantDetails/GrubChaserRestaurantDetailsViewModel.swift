@@ -11,7 +11,9 @@ import CoreLocation
 
 final class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
     let restaurant: GrubChaserRestaurantModel,
-        onViewWillAppear = PublishRelay<Void>()
+        onViewWillAppear = PublishRelay<Void>(),
+        numberOfTables: String,
+        numberOfTablesOccupied: String
     
     var isLoaderShowing = PublishSubject<Bool>(),
         locationService: GeolocationService
@@ -26,9 +28,13 @@ final class GrubChaserRestaurantDetailsViewModel: GrubChaserBaseViewModel<GrubCh
     
     init(router: GrubChaserHomeRouterProtocol,
          restaurant: GrubChaserRestaurantModel,
-         locationService: GeolocationService = GeolocationService.instance) {
+         locationService: GeolocationService = GeolocationService.instance,
+         numberOfTables: String,
+         numberOfTablesOccupied: String) {
         self.restaurant = restaurant
         self.locationService = locationService
+        self.numberOfTables = numberOfTables
+        self.numberOfTablesOccupied = numberOfTablesOccupied
         super.init(router: router)
     }
     

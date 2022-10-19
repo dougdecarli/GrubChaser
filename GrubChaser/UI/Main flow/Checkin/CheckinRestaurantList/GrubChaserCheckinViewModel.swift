@@ -29,7 +29,8 @@ final class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserChecki
         onRestaurantTouched = PublishRelay<GrubChaserRestaurantModel>(),
         viewControllerRef: UIViewController,
         locationService: GeolocationService,
-        restaurants = BehaviorRelay<[GrubChaserRestaurantModel]>(value: [])
+        restaurants = BehaviorRelay<[GrubChaserRestaurantModel]>(value: []),
+        userTableCheckin = BehaviorRelay<GrubChaserTableModel?>(value: nil)
     
     internal var showAlert = PublishSubject<ShowAlertModel>(),
                  isLoaderShowing = PublishSubject<Bool>()
@@ -50,22 +51,33 @@ final class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserChecki
     //MARK: - Inputs
     private func setupOnViewWillAppear() {
         onViewWillAppear.asObservable()
-            .subscribe(onNext: calculateDistance)
+            .do(onNext: startLoading(_:))
+            .subscribe(onNext: { [weak self] in
+                self?.calculateDistance()
+                self?.verifyUserHasCheckin()
+            })
             .disposed(by: disposeBag)
     }
     
     private func setupOnRestaurantTouched() {
         onRestaurantTouched.asObservable()
-            .subscribe(onNext: showAlert)
+            .subscribe(onNext: routeFromRestaurantTouch)
             .disposed(by: disposeBag)
     }
     
     //MARK: - Outputs
     private func setupDescriptionDriver() -> Driver<String> {
-        restaurants
-            .map { $0.count > 0 ?
-                "Clique no restaurante que deseja realizar o checkin" :
-                "Nenhum restaurante próximo"
+        Observable.combineLatest(restaurants, userTableCheckin)
+            .map { nearRestaurants, userTableCheckedIn -> String in
+                if nearRestaurants.count > 0 {
+                    if userTableCheckedIn != nil {
+                        return "Você tem um check-in ativo, clique no restaurante e entre!"
+                    } else {
+                        return "Clique no restaurante que deseja realizar o checkin"
+                    }
+                } else {
+                    return "Nenhum restaurante próximo"
+                }
             }
             .asDriver(onErrorJustReturn: "")
     }
@@ -152,11 +164,37 @@ final class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserChecki
             .disposed(by: disposeBag)
     }
     
+    //MARK: - Already checked-in verification
+    private func verifyUserHasCheckin() {
+        func handleSuccess(hasCheckin: GrubChaserTableModel) {
+            stopLoading()
+            userTableCheckin.accept(hasCheckin)
+        }
+        
+        func handleError(_: Error) {
+            stopLoading()
+        }
+        
+        service.isUserChechedIn(restaurantId: restaurants.value.first?.id ?? "",
+                                userModel: UserDefaults.standard.getLoggedUser()!)
+            .subscribe(onNext: handleSuccess,
+                       onError: handleError)
+            .disposed(by: disposeBag)
+    }
+    
     //MARK: Navigation
     private func goToRestaurantOrder(_ restaurant: GrubChaserRestaurantModel,
                                      _ table: GrubChaserTableModel) {
         router.goToCheckinTabBar(restaurant: restaurant,
                                  table: table)
+    }
+    
+    private func routeFromRestaurantTouch(restaurant: GrubChaserRestaurantModel) {
+        if let table = userTableCheckin.value {
+            goToRestaurantOrder(restaurant, table)
+        } else {
+            showAlert(restaurant: restaurant)
+        }
     }
     
     //MARK: - Helper methods

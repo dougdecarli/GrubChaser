@@ -180,8 +180,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 20 images.
+  /// This `R.image` struct is generated, and contains static references to 21 images.
   struct image {
+    /// Image `chair`.
+    static let chair = Rswift.ImageResource(bundle: R.hostingBundle, name: "chair")
     /// Image `check-in-disabled`.
     static let checkInDisabled = Rswift.ImageResource(bundle: R.hostingBundle, name: "check-in-disabled")
     /// Image `check-in`.
@@ -222,6 +224,13 @@ struct R: Rswift.Validatable {
     static let star = Rswift.ImageResource(bundle: R.hostingBundle, name: "star")
     /// Image `web-house`.
     static let webHouse = Rswift.ImageResource(bundle: R.hostingBundle, name: "web-house")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "chair", bundle: ..., traitCollection: ...)`
+    static func chair(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.chair, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "check-in", bundle: ..., traitCollection: ...)`
@@ -636,6 +645,7 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "chair", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'chair' is used in nib 'GrubChaserRestaurantDetailHeaderCollectionReusableView', but couldn't be loaded.") }
         if UIKit.UIImage(named: "distance", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'distance' is used in nib 'GrubChaserRestaurantDetailHeaderCollectionReusableView', but couldn't be loaded.") }
         if UIKit.UIImage(named: "restaurant-icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'restaurant-icon' is used in nib 'GrubChaserRestaurantDetailHeaderCollectionReusableView', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {

@@ -11,4 +11,5 @@ struct GrubChaserTableModel: Codable {
     let name: String
     let code: String
     let id: String
+    let clients: [GrubChaserUserModel]?
 }
