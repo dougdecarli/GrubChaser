@@ -51,10 +51,12 @@ final class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserChecki
     //MARK: - Inputs
     private func setupOnViewWillAppear() {
         onViewWillAppear.asObservable()
-            .do(onNext: startLoading(_:))
             .subscribe(onNext: { [weak self] in
                 self?.calculateDistance()
-                self?.verifyUserHasCheckin()
+                if self?.restaurants.value.count ?? 0 > 0 {
+                    self?.startLoader()
+                    self?.verifyUserHasCheckin()
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -173,6 +175,7 @@ final class GrubChaserCheckinViewModel: GrubChaserBaseViewModel<GrubChaserChecki
         
         func handleError(_: Error) {
             stopLoading()
+            userTableCheckin.accept(nil)
         }
         
         service.isUserChechedIn(restaurantId: restaurants.value.first?.id ?? "",

@@ -29,6 +29,9 @@ protocol GrubChaserServiceProtocol {
     func getTables(from restaurantId: String) -> Observable<[GrubChaserTableModel]>
     func isUserChechedIn(restaurantId: String,
                          userModel: GrubChaserUserModel) -> Observable<GrubChaserTableModel>
+    func listenToClientCheckout(restaurantId: String,
+                                tableId: String,
+                                userId: String) -> Observable<GrubChaserTableModel>
     func createUser(userModel: GrubChaserUserModel) -> Observable<DocumentReference>
     func checkUserHasAccount(uid: String) -> Observable<Bool>
 }

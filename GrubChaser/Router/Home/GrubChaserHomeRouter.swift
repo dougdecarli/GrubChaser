@@ -25,8 +25,8 @@ class GrubChaserHomeRouter: GrubChaserHomeRouterProtocol {
     }
     
     func goToRestaurantDetails(restaurant: GrubChaserRestaurantModel,
-                               numberOfTables: String,
-                               numberOfTablesOccupied: String) {
+                               numberOfTables: Int,
+                               numberOfTablesOccupied: Int) {
         let vc = storyboard.instantiateViewController(withIdentifier: "restaurantDetailsVC") as! GrubChaserRestaurantDetailsViewController
         vc.viewModel = GrubChaserRestaurantDetailsViewModel(router: self,
                                                             restaurant: restaurant,

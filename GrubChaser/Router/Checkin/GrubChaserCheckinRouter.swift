@@ -20,6 +20,7 @@ class GrubChaserCheckinRouter: GrubChaserCheckinRouterProtocol {
         let tabBar = storyboard.instantiateViewController(withIdentifier: "checkinTabBar") as! GrubChaserCheckinTabBarController
         tabBar.restaurant = restaurant
         tabBar.table = table
+        tabBar.observeClientIsCheckedOut()
         navigationController.pushViewController(tabBar, animated: true)
     }
 }

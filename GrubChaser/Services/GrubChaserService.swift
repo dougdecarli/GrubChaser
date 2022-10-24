@@ -129,6 +129,19 @@ class GrubChaserService: GrubChaserServiceProtocol {
             .decodeDocument(GrubChaserTableModel.self)
     }
     
+    func listenToClientCheckout(restaurantId: String,
+                                tableId: String,
+                                userId: String) -> Observable<GrubChaserTableModel> {
+        dbFirestore
+            .collection("restaurants")
+            .document(restaurantId)
+            .collection("tables")
+            .document(tableId)
+            .rx
+            .listen(includeMetadataChanges: true)
+            .decodeDocument(GrubChaserTableModel.self)
+    }
+    
     //MARK: - Sign in & Sign up
     func createUser(userModel: GrubChaserUserModel) -> Observable<DocumentReference> {
         dbFirestore

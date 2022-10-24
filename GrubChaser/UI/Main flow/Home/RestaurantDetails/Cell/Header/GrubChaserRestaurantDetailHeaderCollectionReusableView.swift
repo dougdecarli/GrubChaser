@@ -23,13 +23,18 @@ final class GrubChaserRestaurantDetailHeaderCollectionReusableView: UICollection
     
     func bind(restaurant: GrubChaserRestaurantModel,
               distance: String,
-              numberOfTables: String,
-              numberOfTablesOccupied: String) {
+              numberOfTables: Int,
+              numberOfTablesOccupied: Int) {
         restaurantImageView.loadImage(imageURL: restaurant.logo,
                                       genericImage: R.image.genericLogo()!)
         restaurantCategoryLabel.text = restaurant.categoryName
         restaurantAddressLabel.text = restaurant.location.address
         restaurantDistance.text = distance
-        occupancyLabel.text = "\(numberOfTablesOccupied) mesas num total de \(numberOfTables) estão ocupadas"
+        
+        if numberOfTablesOccupied > 0 {
+            occupancyLabel.text = "\(String(numberOfTablesOccupied)) \(numberOfTablesOccupied > 1 ? "mesas" : "mesa") num total de \(String(numberOfTables)) mesas deste restaurante estão ocupadas"
+        } else {
+            occupancyLabel.text = "Nenhuma mesa deste restaurante está ocupada"
+        }
     }
 }
