@@ -19,7 +19,7 @@ protocol GrubChaserServiceProtocol {
                           userModel: GrubChaserUserModel) -> Observable<Void>
     func postOrder(restaurantId: String,
                    tableId: String,
-                   order: GrubChaserOrderModel) -> Observable<DocumentReference>
+                   order: GrubChaserOrderModel) -> Observable<Void>
     func listenOrderStatusChanged(restaurantId: String) -> Observable<Void>
     func putOrderIdIntoDocument(orderRef: DocumentReference) -> Observable<Void>
     func getUserOrdersInTable(restaurantId: String,

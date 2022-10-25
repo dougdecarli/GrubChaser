@@ -23,6 +23,7 @@ final class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChase
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.onViewWillAppear.accept(())
         navigationController?.setNavigationBarHidden(true, animated: true)
         tabBarController?.tabBar.isHidden = false
         mapView.showsUserLocation = true
@@ -33,7 +34,7 @@ final class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChase
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHomeRouter()
-        self.viewModel = GrubChaserHomeViewModel(router: router)
+        self.viewModel = GrubChaserHomeViewModel(router: router, viewControllerRef: self)
         bind()
         
         if locationManager.authorizationStatus == .authorizedWhenInUse {

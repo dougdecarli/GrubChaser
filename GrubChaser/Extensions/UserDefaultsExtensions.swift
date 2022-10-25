@@ -9,6 +9,7 @@ import Foundation
 
 enum UserDefaultsKeys: String {
     case loggedUser
+    case notFirstTimeLogged
 }
 
 extension UserDefaults {
@@ -27,6 +28,15 @@ extension UserDefaults {
         }
         let userModel = try? JSONDecoder().decode(GrubChaserUserModel.self, from: data)
         return userModel
+    }
+    
+    func setNotFirstTimeLogged() {
+        UserDefaults.standard.set(true, forKey: UserDefaultsKeys.notFirstTimeLogged.rawValue)
+    }
+    
+    func getNotFirstTimeLogged() -> Bool {
+        guard let notFirstTimeLogged = UserDefaults.standard.object(forKey: UserDefaultsKeys.notFirstTimeLogged.rawValue) else { return false }
+        return notFirstTimeLogged as? Bool ?? false
     }
     
     func resetDefaults() {

@@ -43,7 +43,7 @@ final class GrubChaserRestaurantOrderViewController:
     private let seeBagButton: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = ColorPallete.defaultRed
-        $0.setTitle("Ver produtos", for: .normal)
+        $0.setTitle("Ver sacola", for: .normal)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 10

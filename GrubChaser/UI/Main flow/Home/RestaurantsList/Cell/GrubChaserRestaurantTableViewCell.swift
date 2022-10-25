@@ -18,10 +18,6 @@ final class GrubChaserRestaurantTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        let favoriteAccessory = R.image.favoriteIcon()
-        let favoriteAccessoryImageView = UIImageView(image: favoriteAccessory)
-        favoriteAccessoryImageView.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
-        accessoryView = favoriteAccessoryImageView
     }
     
     func bind(cellModel: GrubChaserRestaurantModel) {

@@ -60,13 +60,19 @@ class GrubChaserService: GrubChaserServiceProtocol {
     
     func postOrder(restaurantId: String,
                    tableId: String,
-                   order: GrubChaserOrderModel) -> Observable<DocumentReference> {
+                   order: GrubChaserOrderModel) -> Observable<Void> {
         dbFirestore
             .collection("restaurants")
             .document(restaurantId)
             .collection("orders")
             .rx
             .addDocument(data: order.toDictionary!)
+            .map { docRef in
+                docRef
+                    .rx
+                    .setData(["orderId": docRef.documentID], merge: true)
+            }
+            .map { _ in }
     }
     
     func putOrderIdIntoDocument(orderRef: DocumentReference) -> Observable<Void> {

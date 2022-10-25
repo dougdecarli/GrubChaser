@@ -12,13 +12,30 @@ import RxCocoa
 import MapKit
 
 final class GrubChaserHomeViewModel: GrubChaserBaseViewModel<GrubChaserHomeRouterProtocol> {
-    
     let restaurants = BehaviorRelay<[GrubChaserRestaurantModel]>(value: []),
-        restaurantsCoordinates = PublishRelay<[CLLocationCoordinate2D]>()
+        restaurantsCoordinates = PublishRelay<[CLLocationCoordinate2D]>(),
+        onViewWillAppear = PublishRelay<Void>(),
+        viewControllerRef: UIViewController
     
-    override init(router: GrubChaserHomeRouterProtocol) {
+    var showAlert = PublishSubject<ShowAlertModel>()
+    
+    init(router: GrubChaserHomeRouterProtocol,
+         viewControllerRef: UIViewController) {
+        self.viewControllerRef = viewControllerRef
         super.init(router: router)
-        getRestaurants()
+    }
+    
+    override func setupBindings() {
+        super.setupBindings()
+        setupOnViewWillAppear()
+    }
+    
+    //MARK: - Input
+    private func setupOnViewWillAppear() {
+        onViewWillAppear
+            .do(onNext: showOnboardingAlert)
+            .subscribe(onNext: getRestaurants)
+            .disposed(by: disposeBag)
     }
     
     //MARK: Service
@@ -36,6 +53,16 @@ final class GrubChaserHomeViewModel: GrubChaserBaseViewModel<GrubChaserHomeRoute
             .subscribe(onNext: handleSuccess,
                        onError: handleError)
             .disposed(by: disposeBag)
+    }
+    
+    //MARK: - Show onboarding alert
+    private func showOnboardingAlert() {
+        if (!UserDefaults.standard.getNotFirstTimeLogged()) {
+            UserDefaults.standard.setNotFirstTimeLogged()
+            showAlert.onNext(.init(title: "Bem vindo \(UserDefaults.standard.getLoggedUser()?.name ?? "")!",
+                                   message: "Encontre restaurantes perto da sua localidade e visualize seu cardápio e lotação. Quando estiver em um restaurante parceiro, realize o check-in para realizar pedidos e acompanhar sua comanda!",
+                                   viewControllerRef: viewControllerRef))
+        }   
     }
     
     //MARK: Navigation
@@ -68,3 +95,5 @@ final class GrubChaserHomeViewModel: GrubChaserBaseViewModel<GrubChaserHomeRoute
             .disposed(by: disposeBag)
     }
 }
+
+extension GrubChaserHomeViewModel: GrubChaserAlertableViewModel {}
