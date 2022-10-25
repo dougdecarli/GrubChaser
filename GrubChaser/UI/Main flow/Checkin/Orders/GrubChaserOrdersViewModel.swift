@@ -46,18 +46,20 @@ final class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckin
     private func setupOnViewWillAppear() {
         onViewWillAppear
             .do(onNext: startLoading)
+            .map { false }
             .subscribe(onNext: getOrders)
             .disposed(by: disposeBag)
     }
     
     private func observeOrdersStatus() {
         service.listenOrderStatusChanged(restaurantId: restaurant.id)
+            .map { true }
             .subscribe(onNext: getOrders)
             .disposed(by: disposeBag)
     }
     
     //MARK: - Service
-    private func getOrders() {
+    private func getOrders(_ fromListener: Bool) {
         func handleSuccess(userOrders: [GrubChaserOrderModel]) {
             stopLoading()
             ordersSection.accept([])
@@ -76,13 +78,15 @@ final class GrubChaserOrdersViewModel: GrubChaserBaseViewModel<GrubChaserCheckin
         
         func handleError(_ error: Error) {
             stopLoading()
-            if error is DecodableErrorType {
-                ordersSection.accept([])
-                totalPrice.accept(0)
-                showAlert.onNext(getAlertEmptyErrorModel())
-                return
+            if !fromListener {
+                if error is DecodableErrorType {
+                    ordersSection.accept([])
+                    totalPrice.accept(0)
+                    showAlert.onNext(getAlertEmptyErrorModel())
+                    return
+                }
+                showAlert.onNext(getAlertErrorModel())
             }
-            showAlert.onNext(getAlertErrorModel())
         }
         
         service.getUserOrdersInTable(restaurantId: restaurant.id,

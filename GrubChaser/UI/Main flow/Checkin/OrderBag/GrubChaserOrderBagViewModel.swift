@@ -106,8 +106,8 @@ final class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheck
     
     //MARK: - Service
     private func postOrder(order: GrubChaserOrderModel) {
-        func handleSuccess() {
-//            saveOrderIdIntoDocument(orderRef: orderRef)
+        func handleSuccess(orderRef: DocumentReference) {
+            saveOrderIdIntoDocument(orderRef: orderRef)
         }
         
         func handleError(_: Error) {
