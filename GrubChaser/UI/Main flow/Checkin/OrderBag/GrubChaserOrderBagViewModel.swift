@@ -92,7 +92,9 @@ final class GrubChaserOrderBagViewModel: GrubChaserBaseViewModel<GrubChaserCheck
                 products
                     .reduce(into: [GrubChaserProduct:Int]()) { partialResult, nextProduct in
                         partialResult[nextProduct, default: 0] += 1
-                    }.map(GrubChaserProductBag.init(product:quantity:))
+                    }
+                    .map(GrubChaserProductBag.init(product:quantity:))
+                    .sorted(by: { $0.product.name.lowercased() > $1.product.name.lowercased() })
             }
     }
     
