@@ -9,5 +9,7 @@ import Foundation
 
 protocol GrubChaserHomeRouterProtocol {
     func goToRestaurantList(restaurants: [GrubChaserRestaurantModel])
-    func goToRestaurantDetails(restaurant: GrubChaserRestaurantModel)
+    func goToRestaurantDetails(restaurant: GrubChaserRestaurantModel,
+                               numberOfTables: Int,
+                               numberOfTablesOccupied: Int)
 }

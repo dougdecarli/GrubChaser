@@ -10,6 +10,10 @@ import FirebaseFirestore
 import RxSwift
 import RxCocoa
 
+enum DecodableErrorType: Error {
+    case decodedEmptyError
+}
+
 public extension ObservableType where Element: QuerySnapshot {
     
     /// Decode data from QuerySnapshot
@@ -32,7 +36,7 @@ public extension ObservableType where Element: QuerySnapshot {
             if !documents.isEmpty {
                 return Observable.just(documents)
             }
-            return Observable.empty()
+            return Observable.error(DecodableErrorType.decodedEmptyError)
         }
     }
 }
@@ -54,7 +58,7 @@ public extension ObservableType where Element: DocumentSnapshot {
                     print("\(error)")
                 }
             }
-            return Observable.empty()
+            return Observable.error(DecodableErrorType.decodedEmptyError)
         }
     }
 }

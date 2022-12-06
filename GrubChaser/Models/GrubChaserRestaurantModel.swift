@@ -8,31 +8,39 @@
 import Foundation
 import CodableFirebase
 import FirebaseFirestore
+import Differentiator
 
 struct GrubChaserRestaurantModel: Codable {
     let id: String
     let name: String
     let logo: String
+    let categoryName: String
     var location: GrubChaserRestaurantLocationModel
     let products: [GrubChaserProduct]
-    let categoryRef: DocumentReference
     var category: GrubChaserRestaurantCategory?
 }
 
 struct GrubChaserRestaurantLocationModel: Codable {
     let latitude: Double
     let longitude: Double
+    let address: String
 }
 
 struct GrubChaserRestaurantCategory: Codable {
     let name: String
 }
 
-struct GrubChaserProduct: Codable {
+struct GrubChaserProduct: Codable, Hashable, IdentifiableType, Equatable {
+    let id: String
     let name: String
     let price: Double
     let image: String
-//    let category: GrubChaserProductCategory
+    let description: String
+    
+    var identity: UUID {
+        return UUID()
+    }
+    typealias Identity = UUID
 }
 
 struct GrubChaserProductCategory: Codable {
@@ -41,6 +49,3 @@ struct GrubChaserProductCategory: Codable {
 }
 
 extension DocumentReference: DocumentReferenceType {}
-extension GeoPoint: GeoPointType {}
-extension FieldValue: FieldValueType {}
-extension Timestamp: TimestampType {}

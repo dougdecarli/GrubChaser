@@ -3,4 +3,54 @@
    uuid = "CBB8D467-8D70-4DCE-9A62-FF2A96F31F08"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F83C5736-F8F4-4F75-A407-8936AB62C859"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GrubChaser/UI/Main flow/Checkin/CheckinTabBar/CheckinTabBarController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "setupDataInjectionToViewControllers()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F83C5736-F8F4-4F75-A407-8936AB62C859 - b8910feb65c3edba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GrubChaser.CheckinTabBarController.setupDataInjectionToViewControllers() -&gt; ()"
+                  moduleName = "GrubChaser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/douglasimmig/Desktop/GrubChaserApp/GrubChaser/GrubChaser/UI/Main%20flow/Checkin/CheckinTabBar/CheckinTabBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "460">
+               </Location>
+               <Location
+                  uuid = "F83C5736-F8F4-4F75-A407-8936AB62C859 - b8910feb65c3edba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GrubChaser.CheckinTabBarController.setupDataInjectionToViewControllers() -&gt; ()"
+                  moduleName = "GrubChaser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/douglasimmig/Desktop/GrubChaserApp/GrubChaser/GrubChaser/UI/Main%20flow/Checkin/CheckinTabBar/CheckinTabBarController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "591">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

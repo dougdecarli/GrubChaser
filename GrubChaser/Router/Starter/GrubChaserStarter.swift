@@ -11,9 +11,7 @@ import FirebaseFirestore
 
 class GrubChaserStarter {
     static func startFlow(window: UIWindow?) {
-        let service = GrubChaserService(dbFirestore: Firestore.firestore())
-        let loginRouter = GrubChaserLoginRouter(window: window,
-                              service: service)
+        let loginRouter = GrubChaserLoginRouter(window: window)
         
         if (UserDefaults.standard.object(forKey: UserDefaultsKeys.loggedUser.rawValue) != nil) {
             loginRouter.goToMainFlow()

@@ -8,6 +8,7 @@ def rx
   pod 'RxGesture'
   pod 'RxCoreLocation'
   pod "RxMKMapView"
+  pod "RxAnimated"
 end
 
 def rx_test
@@ -48,10 +49,19 @@ def loader
   pod 'NVActivityIndicatorView'
 end
 
+def image
+  pod 'Nuke'
+end
+
+def fonts
+  pod 'FontBlaster'
+end
+
 target 'GrubChaser' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
+  fonts
   firebase
   facebook
   loader
@@ -59,6 +69,7 @@ target 'GrubChaser' do
   json
   alamofire
   rswift
+  image
 
   target 'GrubChaserTests' do
     inherit! :search_paths

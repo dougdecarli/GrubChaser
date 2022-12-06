@@ -12,9 +12,9 @@ import UIKit
 struct ShowAlertModel {
     let title: String?
     let message: String?
-    let preferredStyle: UIAlertController.Style
-    let actionStyle: UIAlertAction.Style
-    let actionTitle: String
+    let preferredStyle: UIAlertController.Style = .alert
+    let actionStyle: UIAlertAction.Style = .default
+    let actionTitle: String = "Ok"
     let viewControllerRef: UIViewController
 }
 

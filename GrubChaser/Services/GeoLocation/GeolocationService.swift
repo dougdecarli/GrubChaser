@@ -13,14 +13,62 @@ import CoreLocation
 import MapKit
 import Social
 import RxCocoa
+import RxCoreLocation
+
+struct GrubChaserGeolocationModel: Encodable {
+    let latitude: Double?
+    let longitude: Double?
+    let accuracy: Double?
+    let isEnabled: Bool
+}
 
 protocol GeolocationProtocol {
     func getAddressFromLocation(location: CLLocation) -> Observable<String>
+    var status: Observable<CLAuthorizationStatus> { get }
+    var didChangeAuthorization: Observable<CLAuthorizationEvent> { get }
+    var locationModel: GrubChaserGeolocationModel { get }
+    @available(iOS 14.0, *)
+    var authorizationStatus: CLAuthorizationStatus { get }
+    
+    func requestWhenInUseAuthorization()
 }
 
-final class GeolocationService: GeolocationProtocol {
+final class GeolocationService: CLLocationManager, GeolocationProtocol {
+    static var instance: GeolocationService = {
+        GeolocationService()
+    }()
     
-    init() {}
+    override private init() {}
+    
+    var locationModel: GrubChaserGeolocationModel {
+        guard let latitude = location?.coordinate.latitude,
+              let longitude = location?.coordinate.longitude,
+              let accuracy = location?.horizontalAccuracy else {
+            return GrubChaserGeolocationModel(
+                latitude: nil,
+                longitude: nil,
+                accuracy: nil,
+                isEnabled: false
+            )
+        }
+        
+        return GrubChaserGeolocationModel(
+            latitude: latitude,
+            longitude: longitude,
+            accuracy: accuracy,
+            isEnabled: true
+        )
+    }
+    
+    
+    var status: Observable<CLAuthorizationStatus> {
+        rx.status
+    }
+    
+    var didChangeAuthorization: Observable<CLAuthorizationEvent> {
+        rx.didChangeAuthorization
+            .asObservable()
+    }
     
     func getAddressFromLocation(location: CLLocation) -> Observable<String> {
         Observable.create { observable -> Disposable in

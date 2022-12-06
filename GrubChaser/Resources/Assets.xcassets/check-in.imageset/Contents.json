@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "check-in-5.png",
+      "filename" : "check-in.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "check-in-6.png",
+      "filename" : "check-in@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "check-in-7.png",
+      "filename" : "check-in@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

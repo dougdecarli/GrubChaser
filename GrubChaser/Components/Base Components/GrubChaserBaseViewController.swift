@@ -14,12 +14,14 @@ class GrubChaserBaseViewController<ViewModel: GrubChaserViewModelProtocol>: UIVi
     let disposeBag = DisposeBag()
     var viewModel: ViewModel!
     
-    lazy var activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: Int(view.frame.width) / 2 - 25,
-                                                                           y: Int(view.frame.height) / 2,
-                                                                           width: 50,
-                                                                           height: 50),
-                                                             type: NVActivityIndicatorType.ballPulse,
-                                                             color: ColorPallete.defaultRed)
+    lazy var activityIndicatorView = NVActivityIndicatorView(
+        frame: CGRect(x: Int(view.frame.width) / 2 - 25,
+                      y: Int(view.frame.height) / 2,
+                      width: 50,
+                      height: 50),
+        type: NVActivityIndicatorType.ballPulse,
+        color: ColorPallete.defaultRed
+    )
     
     open func bindInputs() {
         if let viewModel = viewModel as? GrubChaserAlertableViewModel {

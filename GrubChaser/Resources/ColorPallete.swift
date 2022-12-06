@@ -8,7 +8,7 @@
 import UIKit
 
 class ColorPallete {
-    static var defaultRed = UIColor(hexString: "#FF453A")
+    static var defaultRed = UIColor(hexString: "#EE6A53")
     static var defaultYellow = UIColor(hexString: "#FFD60A")
     
     static var commonBlack = UIColor(hexString: "#1E1E1F")
@@ -16,7 +16,6 @@ class ColorPallete {
     static var commonWhite = UIColor(hexString: "#F2F2F2")
     static var commonDarkGray = UIColor(hexString: "#706F6F")
     static var commonMiddleGray = UIColor(hexString: "#ACACAC")
-    
 }
 
 public extension UIColor {

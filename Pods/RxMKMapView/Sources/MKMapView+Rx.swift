@@ -156,18 +156,18 @@ extension Reactive where Base: MKMapView {
 
     // MARK: Responding to Annotation Views
 
-    public var didAddAnnotationViews: ControlEvent<[MKAnnotationView]> {
-        let source = delegate
-            .methodInvoked(#selector(
-                (MKMapViewDelegate.mapView(_:didAdd:))!
-                    as (MKMapViewDelegate) -> (MKMapView, [MKAnnotationView]) -> Void
-                )
-            )
-            .map { a in
-                return try castOrThrow([MKAnnotationView].self, a[1])
-            }
-        return ControlEvent(events: source)
-    }
+//    public var didAddAnnotationViews: ControlEvent<[MKAnnotationView]> {
+//        let source = delegate
+//            .methodInvoked(#selector(
+//                (MKMapViewDelegate.mapView(_:didAdd:))!
+//                    as (MKMapViewDelegate) -> (MKMapView, [MKAnnotationView]) -> Void
+//                )
+//            )
+//            .map { a in
+//                return try castOrThrow([MKAnnotationView].self, a[1])
+//            }
+//        return ControlEvent(events: source)
+//    }
 
     public var annotationViewCalloutAccessoryControlTapped:
         ControlEvent<(view: MKAnnotationView, control: UIControl)> {
@@ -224,18 +224,18 @@ extension Reactive where Base: MKMapView {
 
     // MARK: Managing the Display of Overlays
 
-    public var didAddOverlayRenderers: ControlEvent<[MKOverlayRenderer]> {
-        let source = delegate
-            .methodInvoked(#selector(
-                (MKMapViewDelegate.mapView(_:didAdd:))!
-                    as (MKMapViewDelegate) -> (MKMapView, [MKOverlayRenderer]) -> Void
-                )
-            )
-            .map { a in
-                return try castOrThrow([MKOverlayRenderer].self, a[1])
-            }
-        return ControlEvent(events: source)
-    }
+//    public var didAddOverlayRenderers: ControlEvent<[MKOverlayRenderer]> {
+//        let source = delegate
+//            .methodInvoked(#selector(
+//                (MKMapViewDelegate.mapView(_:didAdd:))!
+//                    as (MKMapViewDelegate) -> (MKMapView, [MKOverlayRenderer]) -> Void
+//                )
+//            )
+//            .map { a in
+//                return try castOrThrow([MKOverlayRenderer].self, a[1])
+//            }
+//        return ControlEvent(events: source)
+//    }
 
     // MARK: Binding annotation to the Map
     public func annotations<
