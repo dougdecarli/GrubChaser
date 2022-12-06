@@ -18,8 +18,7 @@ final class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChase
     @IBOutlet weak var mapView: MKMapView!
     
     private var router: GrubChaserHomeRouterProtocol!,
-                locationManager = CLLocationManager(),
-                region = BehaviorRelay<MKCoordinateRegion>(value: MKCoordinateRegion())
+                locationManager = CLLocationManager()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,14 +33,24 @@ final class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChase
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHomeRouter()
-        self.viewModel = GrubChaserHomeViewModel(router: router, viewControllerRef: self)
-        bind()
         
         if locationManager.authorizationStatus == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
+        
+        locationManager.rx.status
+            .filter { $0 == .authorizedWhenInUse || $0 == .authorizedAlways }
+            .subscribe { [weak self] _ in
+                let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+                let region = MKCoordinateRegion(center: (self?.locationManager.location!.coordinate)!,
+                                                span: span)
+                self?.mapView.setRegion(region, animated: true)
+            }.disposed(by: disposeBag)
+        
+        self.viewModel = GrubChaserHomeViewModel(router: router, viewControllerRef: self)
+        bind()
     }
     
     private func setupHomeRouter() {
@@ -72,21 +81,6 @@ final class GrubChaserHomeViewController: GrubChaserBaseViewController<GrubChase
                 guard let annotation = annotationTouched as? RestaurantAnnotation else { return }
                 self?.viewModel.presentRestaurantDetail(annotation.restaurant)
             })
-            .disposed(by: disposeBag)
-        
-        mapView
-            .rx
-            .didUpdateUserLocation
-            .map { location -> MKCoordinateRegion in
-                let locationCenter = CLLocationCoordinate2D(latitude: location
-                                                                        .coordinate.latitude,
-                                                            longitude: location
-                                                                        .coordinate.longitude)
-                return MKCoordinateRegion(center: locationCenter,
-                                                        span: MKCoordinateSpan(latitudeDelta: 0.005,
-                                                                               longitudeDelta: 0.005))
-            }
-            .bind(to: region)
             .disposed(by: disposeBag)
     }
     

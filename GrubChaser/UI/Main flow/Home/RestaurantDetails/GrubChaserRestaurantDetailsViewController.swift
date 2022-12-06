@@ -89,7 +89,7 @@ final class GrubChaserRestaurantDetailsViewController: GrubChaserBaseViewControl
     //MARK: Layout setup
     private func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
-        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 142)
+        layout.headerReferenceSize = CGSize(width: UIScreen.main.bounds.width, height: 158)
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 5
         layout.itemSize = CGSize(width: (UIScreen.main.bounds.width / 3) - 15,

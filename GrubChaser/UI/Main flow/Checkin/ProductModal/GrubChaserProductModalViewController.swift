@@ -45,7 +45,7 @@ final class GrubChaserProductModalViewController: GrubChaserBaseViewController<G
         productName.text = viewModel.product.name
         productDescription.text = viewModel.product.description
         productPrice.text = "\(String(viewModel.product.price).currencyFormatting())"
-        productImage.loadImage(imageURL: viewModel.product.image, genericImage: R.image.productImage()!)
+        productImage.loadImage(imageURL: viewModel.product.image, genericImage: R.image.genericFood()!)
         
         viewModel.quantityText
             .bind(to: productsQuantityNumber.rx.text)
